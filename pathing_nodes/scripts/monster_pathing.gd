@@ -16,4 +16,6 @@ func _process(delta: float) -> void:
 		time = fmod(time, cooldown) 
 		
 func move_node() -> void:
-	print("move");
+	var neighbour_nodes: Array[Node] = current_node.neighbour_nodes
+	position = neighbour_nodes[0].position
+	current_node = neighbour_nodes[0]
