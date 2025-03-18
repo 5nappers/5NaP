@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxiymvhylylbb"]
+
+[ext_resource type="Material" uid="uid://bfm643pbca6yd" path="res://pathing_nodes/grey.tres" id="1_2u2k4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1wurv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mevsj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_75j35"]
+
+[node name="pathing_nodes" type="Node3D"]
+
+[node name="temp_environment" type="Node" parent="."]
+
+[node name="ground_plane" type="MeshInstance3D" parent="temp_environment"]
+transform = Transform3D(6, 0, 0, 0, 2, 0, 0, 0, 8, 0, 0, 0)
+mesh = SubResource("PlaneMesh_1wurv")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_2u2k4")
+
+[node name="wall" type="MeshInstance3D" parent="temp_environment"]
+transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 2, -1.5, 0.5, -7)
+material_override = ExtResource("1_2u2k4")
+mesh = SubResource("BoxMesh_mevsj")
+
+[node name="wall2" type="MeshInstance3D" parent="temp_environment"]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, -8.5)
+material_override = ExtResource("1_2u2k4")
+mesh = SubResource("BoxMesh_mevsj")
+
+[node name="wall3" type="MeshInstance3D" parent="temp_environment"]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 9, 0, 0.5, 0)
+material_override = ExtResource("1_2u2k4")
+mesh = SubResource("BoxMesh_mevsj")
+
+[node name="wall4" type="MeshInstance3D" parent="temp_environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 16, 6.5, 0.5, 0)
+material_override = ExtResource("1_2u2k4")
+mesh = SubResource("BoxMesh_mevsj")
+
+[node name="wall5" type="MeshInstance3D" parent="temp_environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 16, -6.5, 0.5, 0)
+material_override = ExtResource("1_2u2k4")
+mesh = SubResource("BoxMesh_mevsj")
+
+[node name="wall6" type="MeshInstance3D" parent="."]
+transform = Transform3D(12, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 8.5)
+material_override = ExtResource("1_2u2k4")
+mesh = SubResource("BoxMesh_mevsj")
+skeleton = NodePath("../temp_environment")
+
+[node name="Monster" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.65, 0, 0, 0, 0.75, 0, 0, 0, 0.65, 0, 0.75, 5.61363)
+mesh = SubResource("CapsuleMesh_75j35")
