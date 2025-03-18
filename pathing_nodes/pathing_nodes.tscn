@@ -80,39 +80,46 @@ neighbour_nodes = [NodePath("../hallway_1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.5)
 script = ExtResource("2_jxnv8")
 node_name = "hallway_1"
-neighbour_nodes = [NodePath("../office_1"), NodePath("../hallway_2"), NodePath("../hallway_8")]
+neighbour_nodes = [NodePath("../hallway_8"), NodePath("../hallway_2"), NodePath("../office_1")]
 
-[node name="hallway_2" type="Node3D" parent="pathing_nodes"]
+[node name="hallway_2" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 6.5)
 script = ExtResource("2_jxnv8")
 node_name = "hallway_2"
+neighbour_nodes = [NodePath("../hallway_1"), NodePath("../hallway_3")]
 
-[node name="hallway_3" type="Node3D" parent="pathing_nodes"]
+[node name="hallway_3" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 script = ExtResource("2_jxnv8")
 node_name = "hallway_3"
+neighbour_nodes = [NodePath("../hallway_2"), NodePath("../hallway_4")]
 
-[node name="hallway_4" type="Node3D" parent="pathing_nodes"]
+[node name="hallway_4" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5.5)
 script = ExtResource("2_jxnv8")
 node_name = "hallway_4"
+neighbour_nodes = [NodePath("../hallway_3"), NodePath("../hallway_5")]
 
-[node name="hallway_5" type="Node3D" parent="pathing_nodes"]
+[node name="hallway_5" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.5)
 script = ExtResource("2_jxnv8")
 node_name = "hallway_5"
+neighbour_nodes = [NodePath("../hallway_4"), NodePath("../hallway_6")]
 
-[node name="hallway_6" type="Node3D" parent="pathing_nodes"]
+[node name="hallway_6" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75, 0, -5.5)
 script = ExtResource("2_jxnv8")
 node_name = "hallway_6"
+neighbour_nodes = [NodePath("../hallway_5"), NodePath("../hallway_7")]
 
-[node name="hallway_7" type="Node3D" parent="pathing_nodes"]
+[node name="hallway_7" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75, 0, 0)
 script = ExtResource("2_jxnv8")
 node_name = "hallway_7"
+neighbour_nodes = [NodePath("../hallway_6"), NodePath("../hallway_8")]
 
-[node name="hallway_8" type="Node3D" parent="pathing_nodes"]
+[node name="hallway_8" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75, 0, 6.5)
 script = ExtResource("2_jxnv8")
 node_name = "hallway_8"
+neighbour_nodes = [NodePath("../hallway_7"), NodePath("../hallway_1")]
