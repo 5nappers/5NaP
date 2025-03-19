@@ -91,7 +91,7 @@ neighbour_nodes = [NodePath("../hallway_8"), NodePath("../hallway_2"), NodePath(
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 6.5)
 script = ExtResource("2_jxnv8")
 node_name = "hallway_2"
-neighbour_nodes = [NodePath("../hallway_3")]
+neighbour_nodes = [NodePath("../hallway_3"), NodePath("../hallway_1")]
 
 [node name="hallway_3" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
