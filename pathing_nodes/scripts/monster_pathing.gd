@@ -42,29 +42,48 @@ func set_new_destination(new_node: Node3D) -> void:
 func calculate_path(destination: Node3D) -> Array[Node3D]:
 	var path: Array[Node3D] = []
 	var pathFound: bool = false
-	
 	var check_node: Node3D = current_node
+	var count: int = 0
+	
+	var blocked_nodes: Array[Node3D] = []
+	var backtrack_path: bool = false
+	
+	var prev_node: Node3D
 	
 	while (!pathFound):
 		if (check_node.neighbour_nodes.size() == 0):
 			print("Node has no neighbours womp womp!")
 			return []
 		
+		if (check_node.neighbour_nodes.size() == 1):
+			backtrack_path = true
+		elif (check_node.neighbour_nodes.size() >= 3):
+			backtrack_path = false
+		
 		var best_index: int = -1
 		var best_distance: float = 69694206969; # Needs to be a big number and couldn't find a way to do the bit limit
 		for i in check_node.neighbour_nodes.size():
-			var distance: float = check_node.neighbour_nodes[i].position.distance_to(destination.position)
-			if (distance < best_distance):
-				best_distance = distance
-				best_index = i
+			if (!blocked_nodes.has(check_node.neighbour_nodes[i]) || backtrack_path):
+				if (!prev_node == check_node.neighbour_nodes[i] || check_node.neighbour_nodes.size() == 1):
+					var distance: float = check_node.neighbour_nodes[i].position.distance_to(destination.position)
+					if (distance < best_distance):
+						best_distance = distance
+						best_index = i
 		
 		print(str(best_distance) + ", " + str(best_index))
 		
-		path.append(check_node.neighbour_nodes[best_index])
+		prev_node = check_node
 		check_node = check_node.neighbour_nodes[best_index]
+		path.append(check_node)
+		blocked_nodes.append(check_node)
 		
 		if (check_node == destination): pathFound = true
-	
+		
+		count += 1
+		if (count >= 250): 
+			print("Tried to path 250 times, probably stuck in a loop. Returning empty path.")
+			return []
+		
 	return path
 	
 func get_destination() -> Node3D:

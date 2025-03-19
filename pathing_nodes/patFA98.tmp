@@ -65,7 +65,7 @@ mesh = SubResource("BoxMesh_mevsj")
 [node name="temp_monster" type="Node3D" parent="temp_environment" node_paths=PackedStringArray("current_node", "dest_node_temp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.5)
 script = ExtResource("3_82glq")
-current_node = NodePath("../../pathing_nodes/hallway_4")
+current_node = NodePath("../../pathing_nodes/hallway_2")
 dest_node_temp = NodePath("../../pathing_nodes/office_1")
 
 [node name="model" type="MeshInstance3D" parent="temp_environment/temp_monster"]
