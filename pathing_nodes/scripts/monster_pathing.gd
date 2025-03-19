@@ -70,8 +70,12 @@ func calculate_path(destination: Node3D) -> Array[Node3D]:
 					var second_index: int = path.find(prev_node, first_index)
 					print(first_index)
 					print(second_index)
+					
 					# If index out of bounds array issues start happening its because of right under here
-					for i in range(first_index - 1, second_index + 2):
+					var for_min: int = max(0, first_index - 1)
+					var for_max: int = min(path.size() - 1, second_index + 2)
+					
+					for i in range(for_min, for_max):
 						print(path)
 						path.remove_at((first_index - 1))
 						print(path)
