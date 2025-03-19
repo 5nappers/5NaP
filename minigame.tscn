@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b78fhuc8v1h6m"]
+
+[ext_resource type="Script" path="res://player_camera.gd" id="1_atgxa"]
+
+[node name="Minigame" type="Node3D"]
+
+[node name="PlayerCamera" type="Camera3D" parent="."]
+script = ExtResource("1_atgxa")
+edge_width = 200
