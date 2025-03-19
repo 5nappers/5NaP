@@ -1,13 +1,14 @@
 extends Node3D
 
 @export var current_node: Node3D
+@export var dest_node_temp: Node3D
 #var goal_node: Node3D
 var time: float = 0
-var path_to_goal: Array[Node] = []
+var path_to_goal: Array[Node3D] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	set_new_destination(dest_node_temp)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -31,18 +32,45 @@ func move_node(new_node: Node3D) -> void:
 	current_node = new_node
 	
 	# If arrived at end of path
-	if (path_to_goal[path_to_goal.size() - 1] == current_node):
+	if (get_destination() == current_node):
 		arrived_at_destination()
 
 # This is called by whatever script (some state machine) that tells the freaks where to path to
-func set_new_destination(new_node: Node) -> void:
+func set_new_destination(new_node: Node3D) -> void:
 	path_to_goal = calculate_path(new_node)
 
-func calculate_path(destination: Node) -> Array[Node]:
-	var path: Array[Node] = []
+func calculate_path(destination: Node3D) -> Array[Node3D]:
+	var path: Array[Node3D] = []
+	var pathFound: bool = false
 	
+	var check_node: Node3D = current_node
+	
+	while (!pathFound):
+		if (check_node.neighbour_nodes.size() == 0):
+			print("Node has no neighbours womp womp!")
+			return []
+		
+		var best_index: int = -1
+		var best_distance: float = 69694206969; # Needs to be a big number and couldn't find a way to do the bit limit
+		for i in check_node.neighbour_nodes.size():
+			var distance: float = check_node.neighbour_nodes[i].position.distance_to(destination.position)
+			if (distance < best_distance):
+				best_distance = distance
+				best_index = i
+		
+		print(str(best_distance) + ", " + str(best_index))
+		
+		path.append(check_node.neighbour_nodes[best_index])
+		check_node = check_node.neighbour_nodes[best_index]
+		
+		if (check_node == destination): pathFound = true
 	
 	return path
 	
+func get_destination() -> Node3D:
+	if (path_to_goal.size() == 0): return null
+	
+	return path_to_goal[path_to_goal.size() - 1]
+
 func arrived_at_destination() -> void:
 	print("Arrived at path, this could call an event or something later");

@@ -62,10 +62,11 @@ transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 5, 4, 0.5, 10.5)
 material_override = ExtResource("2_jds04")
 mesh = SubResource("BoxMesh_mevsj")
 
-[node name="temp_monster" type="Node3D" parent="temp_environment" node_paths=PackedStringArray("current_node")]
+[node name="temp_monster" type="Node3D" parent="temp_environment" node_paths=PackedStringArray("current_node", "dest_node_temp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.5)
 script = ExtResource("3_82glq")
 current_node = NodePath("../../pathing_nodes/hallway_1")
+dest_node_temp = NodePath("../../pathing_nodes/hallway_6")
 
 [node name="model" type="MeshInstance3D" parent="temp_environment/temp_monster"]
 transform = Transform3D(0.65, 0, 0, 0, 0.75, 0, 0, 0, 0.65, 0, 0.75, 0)
