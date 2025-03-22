@@ -2,10 +2,8 @@ extends Camera3D
 
 @export_range(0,45) var edge_threshold_percentage := 30
 
-var edge_left := 0
-var edge_right := 0
-var edge_top := 0
-var edge_bottom := 0
+@onready var debug_ui: Control = $CameraDebugUI
+
 var edges := {
 	left = 0.0,
 	right = 0.0,
@@ -38,4 +36,4 @@ func set_edges() -> void:
 	edges.top = edge_threshold_percentage * resolution.y / 100
 	edges.bottom = resolution.y - edges.top
 	
-	edge_left = 
+	debug_ui.edges = edges
