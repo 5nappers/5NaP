@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cb3xciyquxsjx"
+path="res://.godot/imported/Binder.obj-4cdf74e75392e97cb1286bae2fb92167.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Binder.obj-4cdf74e75392e97cb1286bae2fb92167.mesh"]
+
+source_file="res://assets/ModernOfficePack/Binder/Binder.obj"
+dest_files=["res://.godot/imported/Binder.obj-4cdf74e75392e97cb1286bae2fb92167.mesh", "res://.godot/imported/Binder.obj-4cdf74e75392e97cb1286bae2fb92167.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

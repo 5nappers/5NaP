@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b2w2gi50g6dwp"
+path="res://.godot/imported/ComputerMonitor4-3.obj-69a4d4e8bdc704ff9f982c5de691c3da.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ComputerMonitor4-3.obj-69a4d4e8bdc704ff9f982c5de691c3da.mesh"]
+
+source_file="res://assets/ModernOfficePack/ComputerMonitor4-3/ComputerMonitor4-3.obj"
+dest_files=["res://.godot/imported/ComputerMonitor4-3.obj-69a4d4e8bdc704ff9f982c5de691c3da.mesh", "res://.godot/imported/ComputerMonitor4-3.obj-69a4d4e8bdc704ff9f982c5de691c3da.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

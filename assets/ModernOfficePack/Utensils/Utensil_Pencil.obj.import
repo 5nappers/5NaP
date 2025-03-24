@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://yk7tfvfc6w0m"
+path="res://.godot/imported/Utensil_Pencil.obj-af6b08b277ea0f4d01a29a3a95781fde.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Utensil_Pencil.obj-af6b08b277ea0f4d01a29a3a95781fde.mesh"]
+
+source_file="res://assets/ModernOfficePack/Utensils/Utensil_Pencil.obj"
+dest_files=["res://.godot/imported/Utensil_Pencil.obj-af6b08b277ea0f4d01a29a3a95781fde.mesh", "res://.godot/imported/Utensil_Pencil.obj-af6b08b277ea0f4d01a29a3a95781fde.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
