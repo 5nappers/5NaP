@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://cps3m0ej27j3m"]
+[gd_scene load_steps=34 format=3 uid="uid://cps3m0ej27j3m"]
 
 [ext_resource type="PackedScene" uid="uid://cc5e5h882hhpc" path="res://assets/H-Block/H-block.glb" id="1_e7ui3"]
+[ext_resource type="ArrayMesh" uid="uid://dadv5u3dbus3e" path="res://assets/VNB Low Poly Office Set 2 (1.1) (1)/OBJ/Separated OBJ files/Ceiling Lamp 2.obj" id="2_538h5"]
 [ext_resource type="Texture2D" uid="uid://b2ef8vax868ig" path="res://assets/ModernOfficePack/DeskL/DeskL_Base_Color.png" id="2_bvh4t"]
 [ext_resource type="ArrayMesh" uid="uid://bd7x2i1hdy2ed" path="res://assets/ModernOfficePack/DeskL/DeskL.obj" id="3_fj7bg"]
 [ext_resource type="Texture2D" uid="uid://dfmsmuyxqar20" path="res://assets/ModernOfficePack/DeskChair/DeskChair_Base_Color.png" id="4_w2faf"]
@@ -20,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://c8kyn4nvdeveo" path="res://assets/ModernOfficePack/Desk/Desk_Base_Color.png" id="18_lyr7e"]
 [ext_resource type="Texture2D" uid="uid://d0hte6u6u60co" path="res://assets/ModernOfficePack/ComputerPrinter/ComputerPrinter_Base_Color.png" id="19_1xjmb"]
 [ext_resource type="ArrayMesh" uid="uid://bqvbqq6xhwvxq" path="res://assets/ModernOfficePack/ComputerPrinter/ComputerPrinter.obj" id="20_yaq6u"]
+[ext_resource type="PackedScene" uid="uid://46ew406kc54m" path="res://scene/world_environment.tscn" id="22_elfuv"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pno4s"]
 
@@ -54,6 +56,7 @@ albedo_texture = ExtResource("18_lyr7e")
 albedo_texture = ExtResource("19_1xjmb")
 
 [node name="Third Floor" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -5, -5)
 
 [node name="H-block" parent="." instance=ExtResource("1_e7ui3")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 10.299, 0.0670929, 5.6374)
@@ -69,45 +72,89 @@ shape = SubResource("ConcavePolygonShape3D_pno4s")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.240213, 19.8855, 0.00320148)
 mesh = SubResource("BoxMesh_tndai")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="H-block/MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.489294, -27.6578, 0.104496)
-light_color = Color(0.654232, 0.654232, 0.654232, 1)
-light_energy = 0.192
-light_size = 0.222
-light_specular = 1.131
-shadow_enabled = true
-distance_fade_enabled = true
-omni_range = 5.175
+[node name="CeilingLamp2" type="MeshInstance3D" parent="H-block/MeshInstance3D"]
+transform = Transform3D(4, 0, 0, 0, -1.74846e-07, 4, 0, -4, -1.74846e-07, -0.946296, -21.5523, 0.614692)
+mesh = ExtResource("2_538h5")
+skeleton = NodePath("../../..")
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="H-block/MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.490313, -22.69, 0.0127487)
-light_color = Color(0.654232, 0.654232, 0.654232, 1)
-light_energy = 0.192
-light_size = 0.222
-light_specular = 1.131
+[node name="OmniLight3D" type="OmniLight3D" parent="H-block/MeshInstance3D/CeilingLamp2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.054, 4.75, -10.137)
+top_level = true
+light_energy = 2.0
+light_indirect_energy = 1.285
+light_volumetric_fog_energy = 0.0
 shadow_enabled = true
+shadow_bias = 0.807
+shadow_normal_bias = 0.0
+shadow_blur = 1.178
 distance_fade_enabled = true
-omni_range = 5.175
+distance_fade_begin = 0.0
+distance_fade_shadow = 0.0
+distance_fade_length = 13.0
+omni_shadow_mode = 0
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="H-block/MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.93798, -27.6578, 0.104492)
-light_color = Color(0.654232, 0.654232, 0.654232, 1)
-light_energy = 0.192
-light_size = 0.222
-light_specular = 1.131
-shadow_enabled = true
-distance_fade_enabled = true
-omni_range = 5.175
+[node name="CeilingLamp3" type="MeshInstance3D" parent="H-block/MeshInstance3D"]
+transform = Transform3D(4, 0, 0, 0, -1.74846e-07, 4, 0, -4, -1.74846e-07, -0.838213, -27.708, 0.719687)
+mesh = ExtResource("2_538h5")
+skeleton = NodePath("../../..")
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="H-block/MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.93696, -22.69, 0.0127449)
-light_color = Color(0.654232, 0.654232, 0.654232, 1)
-light_energy = 0.192
-light_size = 0.222
-light_specular = 1.131
+[node name="OmniLight3D" type="OmniLight3D" parent="H-block/MeshInstance3D/CeilingLamp3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.838, 4.75, -13.47)
+top_level = true
+light_energy = 2.0
+light_indirect_energy = 1.285
+light_volumetric_fog_energy = 0.0
 shadow_enabled = true
+shadow_bias = 0.807
+shadow_normal_bias = 0.0
+shadow_blur = 1.178
 distance_fade_enabled = true
-omni_range = 5.175
+distance_fade_begin = 0.0
+distance_fade_shadow = 0.0
+distance_fade_length = 13.0
+omni_shadow_mode = 0
+
+[node name="CeilingLamp4" type="MeshInstance3D" parent="H-block/MeshInstance3D"]
+transform = Transform3D(4, 0, 0, 0, -1.74846e-07, 4, 0, -4, -1.74846e-07, 7.46449, -21.5523, 0.614692)
+mesh = ExtResource("2_538h5")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="H-block/MeshInstance3D/CeilingLamp4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.249, 4.75, -10.138)
+top_level = true
+light_energy = 2.0
+light_indirect_energy = 1.285
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_bias = 0.807
+shadow_normal_bias = 0.0
+shadow_blur = 1.178
+distance_fade_enabled = true
+distance_fade_begin = 0.0
+distance_fade_shadow = 0.0
+distance_fade_length = 13.0
+omni_shadow_mode = 0
+
+[node name="CeilingLamp5" type="MeshInstance3D" parent="H-block/MeshInstance3D"]
+transform = Transform3D(4, 0, 0, 0, -1.74846e-07, 4, 0, -4, -1.74846e-07, 7.46588, -28.1061, 0.719687)
+mesh = ExtResource("2_538h5")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="H-block/MeshInstance3D/CeilingLamp5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.002, 4.7, -13.594)
+top_level = true
+light_energy = 2.0
+light_indirect_energy = 1.285
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_bias = 0.807
+shadow_normal_bias = 0.0
+shadow_blur = 1.178
+distance_fade_enabled = true
+distance_fade_begin = 0.0
+distance_fade_shadow = 0.0
+distance_fade_length = 13.0
+omni_shadow_mode = 0
 
 [node name="DeskL" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.4337, 6.49679, -7.14027)
@@ -206,3 +253,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322738, 0.821609, -0.01387
 material_override = SubResource("StandardMaterial3D_0putg")
 mesh = ExtResource("20_yaq6u")
 skeleton = NodePath("../..")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("22_elfuv")]

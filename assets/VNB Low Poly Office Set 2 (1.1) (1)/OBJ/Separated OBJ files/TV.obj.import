@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d3mlya5vg4uji"
+path="res://.godot/imported/TV.obj-313809b2755792872adc29b75cf57aff.mesh"
+
+[deps]
+
+files=["res://.godot/imported/TV.obj-313809b2755792872adc29b75cf57aff.mesh"]
+
+source_file="res://assets/VNB Low Poly Office Set 2 (1.1) (1)/OBJ/Separated OBJ files/TV.obj"
+dest_files=["res://.godot/imported/TV.obj-313809b2755792872adc29b75cf57aff.mesh", "res://.godot/imported/TV.obj-313809b2755792872adc29b75cf57aff.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

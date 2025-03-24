@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ci2tuoi5p37ko"
+path="res://.godot/imported/Counter Door 1.obj-72cd23706b3d75bf80d1d33ce56b5ada.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Counter Door 1.obj-72cd23706b3d75bf80d1d33ce56b5ada.mesh"]
+
+source_file="res://assets/VNB Low Poly Office Set 2 (1.1) (1)/OBJ/Separated OBJ files/Counter Door 1.obj"
+dest_files=["res://.godot/imported/Counter Door 1.obj-72cd23706b3d75bf80d1d33ce56b5ada.mesh", "res://.godot/imported/Counter Door 1.obj-72cd23706b3d75bf80d1d33ce56b5ada.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
