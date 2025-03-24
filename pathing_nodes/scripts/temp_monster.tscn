@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhqxlqb5f7dy"]
+
+[ext_resource type="Script" path="res://pathing_nodes/scripts/monster_pathing.gd" id="1_8p1ml"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_75j35"]
+
+[node name="temp_monster" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.5)
+script = ExtResource("1_8p1ml")
+
+[node name="model" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.65, 0, 0, 0, 0.75, 0, 0, 0, 0.65, 0, 0.75, 0)
+mesh = SubResource("CapsuleMesh_75j35")
+skeleton = NodePath("../..")
