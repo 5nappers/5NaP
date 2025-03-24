@@ -35,35 +35,43 @@ func move_node(new_node: Node3D) -> void:
 	if (get_destination() == current_node):
 		arrived_at_destination()
 
-# This is called by whatever script (some state machine) that tells the freaks where to path to
+func get_destination() -> Node3D:
+	if (path_to_goal.size() == 0): return null
+	
+	return path_to_goal[path_to_goal.size() - 1]
+
+func arrived_at_destination() -> void:
+	print("Arrived at path, this could call an event or something later");
+
+# This is called by whatever script (some state machine) that tells the freaks where to path to maybe
 func set_new_destination(new_node: Node3D) -> void:
 	path_to_goal = calculate_path(new_node)
 
 func calculate_path(destination: Node3D) -> Array[Node3D]:
 	var path: Array[Node3D] = []
+	var blocked_nodes: Array[Node3D] = []
+	
 	var pathFound: bool = false
-	var check_node: Node3D = current_node
+	var node_to_check: Node3D = current_node
 	var count: int = 0
 	
-	var blocked_nodes: Array[Node3D] = []
 	var backtrack_path: bool = false
 	
 	var prev_node: Node3D
 	
 	while (!pathFound):
-		if (check_node.neighbour_nodes.size() == 0):
-			print("Node has no neighbours womp womp!")
+		if (node_to_check.neighbour_nodes.size() == 0):
+			print("Got stuck on node with no neighbours" + node_to_check.to_string())
 			return []
 		
-		
 		# Starting the backtrack on a dead end
-		if (check_node.neighbour_nodes.size() == 1):
+		if (node_to_check.neighbour_nodes.size() == 1):
 			backtrack_path = true
 		
 		var blocked_check_count: int = 0 
 		# Ending the backtrack on a dead end
-		while (blocked_check_count < check_node.neighbour_nodes.size() && backtrack_path):
-			if (!blocked_nodes.has(check_node.neighbour_nodes[blocked_check_count])):
+		while (blocked_check_count < node_to_check.neighbour_nodes.size() && backtrack_path):
+			if (!blocked_nodes.has(node_to_check.neighbour_nodes[blocked_check_count])):
 				backtrack_path = false
 				var first_index: int = path.find(prev_node)
 				if (first_index >= 0):
@@ -84,21 +92,21 @@ func calculate_path(destination: Node3D) -> Array[Node3D]:
 		
 		var best_index: int = -1
 		var best_distance: float = 69694206969; # Needs to be a big number and couldn't find a way to do the bit limit
-		for i in check_node.neighbour_nodes.size():
-			if ((!blocked_nodes.has(check_node.neighbour_nodes[i]) || backtrack_path) && (!prev_node == check_node.neighbour_nodes[i] || check_node.neighbour_nodes.size() == 1)):
-				var distance: float = check_node.neighbour_nodes[i].position.distance_to(destination.position)
+		for i in node_to_check.neighbour_nodes.size():
+			if ((!blocked_nodes.has(node_to_check.neighbour_nodes[i]) || backtrack_path) && (!prev_node == node_to_check.neighbour_nodes[i] || node_to_check.neighbour_nodes.size() == 1)):
+				var distance: float = node_to_check.neighbour_nodes[i].position.distance_to(destination.position)
 				if (distance < best_distance):
 					best_distance = distance
 					best_index = i
 		
 		print(str(best_distance) + ", " + str(best_index))
 		
-		prev_node = check_node
-		check_node = check_node.neighbour_nodes[best_index]
-		path.append(check_node)
-		blocked_nodes.append(check_node)
+		prev_node = node_to_check
+		node_to_check = node_to_check.neighbour_nodes[best_index]
+		path.append(node_to_check)
+		blocked_nodes.append(node_to_check)
 		
-		if (check_node == destination): pathFound = true
+		if (node_to_check == destination): pathFound = true
 		
 		count += 1
 		if (count >= 250): 
@@ -106,11 +114,3 @@ func calculate_path(destination: Node3D) -> Array[Node3D]:
 			return []
 		
 	return path
-	
-func get_destination() -> Node3D:
-	if (path_to_goal.size() == 0): return null
-	
-	return path_to_goal[path_to_goal.size() - 1]
-
-func arrived_at_destination() -> void:
-	print("Arrived at path, this could call an event or something later");
