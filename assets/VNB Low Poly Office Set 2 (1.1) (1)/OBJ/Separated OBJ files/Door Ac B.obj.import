@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cpl0mfbcd3pun"
+path="res://.godot/imported/Door Ac B.obj-80beb12276b6af3d4285877a7f399f10.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Door Ac B.obj-80beb12276b6af3d4285877a7f399f10.mesh"]
+
+source_file="res://assets/VNB Low Poly Office Set 2 (1.1) (1)/OBJ/Separated OBJ files/Door Ac B.obj"
+dest_files=["res://.godot/imported/Door Ac B.obj-80beb12276b6af3d4285877a7f399f10.mesh", "res://.godot/imported/Door Ac B.obj-80beb12276b6af3d4285877a7f399f10.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
