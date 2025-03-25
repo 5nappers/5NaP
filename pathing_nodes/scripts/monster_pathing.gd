@@ -6,9 +6,11 @@ extends Node3D
 var time: float = 0
 var path_to_goal: Array[Node3D] = []
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_new_destination(dest_node_temp)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -17,6 +19,7 @@ func _process(delta: float) -> void:
 	if time >= cooldown:
 		move_to_next_node()
 		time = fmod(time, cooldown) 
+
 
 func move_to_next_node() -> void:
 	if (path_to_goal.size() == 0): 
@@ -27,6 +30,7 @@ func move_to_next_node() -> void:
 	move_node(new_node)
 	path_to_goal.pop_front()
 
+
 func move_node(new_node: Node3D) -> void:
 	position = new_node.position
 	current_node = new_node
@@ -35,17 +39,21 @@ func move_node(new_node: Node3D) -> void:
 	if (get_destination() == current_node):
 		arrived_at_destination()
 
+
 func get_destination() -> Node3D:
 	if (path_to_goal.size() == 0): return null
 	
 	return path_to_goal[path_to_goal.size() - 1]
 
+
 func arrived_at_destination() -> void:
 	print("Arrived at path, this could call an event or something later");
+
 
 # This is called by whatever script (some state machine) that tells the freaks where to path to maybe
 func set_new_destination(new_node: Node3D) -> void:
 	path_to_goal = calculate_path(new_node)
+
 
 func calculate_path(destination: Node3D) -> Array[Node3D]:
 	var path: Array[Node3D] = []
