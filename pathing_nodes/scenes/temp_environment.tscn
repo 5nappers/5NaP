@@ -7,7 +7,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_mevsj"]
 
-[node name="TempEnvironment" type="Node"]
+[node name="TempEnvironment" type="Node3D"]
 
 [node name="GroundPlane" type="MeshInstance3D" parent="."]
 transform = Transform3D(6, 0, 0, 0, 2, 0, 0, 0, 8, 0, 0, 0)

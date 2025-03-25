@@ -9,10 +9,11 @@
 viewport_path = NodePath("Map/SubViewport")
 
 [node name="PathingNodesScene" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="TempEnvironment" parent="." instance=ExtResource("1_jg4bv")]
 
-[node name="PathingNodes" type="Node" parent="."]
+[node name="PathingNodes" type="Node3D" parent="."]
 
 [node name="Office1" type="Node3D" parent="PathingNodes" node_paths=PackedStringArray("neighbour_nodes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10.5)
@@ -70,6 +71,7 @@ neighbour_nodes = [NodePath("../Hallway7"), NodePath("../Hallway1")]
 
 [node name="TempMonster" parent="." node_paths=PackedStringArray("current_node", "dest_node_temp") instance=ExtResource("4_whthp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.40096)
+lecturer_name = "Vaughn"
 current_node = NodePath("../PathingNodes/Hallway1")
 dest_node_temp = NodePath("../PathingNodes/Hallway5")
 

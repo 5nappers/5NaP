@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var lecturer_name: String
 @export var current_node: Node3D
 @export var dest_node_temp: Node3D
 #var goal_node: Node3D
