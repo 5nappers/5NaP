@@ -14,9 +14,6 @@ class_name PlayerCamera
 @export var active_state: State:
 	set = change_state
 	
-@export var left_rotation_bound := -1.5
-@export var right_rotation_bound := 1.5
-
 var resolution: Vector2
 var move_velocity: Vector2
 
