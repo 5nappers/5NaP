@@ -4,11 +4,20 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_75j35"]
 
-[node name="temp_monster" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.5)
+[node name="TempMonster" type="Node3D"]
 script = ExtResource("1_8p1ml")
 
-[node name="model" type="MeshInstance3D" parent="."]
+[node name="Model" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.65, 0, 0, 0, 0.75, 0, 0, 0, 0.65, 0, 0.75, 0)
+mesh = SubResource("CapsuleMesh_75j35")
+skeleton = NodePath("../..")
+
+[node name="Leg1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.273708, 0.149483, 0, -0.123412, 0.331532, 0, 0, 0, 0.313874, -0.21972, 0.231015, -0.0154994)
+mesh = SubResource("CapsuleMesh_75j35")
+skeleton = NodePath("../..")
+
+[node name="Leg2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.265832, -0.169057, 0, 0.139571, 0.321992, 0, 0, 0, 0.313874, 0.173274, 0.231015, -0.0154994)
 mesh = SubResource("CapsuleMesh_75j35")
 skeleton = NodePath("../..")
