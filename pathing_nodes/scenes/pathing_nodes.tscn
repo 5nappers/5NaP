@@ -1,64 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxiymvhylylbb"]
+[gd_scene load_steps=4 format=3 uid="uid://cxiymvhylylbb"]
 
-[ext_resource type="Material" uid="uid://bfm643pbca6yd" path="res://pathing_nodes/materials/grey.tres" id="1_2u2k4"]
-[ext_resource type="Material" uid="uid://dsedsm6lyji38" path="res://pathing_nodes/materials/green.tres" id="2_jds04"]
+[ext_resource type="PackedScene" uid="uid://dp5xe0yuwa34m" path="res://pathing_nodes/scenes/temp_environment.tscn" id="1_jg4bv"]
 [ext_resource type="Script" path="res://pathing_nodes/scripts/pathing_node.gd" id="2_jxnv8"]
-[ext_resource type="PackedScene" uid="uid://bhqxlqb5f7dy" path="res://pathing_nodes/scripts/temp_monster.tscn" id="4_7k35a"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_1wurv"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_mevsj"]
+[ext_resource type="PackedScene" uid="uid://bhqxlqb5f7dy" path="res://pathing_nodes/scenes/temp_monster.tscn" id="4_whthp"]
 
 [node name="pathing_nodes_scene" type="Node3D"]
 
-[node name="temp_environment" type="Node" parent="."]
-
-[node name="ground_plane" type="MeshInstance3D" parent="temp_environment"]
-transform = Transform3D(6, 0, 0, 0, 2, 0, 0, 0, 8, 0, 0, 0)
-mesh = SubResource("PlaneMesh_1wurv")
-skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("1_2u2k4")
-
-[node name="office_ground_plane" type="MeshInstance3D" parent="temp_environment"]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 2.5, -1, 0, 10.5)
-mesh = SubResource("PlaneMesh_1wurv")
-skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("1_2u2k4")
-
-[node name="wall" type="MeshInstance3D" parent="temp_environment"]
-transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 2, -1.5, 0.5, -7.5)
-material_override = ExtResource("2_jds04")
-mesh = SubResource("BoxMesh_mevsj")
-
-[node name="wall_2" type="MeshInstance3D" parent="temp_environment"]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, -8.5)
-material_override = ExtResource("2_jds04")
-mesh = SubResource("BoxMesh_mevsj")
-
-[node name="wall_3" type="MeshInstance3D" parent="temp_environment"]
-transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 9, -0.5, 0.5, 0)
-material_override = ExtResource("2_jds04")
-mesh = SubResource("BoxMesh_mevsj")
-
-[node name="wall_4" type="MeshInstance3D" parent="temp_environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 16, 6.5, 0.5, 0)
-material_override = ExtResource("2_jds04")
-mesh = SubResource("BoxMesh_mevsj")
-
-[node name="wall_5" type="MeshInstance3D" parent="temp_environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 16, -6.5, 0.5, 0)
-material_override = ExtResource("2_jds04")
-mesh = SubResource("BoxMesh_mevsj")
-
-[node name="wall_6" type="MeshInstance3D" parent="temp_environment"]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 5, -5, 0.5, 10.5)
-material_override = ExtResource("2_jds04")
-mesh = SubResource("BoxMesh_mevsj")
-
-[node name="wall_7" type="MeshInstance3D" parent="temp_environment"]
-transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 5, 4, 0.5, 10.5)
-material_override = ExtResource("2_jds04")
-mesh = SubResource("BoxMesh_mevsj")
+[node name="temp_environment" parent="." instance=ExtResource("1_jg4bv")]
 
 [node name="pathing_nodes" type="Node" parent="."]
 
@@ -116,6 +64,6 @@ script = ExtResource("2_jxnv8")
 node_name = "hallway_8"
 neighbour_nodes = [NodePath("../hallway_7"), NodePath("../hallway_1")]
 
-[node name="temp_monster" parent="." node_paths=PackedStringArray("current_node", "dest_node_temp") instance=ExtResource("4_7k35a")]
+[node name="temp_monster" parent="." node_paths=PackedStringArray("current_node", "dest_node_temp") instance=ExtResource("4_whthp")]
 current_node = NodePath("../pathing_nodes/hallway_1")
 dest_node_temp = NodePath("../pathing_nodes/hallway_8")
