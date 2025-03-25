@@ -1,4 +1,5 @@
 extends Camera3D
+class_name PlayerCamera
 
 # TODO: when the cursor is on the side of the screen, move camera to that side
 # at an interpolated speed based on closeness to the boreder
@@ -8,10 +9,13 @@ extends Camera3D
 # then when cursor goes to the bottom look back to normal
 
 @export_range(0,45) var edge_threshold_percentage := 30
-@export var states: Array[State]
-@export var active_state: State
 
-@onready var debug_ui: Control = $CameraDebugUI
+@export var states: Array[State]
+@export var active_state: State:
+	set = change_state
+	
+@export var left_rotation_bound := -1.5
+@export var right_rotation_bound := 1.5
 
 var resolution: Vector2
 var move_velocity: Vector2
@@ -22,6 +26,8 @@ var edges := {
 	top = 0.0,
 	bottom = 0.0,
 }
+
+@onready var debug_ui: Control = $CameraDebugUI
 
 
 func _ready() -> void:
@@ -34,7 +40,8 @@ func _process(delta: float) -> void:
 	set_edges()
 	process_mouse_position()
 	
-	#active_state._state_process()
+	if active_state:
+		active_state._state_process(delta)
 
 
 func set_edges() -> void:
@@ -67,5 +74,11 @@ func process_mouse_position() -> void:
 		move_velocity.y = -1.0
 	else:
 		move_velocity.y = 0.0
-		
-	print(move_velocity)
+
+
+func change_state(value: State) -> void:
+	if active_state:
+		active_state.state_end()
+	value.state_ready()
+	active_state = value
+	print("set active state to %".format([active_state.name], "%"))

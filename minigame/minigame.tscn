@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://cb36uqv6stpui"]
+
+[ext_resource type="Script" path="res://player camera/player_camera.gd" id="1_02f1g"]
+[ext_resource type="Script" path="res://player camera/states/looking_around.gd" id="2_iwohg"]
+[ext_resource type="Script" path="res://player camera/camera_debug_ui.gd" id="2_kwnmy"]
+[ext_resource type="Texture2D" uid="uid://bykqphxykbr0h" path="res://minigame/tile.jpg" id="4_5cjtb"]
+
+[sub_resource type="Curve" id="Curve_0tmm0"]
+_data = [Vector2(0, 0), 0.0, 3.25714, 0, 0, Vector2(1, 1), 0.152774, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3jvk"]
+albedo_color = Color(0.691357, 0.691357, 0.691357, 1)
+albedo_texture = ExtResource("4_5cjtb")
+uv1_scale = Vector3(50, 50, 50)
+grow_amount = -3.352
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q8185"]
+material = SubResource("StandardMaterial3D_t3jvk")
+
+[node name="Minigame" type="Node3D"]
+
+[node name="PlayerCamera" type="Camera3D" parent="." node_paths=PackedStringArray("states", "active_state")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086, 0)
+script = ExtResource("1_02f1g")
+edge_threshold_percentage = 15
+states = [NodePath("States/LookingAround")]
+active_state = NodePath("States/LookingAround")
+
+[node name="States" type="Node" parent="PlayerCamera"]
+
+[node name="LookingAround" type="Node" parent="PlayerCamera/States" node_paths=PackedStringArray("camera")]
+script = ExtResource("2_iwohg")
+camera = NodePath("../..")
+move_sensitivity_easing = SubResource("Curve_0tmm0")
+
+[node name="LookingUp" type="Node" parent="PlayerCamera/States"]
+
+[node name="CameraDebugUI" type="Control" parent="PlayerCamera"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_kwnmy")
+color_left = Color(0.02, 0.771334, 1, 0.509804)
+color_right = Color(0.99, 0, 0.627, 0.509804)
+color_top = Color(0.99, 0.8415, 0, 0.509804)
+color_bottom = Color(0, 0.74, 0.444, 0.509804)
+length = 115
+thickness = 25
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(56.0976, 0, 0, 0, 1, 0, 0, 0, 56.0976, 0, 0, 0)
+mesh = SubResource("PlaneMesh_q8185")
