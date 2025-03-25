@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxiymvhylylbb"]
+[gd_scene load_steps=5 format=3 uid="uid://cxiymvhylylbb"]
 
 [ext_resource type="PackedScene" uid="uid://dp5xe0yuwa34m" path="res://pathing_nodes/scenes/temp_environment.tscn" id="1_jg4bv"]
 [ext_resource type="Script" path="res://pathing_nodes/scripts/pathing_node.gd" id="2_jxnv8"]
+[ext_resource type="Texture2D" uid="uid://bj5gml6segqp0" path="res://pathing_nodes/sprites/floor_3_map.png" id="4_q3jmt"]
 [ext_resource type="PackedScene" uid="uid://bhqxlqb5f7dy" path="res://pathing_nodes/scenes/temp_monster.tscn" id="4_whthp"]
 
 [node name="PathingNodesScene" type="Node3D"]
@@ -68,3 +69,7 @@ neighbour_nodes = [NodePath("../Hallway7"), NodePath("../Hallway1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.40096)
 current_node = NodePath("../PathingNodes/Hallway1")
 dest_node_temp = NodePath("../PathingNodes/Hallway5")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-7.21238e-09, 0, 0.165, 0, 0.165, 0, -0.165, 0, -7.21238e-09, -3.5453, 1.21704, 10.714)
+texture = ExtResource("4_q3jmt")
