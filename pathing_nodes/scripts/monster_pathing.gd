@@ -51,7 +51,7 @@ func calculate_path(destination: Node3D) -> Array[Node3D]:
 	var path: Array[Node3D] = []
 	var blocked_nodes: Array[Node3D] = []
 	
-	var pathFound: bool = false
+	var path_found: bool = false
 	var node_to_check: Node3D = current_node
 	var count: int = 0
 	
@@ -59,7 +59,9 @@ func calculate_path(destination: Node3D) -> Array[Node3D]:
 	
 	var prev_node: Node3D
 	
-	while (!pathFound):
+	# Run until a path is found
+	while (!path_found):
+		# if stuck on a path node with no neighbours
 		if (node_to_check.neighbour_nodes.size() == 0):
 			print("Got stuck on node with no neighbours" + node_to_check.to_string())
 			return []
@@ -69,8 +71,9 @@ func calculate_path(destination: Node3D) -> Array[Node3D]:
 			backtrack_path = true
 		
 		var blocked_check_count: int = 0 
-		# Ending the backtrack on a dead end
+		# Checking all paths to see if any are not in the backtrack so that it can exit it
 		while (blocked_check_count < node_to_check.neighbour_nodes.size() && backtrack_path):
+			# Ending the backtrack on a dead end
 			if (!blocked_nodes.has(node_to_check.neighbour_nodes[blocked_check_count])):
 				backtrack_path = false
 				var first_index: int = path.find(prev_node)
@@ -80,16 +83,15 @@ func calculate_path(destination: Node3D) -> Array[Node3D]:
 					print(second_index)
 					
 					# If index out of bounds array issues start happening its because of right under here
+					# Removing the path nodes that were in the backtracked section
 					var for_min: int = max(0, first_index - 1)
 					var for_max: int = min(path.size() - 1, second_index + 2)
 					
 					for i in range(for_min, for_max):
-						print(path)
 						path.remove_at((first_index - 1))
-						print(path)
 			blocked_check_count += 1
 		
-		
+		# Calculating the best path node to choose to check
 		var best_index: int = -1
 		var best_distance: float = 69694206969; # Needs to be a big number and couldn't find a way to do the bit limit
 		for i in node_to_check.neighbour_nodes.size():
@@ -99,15 +101,16 @@ func calculate_path(destination: Node3D) -> Array[Node3D]:
 					best_distance = distance
 					best_index = i
 		
-		print(str(best_distance) + ", " + str(best_index))
-		
+		# Upating to the best fit node and adding it to the path
 		prev_node = node_to_check
 		node_to_check = node_to_check.neighbour_nodes[best_index]
 		path.append(node_to_check)
 		blocked_nodes.append(node_to_check)
 		
-		if (node_to_check == destination): pathFound = true
+		# If path found break the loop
+		if (node_to_check == destination): path_found = true
 		
+		# Checking it doesn't run forever in case of a loop (which shouldn't be possible)
 		count += 1
 		if (count >= 250): 
 			print("Tried to path 250 times, probably stuck in a loop. Returning empty path.")
