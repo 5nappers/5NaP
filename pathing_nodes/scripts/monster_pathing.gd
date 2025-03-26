@@ -3,6 +3,7 @@ extends Node3D
 @export var lecturer_name: String
 @export var current_node: Node3D
 @export var dest_node_temp: Node3D
+@export var map_control: Control
 #var goal_node: Node3D
 var time: float = 0
 var path_to_goal: Array[Node3D] = []
@@ -30,7 +31,8 @@ func move_to_next_node() -> void:
 	var new_node: Node3D = path_to_goal[0]
 	move_node(new_node)
 	path_to_goal.pop_front()
-	
+	map_control.monster_moved.emit(self)
+	print("moved")
 
 
 func move_node(new_node: Node3D) -> void:
@@ -67,7 +69,7 @@ func calculate_path(destination: Node3D) -> Array[Node3D]:
 	
 	var backtrack_path: bool = false
 	
-	var prev_node: Node3D
+	var prev_node: Node3D = null
 	
 	# Run until a path is found
 	while (!path_found):
