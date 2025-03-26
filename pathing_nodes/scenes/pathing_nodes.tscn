@@ -69,6 +69,12 @@ script = ExtResource("2_jxnv8")
 node_name = "hallway_8"
 neighbour_nodes = [NodePath("../Hallway7"), NodePath("../Hallway1")]
 
+[node name="TopLeftPos" type="Node3D" parent="PathingNodes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.24, 0, 13.65)
+
+[node name="BottomRightPos" type="Node3D" parent="PathingNodes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.24, 0, -13.65)
+
 [node name="TempMonster" parent="." node_paths=PackedStringArray("current_node", "dest_node_temp") instance=ExtResource("4_whthp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.40096)
 lecturer_name = "Vaughn"
@@ -76,12 +82,15 @@ current_node = NodePath("../PathingNodes/Hallway1")
 dest_node_temp = NodePath("../PathingNodes/Hallway5")
 
 [node name="Map" type="Sprite3D" parent="."]
-transform = Transform3D(-7.21238e-09, 0, 0.165, 0, 0.165, 0, -0.165, 0, -7.21238e-09, -3.5453, 1.21704, 10.714)
+transform = Transform3D(-5.46392e-09, 0, 0.125, 0, 0.125, 0, -0.125, 0, -5.46392e-09, -3.5453, 1.63276, 10.714)
 texture = SubResource("ViewportTexture_vfmh0")
 
 [node name="SubViewport" type="SubViewport" parent="Map"]
-size = Vector2i(1920, 1080)
+size = Vector2i(2048, 1536)
 
-[node name="Control" parent="Map/SubViewport" instance=ExtResource("5_47rhp")]
-offset_right = -1280.64
-offset_bottom = -720.36
+[node name="Control" parent="Map/SubViewport" node_paths=PackedStringArray("monsters", "top_left_pos", "bottom_right_pos") instance=ExtResource("5_47rhp")]
+offset_right = -1593.34
+offset_bottom = -2104.32
+monsters = [NodePath("../../../TempMonster")]
+top_left_pos = NodePath("../../../PathingNodes/TopLeftPos")
+bottom_right_pos = NodePath("../../../PathingNodes/BottomRightPos")

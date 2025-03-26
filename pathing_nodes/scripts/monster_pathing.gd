@@ -30,6 +30,7 @@ func move_to_next_node() -> void:
 	var new_node: Node3D = path_to_goal[0]
 	move_node(new_node)
 	path_to_goal.pop_front()
+	
 
 
 func move_node(new_node: Node3D) -> void:
