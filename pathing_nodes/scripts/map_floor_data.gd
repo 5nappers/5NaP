@@ -28,7 +28,7 @@ func add_all_icons():
 func add_icon():
 	var new_icon = monster_icon.instantiate()
 	monster_icons.append(new_icon)
-	get_child(0).add_child(new_icon)
+	add_child(new_icon)
 	update_icon(monster_icons.size() - 1)
 
 
