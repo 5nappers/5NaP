@@ -5,11 +5,15 @@ extends Control
 @export var top_left_pos: Node3D
 @export var bottom_right_pos: Node3D
 
+signal monster_moved(monster: Node3D)
+
 var monster_icons: Array[TextureRect] = []
 var monster_icon = preload("res://pathing_nodes/scenes/monster_icon.tscn")
 
 func _ready() -> void:
 	add_all_icons()
+	monster_moved.connect(on_movement)
+
 
 func add_all_icons():
 	for icon in monster_icons:
@@ -28,9 +32,11 @@ func add_icon(monster: Node3D):
 
 
 # Temporary script that moves the icons when the monster moves which will be removed whenever we add grayson and just call update_icon() directly
-func on_movement(index: int):
+func on_movement(monster: Node3D):
+	var index: int = monsters.find(monster)
 	update_icon(index)
 
 
+# Takes in the index of the monster in both the monsters array and monster_icons array and updates the icon pos
 func update_icon(index: int):
-	print("update pos")
+	print("update pos of " + str(monsters[index].lecturer_name) + " to " + str(monsters[index].current_node.position))
