@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 @export var monsters: Array[Node3D] = []
 
@@ -7,7 +7,7 @@ extends Control
 
 signal monster_moved(monster: Node3D)
 
-var monster_icons: Array[TextureRect] = []
+var monster_icons: Array[Sprite2D] = []
 var monster_icon = preload("res://pathing_nodes/scenes/monster_icon.tscn")
 
 func _ready() -> void:
@@ -22,12 +22,13 @@ func add_all_icons():
 	monster_icons = []
 	
 	for monster in monsters:
-		add_icon(monster)
+		add_icon()
 
 
-func add_icon(monster: Node3D):
+func add_icon():
 	var new_icon = monster_icon.instantiate()
 	monster_icons.append(new_icon)
+	get_child(0).add_child(new_icon)
 	update_icon(monster_icons.size() - 1)
 
 
@@ -40,3 +41,4 @@ func on_movement(monster: Node3D):
 # Takes in the index of the monster in both the monsters array and monster_icons array and updates the icon pos
 func update_icon(index: int):
 	print("update pos of " + str(monsters[index].lecturer_name) + " to " + str(monsters[index].current_node.position))
+	monster_icons[index].position = Vector2(100, 100)

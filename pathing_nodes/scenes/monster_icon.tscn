@@ -2,9 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://dqtnoq2lxi8tq" path="res://icon.svg" id="1_h2srv"]
 
-[node name="MonsterIcon" type="TextureRect"]
-offset_left = 772.0
-offset_top = 461.0
-offset_right = 812.0
-offset_bottom = 501.0
+[node name="Node2D" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_h2srv")

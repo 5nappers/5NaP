@@ -3,7 +3,7 @@ extends Node3D
 @export var lecturer_name: String
 @export var current_node: Node3D
 @export var dest_node_temp: Node3D
-@export var map_control: Control
+@export var map_control: Node2D
 #var goal_node: Node3D
 var time: float = 0
 var path_to_goal: Array[Node3D] = []
