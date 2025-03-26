@@ -5,6 +5,8 @@ extends Node2D
 @export var top_left_pos: Node3D
 @export var bottom_right_pos: Node3D
 
+@export var image_size: Vector2
+
 signal monster_moved(monster: Node3D)
 
 var monster_icons: Array[Sprite2D] = []
@@ -41,4 +43,15 @@ func on_movement(monster: Node3D):
 # Takes in the index of the monster in both the monsters array and monster_icons array and updates the icon pos
 func update_icon(index: int):
 	print("update pos of " + str(monsters[index].lecturer_name) + " to " + str(monsters[index].current_node.position))
-	monster_icons[index].position = Vector2(100, 100)
+	var path_node_pos: Vector3 = monsters[index].current_node.position
+	
+	var x_pos: float = inverse_lerp(top_left_pos.position.x, bottom_right_pos.position.x, path_node_pos.x)
+	var y_pos: float = inverse_lerp(top_left_pos.position.z, bottom_right_pos.position.z, path_node_pos.z)
+	
+	x_pos = lerpf(0, image_size.x, x_pos)
+	y_pos = lerpf(0, image_size.y, y_pos)
+	
+	var pos: Vector2 = Vector2(x_pos, y_pos)
+	
+	monster_icons[index].position = pos
+	print(pos)

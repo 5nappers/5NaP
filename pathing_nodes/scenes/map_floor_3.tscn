@@ -6,6 +6,7 @@
 
 [node name="map_floor_3" type="Node2D"]
 script = ExtResource("1_yn7w1")
+image_size = Vector2(2048, 1536)
 
 [node name="MapSprite" type="Sprite2D" parent="."]
 z_index = -50
