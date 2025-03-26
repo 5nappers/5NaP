@@ -1,31 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://d5qrakxp1kch"]
+[gd_scene load_steps=3 format=3 uid="uid://ct410dyxv2rn0"]
 
-[ext_resource type="Texture2D" uid="uid://bj5gml6segqp0" path="res://pathing_nodes/sprites/floor_3_map.png" id="1_g3q4s"]
 [ext_resource type="Script" path="res://pathing_nodes/scripts/map_floor_data.gd" id="1_yn7w1"]
-[ext_resource type="PackedScene" uid="uid://tgkb737ocw2u" path="res://pathing_nodes/scenes/monster_icon.tscn" id="3_g67y7"]
+[ext_resource type="Texture2D" uid="uid://bl37myq05od7w" path="res://pathing_nodes/sprites/floor_3_map_2.png" id="2_yvt7x"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchor_right = 1.778
-anchor_bottom = 2.37
-offset_right = -0.256104
-offset_bottom = 0.239868
-grow_horizontal = 2
-grow_vertical = 2
+[node name="map_floor_3" type="Node2D"]
 script = ExtResource("1_yn7w1")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_g3q4s")
-
-[node name="MonsterIcon" parent="." instance=ExtResource("3_g67y7")]
-layout_mode = 0
-offset_left = 461.0
-offset_top = 441.0
-offset_right = 589.0
-offset_bottom = 569.0
+[node name="MapSprite" type="Sprite2D" parent="."]
+position = Vector2(1024, 768)
+texture = ExtResource("2_yvt7x")
