@@ -1,0 +1,127 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxiymvhylylbb"]
+
+[ext_resource type="Material" uid="uid://bfm643pbca6yd" path="res://pathing_nodes/materials/grey.tres" id="1_2u2k4"]
+[ext_resource type="Material" uid="uid://dsedsm6lyji38" path="res://pathing_nodes/materials/green.tres" id="2_jds04"]
+[ext_resource type="Script" path="res://pathing_nodes/scripts/pathing_node.gd" id="2_jxnv8"]
+[ext_resource type="Script" path="res://pathing_nodes/scripts/monster_pathing.gd" id="3_82glq"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1wurv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mevsj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_75j35"]
+
+[node name="pathing_nodes_scene" type="Node3D"]
+
+[node name="temp_environment" type="Node" parent="."]
+
+[node name="ground_plane" type="MeshInstance3D" parent="temp_environment"]
+transform = Transform3D(6, 0, 0, 0, 2, 0, 0, 0, 8, 0, 0, 0)
+mesh = SubResource("PlaneMesh_1wurv")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_2u2k4")
+
+[node name="office_ground_plane" type="MeshInstance3D" parent="temp_environment"]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 2.5, -1, 0, 10.5)
+mesh = SubResource("PlaneMesh_1wurv")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_2u2k4")
+
+[node name="wall" type="MeshInstance3D" parent="temp_environment"]
+transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 2, -1.5, 0.5, -7.5)
+material_override = ExtResource("2_jds04")
+mesh = SubResource("BoxMesh_mevsj")
+
+[node name="wall_2" type="MeshInstance3D" parent="temp_environment"]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, -8.5)
+material_override = ExtResource("2_jds04")
+mesh = SubResource("BoxMesh_mevsj")
+
+[node name="wall_3" type="MeshInstance3D" parent="temp_environment"]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 9, -0.5, 0.5, 0)
+material_override = ExtResource("2_jds04")
+mesh = SubResource("BoxMesh_mevsj")
+
+[node name="wall_4" type="MeshInstance3D" parent="temp_environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 16, 6.5, 0.5, 0)
+material_override = ExtResource("2_jds04")
+mesh = SubResource("BoxMesh_mevsj")
+
+[node name="wall_5" type="MeshInstance3D" parent="temp_environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 16, -6.5, 0.5, 0)
+material_override = ExtResource("2_jds04")
+mesh = SubResource("BoxMesh_mevsj")
+
+[node name="wall_6" type="MeshInstance3D" parent="temp_environment"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 5, -5, 0.5, 10.5)
+material_override = ExtResource("2_jds04")
+mesh = SubResource("BoxMesh_mevsj")
+
+[node name="wall_7" type="MeshInstance3D" parent="temp_environment"]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 5, 4, 0.5, 10.5)
+material_override = ExtResource("2_jds04")
+mesh = SubResource("BoxMesh_mevsj")
+
+[node name="temp_monster" type="Node3D" parent="temp_environment"]
+script = ExtResource("3_82glq")
+
+[node name="model" type="MeshInstance3D" parent="temp_environment/temp_monster"]
+transform = Transform3D(0.65, 0, 0, 0, 0.75, 0, 0, 0, 0.65, 0, 0.75, 5.61363)
+mesh = SubResource("CapsuleMesh_75j35")
+skeleton = NodePath("../../..")
+
+[node name="pathing_nodes" type="Node" parent="."]
+
+[node name="office_1" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10.5)
+script = ExtResource("2_jxnv8")
+node_name = "office_1"
+neighbour_nodes = [NodePath("../hallway_1")]
+
+[node name="hallway_1" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.5)
+script = ExtResource("2_jxnv8")
+node_name = "hallway_1"
+neighbour_nodes = [NodePath("../hallway_8"), NodePath("../hallway_2"), NodePath("../office_1")]
+
+[node name="hallway_2" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 6.5)
+script = ExtResource("2_jxnv8")
+node_name = "hallway_2"
+neighbour_nodes = [NodePath("../hallway_1"), NodePath("../hallway_3")]
+
+[node name="hallway_3" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+script = ExtResource("2_jxnv8")
+node_name = "hallway_3"
+neighbour_nodes = [NodePath("../hallway_2"), NodePath("../hallway_4")]
+
+[node name="hallway_4" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5.5)
+script = ExtResource("2_jxnv8")
+node_name = "hallway_4"
+neighbour_nodes = [NodePath("../hallway_3"), NodePath("../hallway_5")]
+
+[node name="hallway_5" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.5)
+script = ExtResource("2_jxnv8")
+node_name = "hallway_5"
+neighbour_nodes = [NodePath("../hallway_4"), NodePath("../hallway_6")]
+
+[node name="hallway_6" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75, 0, -5.5)
+script = ExtResource("2_jxnv8")
+node_name = "hallway_6"
+neighbour_nodes = [NodePath("../hallway_5"), NodePath("../hallway_7")]
+
+[node name="hallway_7" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75, 0, 0)
+script = ExtResource("2_jxnv8")
+node_name = "hallway_7"
+neighbour_nodes = [NodePath("../hallway_6"), NodePath("../hallway_8")]
+
+[node name="hallway_8" type="Node3D" parent="pathing_nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75, 0, 6.5)
+script = ExtResource("2_jxnv8")
+node_name = "hallway_8"
+neighbour_nodes = [NodePath("../hallway_7"), NodePath("../hallway_1")]

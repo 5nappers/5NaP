@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://d5qrakxp1kch"]
+
+[ext_resource type="Texture2D" uid="uid://bj5gml6segqp0" path="res://pathing_nodes/sprites/floor_3_map.png" id="1_g3q4s"]
+[ext_resource type="Script" path="res://pathing_nodes/scripts/map_floor.gd" id="1_yn7w1"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 1.778
+anchor_bottom = 2.37
+offset_right = -0.256104
+offset_bottom = 0.239868
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yn7w1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_g3q4s")
