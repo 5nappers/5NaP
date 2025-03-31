@@ -4,7 +4,7 @@ extends Node3D
 @export var current_node: Node3D
 @export var dest_node_temp: Node3D #remove when there is a lecturer controller
 @export var map_control: Node2D
-@export var max_path_attempts: int
+@export var max_path_attempts: int = 100
 var time: float = 0
 var path_to_goal: Array[Node3D] = []
 
