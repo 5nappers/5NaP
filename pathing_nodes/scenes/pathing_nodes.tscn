@@ -81,6 +81,7 @@ lecturer_name = "Vaughn"
 current_node = NodePath("../PathingNodes/Hallway1")
 dest_node_temp = NodePath("../PathingNodes/Hallway5")
 map_control = NodePath("../Map/SubViewport/map_floor_3")
+max_path_attempts = 250
 
 [node name="Map" type="Sprite3D" parent="."]
 transform = Transform3D(-5.46392e-09, 0, 0.125, 0, 0.125, 0, -0.125, 0, -5.46392e-09, -3.5453, 1.63276, 10.714)
