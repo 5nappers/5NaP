@@ -1,13 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cb36uqv6stpui"]
+[gd_scene load_steps=10 format=3 uid="uid://cb36uqv6stpui"]
 
-[ext_resource type="Script" path="res://player camera/player_camera.gd" id="1_02f1g"]
-[ext_resource type="Script" path="res://player camera/states/looking_around.gd" id="2_iwohg"]
-[ext_resource type="Script" path="res://player camera/camera_debug_ui.gd" id="2_kwnmy"]
+[ext_resource type="Script" path="res://player/player.gd" id="2_k2ja8"]
+[ext_resource type="Script" path="res://player/state machine/look_around.gd" id="3_ugoyj"]
 [ext_resource type="Texture2D" uid="uid://bykqphxykbr0h" path="res://minigame/tile.jpg" id="4_5cjtb"]
-
-[sub_resource type="Curve" id="Curve_0tmm0"]
-_data = [Vector2(0, 0), 0.0, 3.25714, 0, 0, Vector2(1, 1), 0.152774, 0.0, 0, 0]
-point_count = 2
+[ext_resource type="Script" path="res://player/state machine/player_state_machine.gd" id="4_mjjfo"]
+[ext_resource type="Script" path="res://player/state machine/look_up.gd" id="5_uel4k"]
+[ext_resource type="Script" path="res://player/state machine/focus.gd" id="6_kqsti"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3jvk"]
 albedo_color = Color(0.691357, 0.691357, 0.691357, 1)
@@ -18,36 +16,41 @@ grow_amount = -3.352
 [sub_resource type="PlaneMesh" id="PlaneMesh_q8185"]
 material = SubResource("StandardMaterial3D_t3jvk")
 
+[sub_resource type="Curve" id="Curve_ytt7n"]
+_data = [Vector2(0, 0), 0.0, 2.75414, 0, 0, Vector2(1, 1), 0.0503923, 0.0, 0, 0]
+point_count = 2
+
 [node name="Minigame" type="Node3D"]
-
-[node name="PlayerCamera" type="Camera3D" parent="." node_paths=PackedStringArray("states", "active_state")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8086, 0)
-script = ExtResource("1_02f1g")
-edge_threshold_percentage = 15
-states = [NodePath("States/LookingAround")]
-active_state = NodePath("States/LookingAround")
-
-[node name="States" type="Node" parent="PlayerCamera"]
-
-[node name="LookingAround" type="Node" parent="PlayerCamera/States" node_paths=PackedStringArray("camera")]
-script = ExtResource("2_iwohg")
-camera = NodePath("../..")
-move_sensitivity_easing = SubResource("Curve_0tmm0")
-
-[node name="LookingUp" type="Node" parent="PlayerCamera/States"]
-
-[node name="CameraDebugUI" type="Control" parent="PlayerCamera"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("2_kwnmy")
-color_left = Color(0.02, 0.771334, 1, 0.509804)
-color_right = Color(0.99, 0, 0.627, 0.509804)
-color_top = Color(0.99, 0.8415, 0, 0.509804)
-color_bottom = Color(0, 0.74, 0.444, 0.509804)
-length = 115
-thickness = 25
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(56.0976, 0, 0, 0, 1, 0, 0, 0, 56.0976, 0, 0, 0)
 mesh = SubResource("PlaneMesh_q8185")
+
+[node name="Player" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("2_k2ja8")
+
+[node name="StateMachine" type="Node" parent="Player" node_paths=PackedStringArray("default_state")]
+script = ExtResource("4_mjjfo")
+default_state = NodePath("LookAround")
+
+[node name="LookAround" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("control_object")]
+script = ExtResource("3_ugoyj")
+input_sensitivity_curve = SubResource("Curve_ytt7n")
+control_object = NodePath("../../Camera")
+
+[node name="LookUp" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("control_object")]
+script = ExtResource("5_uel4k")
+control_object = NodePath("../../Camera")
+
+[node name="Focus" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("control_object")]
+script = ExtResource("6_kqsti")
+control_object = NodePath("../../Camera")
+
+[node name="Camera" type="Camera3D" parent="Player"]
+
+[node name="DebugUI" type="Control" parent="Player"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
