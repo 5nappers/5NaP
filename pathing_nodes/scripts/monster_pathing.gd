@@ -2,9 +2,9 @@ extends Node3D
 
 @export var lecturer_name: String
 @export var current_node: Node3D
-@export var dest_node_temp: Node3D
+@export var dest_node_temp: Node3D #remove when there is a lecturer controller
 @export var map_control: Node2D
-#var goal_node: Node3D
+@export var max_path_attempts: int
 var time: float = 0
 var path_to_goal: Array[Node3D] = []
 
@@ -83,11 +83,14 @@ func calculate_path(destination: Node3D) -> Array[Node3D]:
 			backtrack_path = true
 		
 		var blocked_check_count: int = 0 
-		# Checking all paths to see if any are not in the backtrack so that it can exit it
+		# Loops until a node that isn't blocked is found and then disables the ability to backtrack
 		while (blocked_check_count < node_to_check.neighbour_nodes.size() && backtrack_path):
 			# Ending the backtrack on a dead end
 			if (!blocked_nodes.has(node_to_check.neighbour_nodes[blocked_check_count])):
 				backtrack_path = false
+				
+				# Finding the path it just backtracked on and removing it
+				# from the final path to avoid needless looping
 				var first_index: int = path.find(prev_node)
 				if (first_index >= 0):
 					var second_index: int = path.find(prev_node, first_index)
@@ -124,7 +127,7 @@ func calculate_path(destination: Node3D) -> Array[Node3D]:
 		
 		# Checking it doesn't run forever in case of a loop (which shouldn't be possible)
 		count += 1
-		if (count >= 250): 
+		if (count >= max_path_attempts): 
 			print("Tried to path 250 times, probably stuck in a loop. Returning empty path.")
 			return []
 		
