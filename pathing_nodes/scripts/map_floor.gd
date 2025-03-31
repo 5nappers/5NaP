@@ -42,16 +42,16 @@ func on_movement(monster: Node3D):
 
 # Takes in the index of the monster in both the monsters array and monster_icons array and updates the icon pos
 func update_icon(index: int):
-	print("update pos of " + str(monsters[index].lecturer_name) + " to " + str(monsters[index].current_node.position))
-	var path_node_pos: Vector3 = monsters[index].current_node.position
+	print("update pos of " + str(monsters[index].lecturer_name) + " to " + str(monsters[index].current_node.global_position))
+	var path_node_pos: Vector3 = monsters[index].current_node.global_position
 	
-	var x_pos: float = inverse_lerp(top_left_pos.position.x, bottom_right_pos.position.x, path_node_pos.x)
-	var y_pos: float = inverse_lerp(top_left_pos.position.z, bottom_right_pos.position.z, path_node_pos.z)
+	var x_pos: float = inverse_lerp(top_left_pos.global_position.x, bottom_right_pos.global_position.x, path_node_pos.x)
+	var y_pos: float = inverse_lerp(top_left_pos.global_position.z, bottom_right_pos.global_position.z, path_node_pos.z)
 	
 	x_pos = lerpf(0, image_size.x, x_pos)
 	y_pos = lerpf(0, image_size.y, y_pos)
 	
 	var pos: Vector2 = Vector2(x_pos, y_pos)
 	
-	monster_icons[index].position = pos
+	monster_icons[index].global_position = pos
 	print(pos)
