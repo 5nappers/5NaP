@@ -233,6 +233,12 @@ material_override = SubResource("StandardMaterial3D_hb0r7")
 mesh = ExtResource("7_rvedp")
 skeleton = NodePath("../ComputerMonitor4-3")
 
+[node name="ComputerMonitor4-5" type="MeshInstance3D" parent="Desk"]
+transform = Transform3D(0.763909, 0, -0.645324, 0, 1, 0, 0.645324, 0, 0.763909, 0.503731, 0.760608, -0.140262)
+material_override = SubResource("StandardMaterial3D_hb0r7")
+mesh = ExtResource("7_rvedp")
+skeleton = NodePath("../ComputerMonitor4-3")
+
 [node name="ComputerMouse" type="MeshInstance3D" parent="Desk"]
 transform = Transform3D(0.996195, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.996195, 0.473843, 0.769086, 0.0424318)
 material_override = SubResource("StandardMaterial3D_7jt7r")
