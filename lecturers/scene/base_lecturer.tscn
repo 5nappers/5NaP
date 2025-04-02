@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ylyuu80aijvx"]
+
+[ext_resource type="PackedScene" uid="uid://c0xch7wmrfu0i" path="res://assets/Base Humanoid Mesh/humanoid_base_not_overlapping.tscn" id="1_6jug1"]
+
+[node name="Lecturer" type="Node3D"]
+
+[node name="HumanoidBase_NotOverlapping" parent="." instance=ExtResource("1_6jug1")]
