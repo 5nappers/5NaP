@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d3eya5ljorp5a"
+path="res://.godot/imported/Door Handle 2.obj-29a04054c30609d38765b9cd1ed92cdd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Door Handle 2.obj-29a04054c30609d38765b9cd1ed92cdd.mesh"]
+
+source_file="res://assets/VNB Low Poly Office Set 2/OBJ/Separated OBJ files/Door Handle 2.obj"
+dest_files=["res://.godot/imported/Door Handle 2.obj-29a04054c30609d38765b9cd1ed92cdd.mesh", "res://.godot/imported/Door Handle 2.obj-29a04054c30609d38765b9cd1ed92cdd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
