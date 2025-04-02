@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dadv5u3dbus3e"
+path="res://.godot/imported/Ceiling Lamp 2.obj-5bd1db0c6b84e5dfeb4d6eb538d3e4fe.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Ceiling Lamp 2.obj-5bd1db0c6b84e5dfeb4d6eb538d3e4fe.mesh"]
+
+source_file="res://assets/VNB Low Poly Office Set 2/OBJ/Separated OBJ files/Ceiling Lamp 2.obj"
+dest_files=["res://.godot/imported/Ceiling Lamp 2.obj-5bd1db0c6b84e5dfeb4d6eb538d3e4fe.mesh", "res://.godot/imported/Ceiling Lamp 2.obj-5bd1db0c6b84e5dfeb4d6eb538d3e4fe.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

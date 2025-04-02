@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b2mxs44u6qbgc"
+path="res://.godot/imported/Desk Ac.obj-871a5142357c8ff060f8d287e0f03146.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Desk Ac.obj-871a5142357c8ff060f8d287e0f03146.mesh"]
+
+source_file="res://assets/VNB Low Poly Office Set 2/OBJ/Separated OBJ files/Desk Ac.obj"
+dest_files=["res://.godot/imported/Desk Ac.obj-871a5142357c8ff060f8d287e0f03146.mesh", "res://.godot/imported/Desk Ac.obj-871a5142357c8ff060f8d287e0f03146.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

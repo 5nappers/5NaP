@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bghdrbijr6wfe"
+path="res://.godot/imported/Sofa 1 Alt.obj-5be097d93b408f81bc5eac64f8252fa9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Sofa 1 Alt.obj-5be097d93b408f81bc5eac64f8252fa9.mesh"]
+
+source_file="res://assets/VNB Low Poly Office Set 2/OBJ/Separated OBJ files/Sofa 1 Alt.obj"
+dest_files=["res://.godot/imported/Sofa 1 Alt.obj-5be097d93b408f81bc5eac64f8252fa9.mesh", "res://.godot/imported/Sofa 1 Alt.obj-5be097d93b408f81bc5eac64f8252fa9.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

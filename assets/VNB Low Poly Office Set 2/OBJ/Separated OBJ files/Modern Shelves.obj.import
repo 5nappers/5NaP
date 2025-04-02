@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://67250bf8be6g"
+path="res://.godot/imported/Modern Shelves.obj-ececa5871ed48791a4eb39de5daef37e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Modern Shelves.obj-ececa5871ed48791a4eb39de5daef37e.mesh"]
+
+source_file="res://assets/VNB Low Poly Office Set 2/OBJ/Separated OBJ files/Modern Shelves.obj"
+dest_files=["res://.godot/imported/Modern Shelves.obj-ececa5871ed48791a4eb39de5daef37e.mesh", "res://.godot/imported/Modern Shelves.obj-ececa5871ed48791a4eb39de5daef37e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

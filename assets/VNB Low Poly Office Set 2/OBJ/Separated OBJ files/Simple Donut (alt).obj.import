@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bvwdp0cs0j6um"
+path="res://.godot/imported/Simple Donut (alt).obj-fe31150cde1626fb9c4345b23b0e8392.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Simple Donut (alt).obj-fe31150cde1626fb9c4345b23b0e8392.mesh"]
+
+source_file="res://assets/VNB Low Poly Office Set 2/OBJ/Separated OBJ files/Simple Donut (alt).obj"
+dest_files=["res://.godot/imported/Simple Donut (alt).obj-fe31150cde1626fb9c4345b23b0e8392.mesh", "res://.godot/imported/Simple Donut (alt).obj-fe31150cde1626fb9c4345b23b0e8392.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

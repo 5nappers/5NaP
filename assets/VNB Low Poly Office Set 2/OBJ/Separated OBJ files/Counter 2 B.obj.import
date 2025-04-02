@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://daj187kbt41i0"
+path="res://.godot/imported/Counter 2 B.obj-6361727b8a9efb7765b3c2e1e0299f85.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Counter 2 B.obj-6361727b8a9efb7765b3c2e1e0299f85.mesh"]
+
+source_file="res://assets/VNB Low Poly Office Set 2/OBJ/Separated OBJ files/Counter 2 B.obj"
+dest_files=["res://.godot/imported/Counter 2 B.obj-6361727b8a9efb7765b3c2e1e0299f85.mesh", "res://.godot/imported/Counter 2 B.obj-6361727b8a9efb7765b3c2e1e0299f85.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
