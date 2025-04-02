@@ -197,23 +197,25 @@ material_override = SubResource("StandardMaterial3D_yvyta")
 mesh = ExtResource("13_713xb")
 skeleton = NodePath("../..")
 
-[node name="FileBox" type="MeshInstance3D" parent="DeskL"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.24734, 0.00213909, 0.205285)
+[node name="FileBox" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1864, 6.49893, -7.34556)
 material_override = SubResource("StandardMaterial3D_rsbuo")
 mesh = ExtResource("15_tm2ha")
+skeleton = NodePath("../DeskL")
 
-[node name="FileBox" type="MeshInstance3D" parent="DeskL/FileBox"]
+[node name="FileBox" type="MeshInstance3D" parent="FileBox"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0127831, 0.277938, -0.020319)
 material_override = SubResource("StandardMaterial3D_rsbuo")
 mesh = ExtResource("15_tm2ha")
 
-[node name="FileBoxLid" type="MeshInstance3D" parent="DeskL/FileBox"]
+[node name="FileBoxLid" type="MeshInstance3D" parent="FileBox"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.00752831, 0.517437, -0.0145397)
 mesh = ExtResource("16_tr0tu")
 
-[node name="FileBoxLid" type="MeshInstance3D" parent="DeskL"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.23875, 0.222726, 0.21168)
+[node name="FileBoxLid2" type="MeshInstance3D" parent="FileBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00859022, 0.220587, -0.00639439)
 mesh = ExtResource("16_tr0tu")
+skeleton = NodePath("../../DeskL")
 
 [node name="Desk" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.0976, 6.51632, -6.23684)
