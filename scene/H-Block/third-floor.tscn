@@ -1,15 +1,15 @@
 [gd_scene load_steps=34 format=3 uid="uid://cps3m0ej27j3m"]
 
 [ext_resource type="PackedScene" uid="uid://cc5e5h882hhpc" path="res://assets/H-Block/H-block.glb" id="1_e7ui3"]
-[ext_resource type="ArrayMesh" uid="uid://dadv5u3dbus3e" path="res://assets/VNB Low Poly Office Set 2 (1.1) (1)/OBJ/Separated OBJ files/Ceiling Lamp 2.obj" id="2_538h5"]
+[ext_resource type="ArrayMesh" uid="uid://dadv5u3dbus3e" path="res://assets/VNB Low Poly Office Set 2/OBJ/Separated OBJ files/Ceiling Lamp 2.obj" id="2_538h5"]
 [ext_resource type="Texture2D" uid="uid://b2ef8vax868ig" path="res://assets/ModernOfficePack/DeskL/DeskL_Base_Color.png" id="2_bvh4t"]
 [ext_resource type="ArrayMesh" uid="uid://bd7x2i1hdy2ed" path="res://assets/ModernOfficePack/DeskL/DeskL.obj" id="3_fj7bg"]
 [ext_resource type="Texture2D" uid="uid://dfmsmuyxqar20" path="res://assets/ModernOfficePack/DeskChair/DeskChair_Base_Color.png" id="4_w2faf"]
 [ext_resource type="ArrayMesh" uid="uid://bvlunylqmrwp2" path="res://assets/ModernOfficePack/DeskChair/DeskChair.obj" id="5_i2a3u"]
 [ext_resource type="Texture2D" uid="uid://cewdxcweipx16" path="res://assets/ModernOfficePack/ComputerMonitor4-3/ComputerMonitor4-3_Base_Color.png" id="6_8lyma"]
 [ext_resource type="ArrayMesh" uid="uid://b2w2gi50g6dwp" path="res://assets/ModernOfficePack/ComputerMonitor4-3/ComputerMonitor4-3.obj" id="7_rvedp"]
-[ext_resource type="Texture2D" uid="uid://imxo2t4g4v4f" path="res://assets/ModernOfficePack/ComputerCaseTower/ComputerCaseTower_Roughness.png" id="8_8fxoe"]
 [ext_resource type="ArrayMesh" uid="uid://cj55pxnxit3df" path="res://assets/ModernOfficePack/ComputerCaseTower/ComputerCaseTower.obj" id="9_7e25b"]
+[ext_resource type="Texture2D" uid="uid://drsaxch5ctr0m" path="res://assets/ModernOfficePack/ComputerCaseTower/ComputerCaseTower_Base_Color.png" id="9_n1wie"]
 [ext_resource type="Texture2D" uid="uid://btie6rabhky6c" path="res://assets/ModernOfficePack/ComputerMouse&Pad/ComputerMouse_Base_Color.png" id="10_u2n0e"]
 [ext_resource type="ArrayMesh" uid="uid://uii4ar4s1f6g" path="res://assets/ModernOfficePack/ComputerMouse&Pad/ComputerMouse.obj" id="11_k7m6d"]
 [ext_resource type="Texture2D" uid="uid://dtm1y16bikrqb" path="res://assets/ModernOfficePack/ComputerKeyboard/ComputerKeyboard_Base_Color.png" id="12_hvq1b"]
@@ -38,7 +38,7 @@ albedo_texture = ExtResource("4_w2faf")
 albedo_texture = ExtResource("6_8lyma")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y1i2c"]
-albedo_texture = ExtResource("8_8fxoe")
+albedo_texture = ExtResource("9_n1wie")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jt7r"]
 albedo_texture = ExtResource("10_u2n0e")
