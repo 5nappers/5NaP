@@ -25,8 +25,8 @@ func look_around(delta: float) -> void:
 	if input.push.x > 0:
 		rotate_angle = -rotate_angle
 	
-	control_object.global_rotate(Vector3(0, 1, 0), rotate_angle)
-	control_object.global_rotation.y = clamp(
-			control_object.global_rotation.y, left_rotation_bound, right_rotation_bound
+	control_object.rotate(Vector3(0, 1, 0), rotate_angle)
+	control_object.rotation.y = clamp(
+			control_object.rotation.y, left_rotation_bound, right_rotation_bound
 	)
 	
