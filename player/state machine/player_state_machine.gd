@@ -2,8 +2,6 @@ extends StateMachine
 class_name PlayerStateMachine
 
 
-@export_range(0,45) var edge_threshold_percentage := 30
-
 @onready var look_around: PlayerState = $LookAround
 @onready var focus: PlayerState = $Focus
 
@@ -27,6 +25,19 @@ func get_active_state() -> PlayerState:
 func handle_player_input(value: Player.PlayerInput) -> void:
 	input = value
 	active_state.input = input
+	if input.push.y > 0:
+		push_up()
+	elif input.push.y < 0:
+		push_down()
+
+
+func push_up() -> void:
+	pass
+	
+	
+func push_down() -> void:
+	if active_state == focus:
+		active_state = look_around
 
 
 func handle_focusable_clicked(focusable: Node3D) -> void:

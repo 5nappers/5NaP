@@ -24,6 +24,7 @@ size = Vector3(0.470459, 0.370819, 0.00604248)
 [node name="Player" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.936812, 0)
 script = ExtResource("2_k2ja8")
+push_zone_size_vertical = 1.0
 
 [node name="StateMachine" type="Node" parent="Player" node_paths=PackedStringArray("default_state")]
 script = ExtResource("4_mjjfo")
