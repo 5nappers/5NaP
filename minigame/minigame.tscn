@@ -33,7 +33,7 @@ default_state = NodePath("LookAround")
 [node name="LookAround" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("node_to_control")]
 script = ExtResource("3_ugoyj")
 input_sensitivity_curve = SubResource("Curve_ly336")
-fov = 69.0
+fov = 60.0
 node_to_control = NodePath("../../Camera")
 
 [node name="Focus" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("player", "node_to_control")]
@@ -70,5 +70,24 @@ shape = SubResource("BoxShape3D_eh86l")
 [node name="TargetCameraTransform" type="Marker3D" parent="ComputerMonitor4-4/Focusable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030717, 0, 0.351985)
 
+[node name="ComputerMonitor4-5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.691425, 0, -0.722449, 0, 1, 0, 0.722449, 0, 0.691425, 0.791479, 0.489, -0.756079)
+material_override = SubResource("StandardMaterial3D_qr1v0")
+mesh = ExtResource("7_2rc1j")
+skeleton = NodePath("../ComputerMonitor4-3")
+
+[node name="Focusable" type="Area3D" parent="ComputerMonitor4-5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.344453, 0)
+script = ExtResource("8_5umj3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-5/Focusable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86265e-08, -0.00473666, 0.000213623)
+shape = SubResource("BoxShape3D_eh86l")
+
+[node name="TargetCameraTransform" type="Marker3D" parent="ComputerMonitor4-5/Focusable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030717, 0, 0.351985)
+
 [connection signal="input_event" from="ComputerMonitor4-4/Focusable" to="ComputerMonitor4-4/Focusable" method="_on_input_event"]
 [connection signal="on_click" from="ComputerMonitor4-4/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
+[connection signal="input_event" from="ComputerMonitor4-5/Focusable" to="ComputerMonitor4-5/Focusable" method="_on_input_event"]
+[connection signal="on_click" from="ComputerMonitor4-5/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
