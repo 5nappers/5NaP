@@ -60,7 +60,8 @@ func get_push_vector(mouse_position: Vector2) -> Vector2:
 	if mouse_position.x < push_zone_bounds.left:
 		push_vector.x = -inverse_lerp(push_zone_bounds.left, 0, mouse_position.x)
 	elif mouse_position.x > push_zone_bounds.right:
-		push_vector.x = inverse_lerp(push_zone_bounds.right, viewport_resolution.x, mouse_position.x)
+		push_vector.x = inverse_lerp(
+				push_zone_bounds.right, viewport_resolution.x, mouse_position.x)
 	else:
 		push_vector.x = 0
 	push_vector.x = clamp(push_vector.x, -1, 1)
