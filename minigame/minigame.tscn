@@ -1,19 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://cb36uqv6stpui"]
+[gd_scene load_steps=12 format=3 uid="uid://cb36uqv6stpui"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="2_k2ja8"]
 [ext_resource type="Script" path="res://player/state machine/look_around.gd" id="3_ugoyj"]
 [ext_resource type="Script" path="res://player/state machine/player_state_machine.gd" id="4_mjjfo"]
 [ext_resource type="Script" path="res://player/state machine/focus.gd" id="6_kqsti"]
 [ext_resource type="PackedScene" uid="uid://boi3nx5rygb76" path="res://minigame/third_floor.tscn" id="6_usrgj"]
+[ext_resource type="Texture2D" uid="uid://cewdxcweipx16" path="res://assets/ModernOfficePack/ComputerMonitor4-3/ComputerMonitor4-3_Base_Color.png" id="6_ydwyq"]
+[ext_resource type="ArrayMesh" uid="uid://b2w2gi50g6dwp" path="res://assets/ModernOfficePack/ComputerMonitor4-3/ComputerMonitor4-3.obj" id="7_2rc1j"]
+[ext_resource type="Script" path="res://minigame/focusable.gd" id="8_5umj3"]
 
 [sub_resource type="Curve" id="Curve_ly336"]
 _data = [Vector2(0, 0), 0.0, 2.15244, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qr1v0"]
+albedo_texture = ExtResource("6_ydwyq")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eh86l"]
+size = Vector3(0.470459, 0.370819, 0.00604248)
+
 [node name="Minigame" type="Node3D"]
 
 [node name="Player" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.936812, 0)
 script = ExtResource("2_k2ja8")
 
 [node name="StateMachine" type="Node" parent="Player" node_paths=PackedStringArray("default_state")]
@@ -26,8 +35,9 @@ input_sensitivity_curve = SubResource("Curve_ly336")
 fov = 69.0
 node_to_control = NodePath("../../Camera")
 
-[node name="Focus" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("node_to_control")]
+[node name="Focus" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("player", "node_to_control")]
 script = ExtResource("6_kqsti")
+player = NodePath("../..")
 node_to_control = NodePath("../../Camera")
 
 [node name="Camera" type="Camera3D" parent="Player"]
@@ -41,3 +51,23 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Third Floor" parent="." instance=ExtResource("6_usrgj")]
+
+[node name="ComputerMonitor4-4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00872649, 0, -0.999962, 0, 1, 0, 0.999962, 0, 0.00872649, 1.097, 0.489, 0)
+material_override = SubResource("StandardMaterial3D_qr1v0")
+mesh = ExtResource("7_2rc1j")
+skeleton = NodePath("../ComputerMonitor4-3")
+
+[node name="Focusable" type="Area3D" parent="ComputerMonitor4-4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.344453, 0)
+script = ExtResource("8_5umj3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-4/Focusable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86265e-08, -0.00473666, 0.000213623)
+shape = SubResource("BoxShape3D_eh86l")
+
+[node name="TargetCameraTransform" type="Marker3D" parent="ComputerMonitor4-4/Focusable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030717, 0, 0.351985)
+
+[connection signal="input_event" from="ComputerMonitor4-4/Focusable" to="ComputerMonitor4-4/Focusable" method="_on_input_event"]
+[connection signal="on_click" from="ComputerMonitor4-4/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
