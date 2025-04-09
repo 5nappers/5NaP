@@ -6,6 +6,7 @@ extends PlayerState
 @export_range(-179.5, 0, 0.5, "radians_as_degrees") var left_rotation_bound := -PI/3
 @export_range(0, 179.5, 0.5, "radians_as_degrees") var right_rotation_bound := PI/3
 @export_range(45, 90, 0.5) var fov := 75.0
+@export var dof_distance := 10.0
 
 
 func _state_enter() -> void:
@@ -35,7 +36,11 @@ func look_around(delta: float) -> void:
 func transition_in() -> void:
 	# rotation.x at 0 to untilt the camera
 	var rotation := node_to_control.rotation
+	var camera := node_to_control as Camera3D
+	var attributes := camera.attributes as CameraAttributesPractical
 	rotation.x = 0
-	tween.parallel().tween_property(node_to_control, "rotation", rotation, transition_duration)
-	tween.parallel().tween_property(node_to_control, "position", Vector3.ZERO, transition_duration)
-	tween.parallel().tween_property(node_to_control, "fov", fov, transition_duration)
+	tween.parallel().tween_property(camera, "rotation", rotation, transition_duration)
+	tween.parallel().tween_property(camera, "position", Vector3.ZERO, transition_duration)
+	tween.parallel().tween_property(camera, "fov", fov, transition_duration)
+	tween.parallel().tween_property(
+			attributes, "dof_blur_far_distance", dof_distance, transition_duration)
