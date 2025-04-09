@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cb36uqv6stpui"]
+[gd_scene load_steps=22 format=3 uid="uid://cb36uqv6stpui"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="2_k2ja8"]
 [ext_resource type="Script" path="res://player/state machine/look_around.gd" id="3_ugoyj"]
@@ -8,38 +8,54 @@
 [ext_resource type="Texture2D" uid="uid://cewdxcweipx16" path="res://assets/ModernOfficePack/ComputerMonitor4-3/ComputerMonitor4-3_Base_Color.png" id="6_ydwyq"]
 [ext_resource type="ArrayMesh" uid="uid://b2w2gi50g6dwp" path="res://assets/ModernOfficePack/ComputerMonitor4-3/ComputerMonitor4-3.obj" id="7_2rc1j"]
 [ext_resource type="Script" path="res://minigame/focusable.gd" id="8_5umj3"]
-[ext_resource type="PackedScene" uid="uid://bvysn5ipbopps" path="res://minigame/main_monitor.tscn" id="9_sjvb0"]
+[ext_resource type="Script" path="res://minigame/screen.gd" id="8_ys23m"]
+[ext_resource type="Script" path="res://minigame/interactable_screen.gd" id="9_dythp"]
+[ext_resource type="PackedScene" uid="uid://3v8gwyj7wkpe" path="res://minigame/main_monitor.tscn" id="9_sjvb0"]
+
+[sub_resource type="Environment" id="Environment_5o3vw"]
+glow_enabled = true
+glow_intensity = 0.69
+glow_strength = 0.69
+glow_blend_mode = 1
 
 [sub_resource type="Curve" id="Curve_ly336"]
 _data = [Vector2(0, 0), 0.0, 2.15244, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_sftod"]
+dof_blur_far_enabled = true
+dof_blur_far_transition = 1.0
+dof_blur_amount = 0.15
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qr1v0"]
 albedo_texture = ExtResource("6_ydwyq")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_eh86l"]
-size = Vector3(0.470459, 0.370819, 0.00604248)
-
 [sub_resource type="QuadMesh" id="QuadMesh_qunyx"]
-size = Vector2(0.417, 0.316)
+size = Vector2(0.42, 0.319)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1rtap"]
-viewport_path = NodePath("ComputerMonitor4-4/Screen/SubViewport")
+viewport_path = NodePath("ComputerMonitor4-4/Screen/ScreenInteraction/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_hee0s"]
-viewport_path = NodePath("ComputerMonitor4-4/Screen/SubViewport")
+viewport_path = NodePath("ComputerMonitor4-4/Screen/ScreenInteraction/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wiwwa"]
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_1rtap")
 emission_enabled = true
-emission_energy_multiplier = 1.4
+emission_energy_multiplier = 2.0
 emission_texture = SubResource("ViewportTexture_hee0s")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8uep"]
-size = Vector3(0.417, 0.316, 0.005)
+size = Vector3(0.419922, 0.319336, 0.005)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eh86l"]
+size = Vector3(0.470459, 0.372734, 0.00604248)
 
 [node name="Minigame" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5o3vw")
 
 [node name="Player" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.936812, 0)
@@ -53,17 +69,18 @@ default_state = NodePath("LookAround")
 [node name="LookAround" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("node_to_control")]
 script = ExtResource("3_ugoyj")
 input_sensitivity_curve = SubResource("Curve_ly336")
+right_rotation_bound = 0.959931
 fov = 60.0
 node_to_control = NodePath("../../Camera")
 
-[node name="Focus" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("player", "node_to_control")]
+[node name="Focus" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("node_to_control")]
 script = ExtResource("6_kqsti")
-player = NodePath("../..")
 node_to_control = NodePath("../../Camera")
 
 [node name="Camera" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18464e-08, 0, 0.499788)
-fov = 60.0
+attributes = SubResource("CameraAttributesPractical_sftod")
+fov = 37.8493
 
 [node name="DebugUI" type="Control" parent="Player"]
 layout_mode = 3
@@ -72,40 +89,42 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Third Floor" parent="." instance=ExtResource("6_usrgj")]
-visible = false
 
 [node name="ComputerMonitor4-4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.00872649, 0, -0.999962, 0, 1, 0, 0.999962, 0, 0.00872649, 1.097, 0.489, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.097, 0.489, 0)
 material_override = SubResource("StandardMaterial3D_qr1v0")
 mesh = ExtResource("7_2rc1j")
 skeleton = NodePath("../ComputerMonitor4-3")
 
-[node name="Focusable" type="Area3D" parent="ComputerMonitor4-4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.344453, 0)
-script = ExtResource("8_5umj3")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-4/Focusable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86265e-08, -0.00473666, 0.000213623)
-shape = SubResource("BoxShape3D_eh86l")
-
-[node name="TargetCameraTransform" type="Marker3D" parent="ComputerMonitor4-4/Focusable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030717, 0, 0.351985)
-
 [node name="Screen" type="MeshInstance3D" parent="ComputerMonitor4-4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012438, 0.340334, -0.00453675)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34, -0.004)
 mesh = SubResource("QuadMesh_qunyx")
 surface_material_override/0 = SubResource("StandardMaterial3D_wiwwa")
+script = ExtResource("8_ys23m")
 
-[node name="SubViewport" type="SubViewport" parent="ComputerMonitor4-4/Screen"]
+[node name="ScreenInteraction" type="Area3D" parent="ComputerMonitor4-4/Screen"]
+transform = Transform3D(1, 0, -1.86265e-09, 0, 1, 0, 1.86265e-09, 0, 1, 0, 0, 0)
+script = ExtResource("9_dythp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-4/Screen/ScreenInteraction"]
+shape = SubResource("BoxShape3D_u8uep")
+
+[node name="SubViewport" type="SubViewport" parent="ComputerMonitor4-4/Screen/ScreenInteraction"]
 size = Vector2i(2048, 1536)
 
-[node name="MainMonitor" parent="ComputerMonitor4-4/Screen/SubViewport" instance=ExtResource("9_sjvb0")]
+[node name="MainMonitor" parent="ComputerMonitor4-4/Screen/ScreenInteraction/SubViewport" instance=ExtResource("9_sjvb0")]
 
-[node name="Area3D" type="Area3D" parent="ComputerMonitor4-4/Screen"]
-transform = Transform3D(1, 0, -1.98435e-09, 0, 1, 0, 1.98435e-09, 0, 1, 0, 0, 0)
+[node name="Focusable" type="Area3D" parent="ComputerMonitor4-4/Screen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.005)
+script = ExtResource("8_5umj3")
+fov = 69.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-4/Screen/Area3D"]
-shape = SubResource("BoxShape3D_u8uep")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-4/Screen/Focusable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86265e-08, 0.000478029, 0.000213623)
+shape = SubResource("BoxShape3D_eh86l")
+
+[node name="TargetCameraTransform" type="Marker3D" parent="ComputerMonitor4-4/Screen/Focusable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.37)
 
 [node name="ComputerMonitor4-5" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.691425, 0, -0.722449, 0, 1, 0, 0.722449, 0, 0.691425, 0.791479, 0.489, -0.756079)
@@ -116,15 +135,21 @@ skeleton = NodePath("../ComputerMonitor4-3")
 [node name="Focusable" type="Area3D" parent="ComputerMonitor4-5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.344453, 0)
 script = ExtResource("8_5umj3")
+fov = 69.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-5/Focusable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86265e-08, -0.00473666, 0.000213623)
 shape = SubResource("BoxShape3D_eh86l")
 
 [node name="TargetCameraTransform" type="Marker3D" parent="ComputerMonitor4-5/Focusable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030717, 0, 0.351985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.37)
 
-[connection signal="input_event" from="ComputerMonitor4-4/Focusable" to="ComputerMonitor4-4/Focusable" method="_on_input_event"]
-[connection signal="on_click" from="ComputerMonitor4-4/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
+[connection signal="input_event" from="ComputerMonitor4-4/Screen/ScreenInteraction" to="ComputerMonitor4-4/Screen/ScreenInteraction" method="_on_input_event"]
+[connection signal="mouse_entered" from="ComputerMonitor4-4/Screen/ScreenInteraction" to="ComputerMonitor4-4/Screen/ScreenInteraction" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ComputerMonitor4-4/Screen/ScreenInteraction" to="ComputerMonitor4-4/Screen/ScreenInteraction" method="_on_mouse_exited"]
+[connection signal="input_event" from="ComputerMonitor4-4/Screen/Focusable" to="ComputerMonitor4-4/Screen/Focusable" method="_on_input_event"]
+[connection signal="on_click" from="ComputerMonitor4-4/Screen/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
+[connection signal="on_click" from="ComputerMonitor4-4/Screen/Focusable" to="ComputerMonitor4-4/Screen" method="_on_focus"]
+[connection signal="on_unfocus" from="ComputerMonitor4-4/Screen/Focusable" to="ComputerMonitor4-4/Screen" method="_on_unfocus"]
 [connection signal="input_event" from="ComputerMonitor4-5/Focusable" to="ComputerMonitor4-5/Focusable" method="_on_input_event"]
 [connection signal="on_click" from="ComputerMonitor4-5/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]

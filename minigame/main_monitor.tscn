@@ -1,24 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvysn5ipbopps"]
+[gd_scene load_steps=5 format=3 uid="uid://3v8gwyj7wkpe"]
 
+[ext_resource type="Script" path="res://minigame/main_monitor.gd" id="1_mmj3u"]
+[ext_resource type="Texture2D" uid="uid://qe3hfryteqqs" path="res://minigame/cursor.png" id="2_hdf62"]
 [ext_resource type="PackedScene" uid="uid://q3em0s8me3dh" path="res://pathing_nodes/scenes/draw_rect.tscn" id="2_lh2b7"]
 
+[sub_resource type="GDScript" id="GDScript_8kxkp"]
+script/source = "extends Control
+"
+
 [node name="MainMonitor" type="Node2D"]
+script = ExtResource("1_mmj3u")
 
 [node name="DrawRect" parent="." instance=ExtResource("2_lh2b7")]
+visible = false
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 2048.0
 offset_bottom = 1536.0
+mouse_filter = 2
+script = SubResource("GDScript_8kxkp")
 
 [node name="Background" type="ColorRect" parent="Control"]
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.969137, 0.969137, 0.969137, 1)
 
 [node name="Button" type="Button" parent="Control"]
@@ -37,3 +49,9 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 45
 action_mode = 0
 text = "Press this button to win the game"
+
+[node name="Cursor" type="Sprite2D" parent="."]
+z_index = 99
+scale = Vector2(3, 3)
+texture = ExtResource("2_hdf62")
+centered = false

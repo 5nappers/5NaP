@@ -231,12 +231,6 @@ material_override = SubResource("StandardMaterial3D_7jt7r")
 mesh = ExtResource("12_ssg88")
 skeleton = NodePath("../../..")
 
-[node name="DeskChair" type="MeshInstance3D" parent="H-block/Desk"]
-transform = Transform3D(-1, 0, 8.74227e-08, 0, 1, 0, -8.74227e-08, 0, -1, 0.0943975, 0.00414181, 0.868244)
-material_override = SubResource("StandardMaterial3D_dkg41")
-mesh = ExtResource("6_4bxud")
-skeleton = NodePath("../../..")
-
 [node name="Desk2" type="MeshInstance3D" parent="H-block"]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 3.2238, 12.8764, -21.8153)
 material_override = SubResource("StandardMaterial3D_isibu")
