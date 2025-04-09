@@ -14,15 +14,18 @@
 
 [sub_resource type="Environment" id="Environment_5o3vw"]
 glow_enabled = true
-glow_intensity = 0.69
-glow_strength = 0.69
-glow_blend_mode = 1
+glow_normalized = true
+glow_intensity = 8.0
+glow_strength = 1.06
+glow_hdr_threshold = 1.44
 
 [sub_resource type="Curve" id="Curve_ly336"]
 _data = [Vector2(0, 0), 0.0, 2.15244, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_sftod"]
+auto_exposure_scale = 0.5
+auto_exposure_speed = 18.96
 dof_blur_far_enabled = true
 dof_blur_far_transition = 1.0
 dof_blur_amount = 0.15
@@ -41,9 +44,10 @@ viewport_path = NodePath("ComputerMonitor4-4/Screen/ScreenInteraction/SubViewpor
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wiwwa"]
 resource_local_to_scene = true
+albedo_color = Color(0.340194, 0.376376, 0.43909, 1)
 albedo_texture = SubResource("ViewportTexture_1rtap")
 emission_enabled = true
-emission_energy_multiplier = 2.0
+emission_energy_multiplier = 0.0
 emission_texture = SubResource("ViewportTexture_hee0s")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8uep"]
@@ -80,7 +84,7 @@ node_to_control = NodePath("../../Camera")
 [node name="Camera" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18464e-08, 0, 0.499788)
 attributes = SubResource("CameraAttributesPractical_sftod")
-fov = 37.8493
+fov = 30.0
 
 [node name="DebugUI" type="Control" parent="Player"]
 layout_mode = 3
