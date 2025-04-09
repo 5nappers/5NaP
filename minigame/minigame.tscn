@@ -37,10 +37,10 @@ albedo_texture = ExtResource("6_ydwyq")
 size = Vector2(0.42, 0.319)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1rtap"]
-viewport_path = NodePath("ComputerMonitor4-4/Screen/ScreenInteraction/SubViewport")
+viewport_path = NodePath("ComputerMonitor4-7/Screen/ScreenInteraction/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_hee0s"]
-viewport_path = NodePath("ComputerMonitor4-4/Screen/ScreenInteraction/SubViewport")
+viewport_path = NodePath("ComputerMonitor4-7/Screen/ScreenInteraction/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wiwwa"]
 resource_local_to_scene = true
@@ -94,66 +94,68 @@ offset_bottom = 40.0
 
 [node name="Third Floor" parent="." instance=ExtResource("6_usrgj")]
 
-[node name="ComputerMonitor4-4" type="MeshInstance3D" parent="."]
+[node name="ComputerMonitor4-7" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.097, 0.489, 0)
 material_override = SubResource("StandardMaterial3D_qr1v0")
 mesh = ExtResource("7_2rc1j")
-skeleton = NodePath("../ComputerMonitor4-3")
 
-[node name="Screen" type="MeshInstance3D" parent="ComputerMonitor4-4"]
+[node name="Screen" type="MeshInstance3D" parent="ComputerMonitor4-7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34, -0.004)
 mesh = SubResource("QuadMesh_qunyx")
 surface_material_override/0 = SubResource("StandardMaterial3D_wiwwa")
 script = ExtResource("8_ys23m")
 
-[node name="ScreenInteraction" type="Area3D" parent="ComputerMonitor4-4/Screen"]
+[node name="ScreenInteraction" type="Area3D" parent="ComputerMonitor4-7/Screen"]
 transform = Transform3D(1, 0, -1.86265e-09, 0, 1, 0, 1.86265e-09, 0, 1, 0, 0, 0)
 script = ExtResource("9_dythp")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-4/Screen/ScreenInteraction"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-7/Screen/ScreenInteraction"]
 shape = SubResource("BoxShape3D_u8uep")
 
-[node name="SubViewport" type="SubViewport" parent="ComputerMonitor4-4/Screen/ScreenInteraction"]
+[node name="SubViewport" type="SubViewport" parent="ComputerMonitor4-7/Screen/ScreenInteraction"]
 size = Vector2i(2048, 1536)
 
-[node name="MainMonitor" parent="ComputerMonitor4-4/Screen/ScreenInteraction/SubViewport" instance=ExtResource("9_sjvb0")]
+[node name="MainMonitor" parent="ComputerMonitor4-7/Screen/ScreenInteraction/SubViewport" instance=ExtResource("9_sjvb0")]
 
-[node name="Focusable" type="Area3D" parent="ComputerMonitor4-4/Screen"]
+[node name="Focusable" type="Area3D" parent="ComputerMonitor4-7/Screen"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.005)
 script = ExtResource("8_5umj3")
 fov = 69.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-4/Screen/Focusable"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-7/Screen/Focusable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86265e-08, 0.000478029, 0.000213623)
 shape = SubResource("BoxShape3D_eh86l")
 
-[node name="TargetCameraTransform" type="Marker3D" parent="ComputerMonitor4-4/Screen/Focusable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.37)
+[node name="TargetCameraTransform" type="Marker3D" parent="ComputerMonitor4-7/Screen/Focusable"]
+transform = Transform3D(0.950315, 0, 0.31129, 0, 1, 0, -0.31129, 0, 0.950315, 0.151222, -0.0107409, 0.320429)
 
-[node name="ComputerMonitor4-5" type="MeshInstance3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="ComputerMonitor4-7/Screen/Focusable/TargetCameraTransform"]
+visible = false
+fov = 69.0
+
+[node name="ComputerMonitor4-8" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.691425, 0, -0.722449, 0, 1, 0, 0.722449, 0, 0.691425, 0.791479, 0.489, -0.756079)
 material_override = SubResource("StandardMaterial3D_qr1v0")
 mesh = ExtResource("7_2rc1j")
-skeleton = NodePath("../ComputerMonitor4-3")
 
-[node name="Focusable" type="Area3D" parent="ComputerMonitor4-5"]
+[node name="Focusable" type="Area3D" parent="ComputerMonitor4-8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.344453, 0)
 script = ExtResource("8_5umj3")
 fov = 69.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-5/Focusable"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-8/Focusable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86265e-08, -0.00473666, 0.000213623)
 shape = SubResource("BoxShape3D_eh86l")
 
-[node name="TargetCameraTransform" type="Marker3D" parent="ComputerMonitor4-5/Focusable"]
+[node name="TargetCameraTransform" type="Marker3D" parent="ComputerMonitor4-8/Focusable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.37)
 
-[connection signal="input_event" from="ComputerMonitor4-4/Screen/ScreenInteraction" to="ComputerMonitor4-4/Screen/ScreenInteraction" method="_on_input_event"]
-[connection signal="mouse_entered" from="ComputerMonitor4-4/Screen/ScreenInteraction" to="ComputerMonitor4-4/Screen/ScreenInteraction" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="ComputerMonitor4-4/Screen/ScreenInteraction" to="ComputerMonitor4-4/Screen/ScreenInteraction" method="_on_mouse_exited"]
-[connection signal="input_event" from="ComputerMonitor4-4/Screen/Focusable" to="ComputerMonitor4-4/Screen/Focusable" method="_on_input_event"]
-[connection signal="on_click" from="ComputerMonitor4-4/Screen/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
-[connection signal="on_click" from="ComputerMonitor4-4/Screen/Focusable" to="ComputerMonitor4-4/Screen" method="_on_focus"]
-[connection signal="on_unfocus" from="ComputerMonitor4-4/Screen/Focusable" to="ComputerMonitor4-4/Screen" method="_on_unfocus"]
-[connection signal="input_event" from="ComputerMonitor4-5/Focusable" to="ComputerMonitor4-5/Focusable" method="_on_input_event"]
-[connection signal="on_click" from="ComputerMonitor4-5/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
+[connection signal="input_event" from="ComputerMonitor4-7/Screen/ScreenInteraction" to="ComputerMonitor4-7/Screen/ScreenInteraction" method="_on_input_event"]
+[connection signal="mouse_entered" from="ComputerMonitor4-7/Screen/ScreenInteraction" to="ComputerMonitor4-7/Screen/ScreenInteraction" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ComputerMonitor4-7/Screen/ScreenInteraction" to="ComputerMonitor4-7/Screen/ScreenInteraction" method="_on_mouse_exited"]
+[connection signal="input_event" from="ComputerMonitor4-7/Screen/Focusable" to="ComputerMonitor4-7/Screen/Focusable" method="_on_input_event"]
+[connection signal="on_click" from="ComputerMonitor4-7/Screen/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
+[connection signal="on_click" from="ComputerMonitor4-7/Screen/Focusable" to="ComputerMonitor4-7/Screen" method="_on_focus"]
+[connection signal="on_unfocus" from="ComputerMonitor4-7/Screen/Focusable" to="ComputerMonitor4-7/Screen" method="_on_unfocus"]
+[connection signal="input_event" from="ComputerMonitor4-8/Focusable" to="ComputerMonitor4-8/Focusable" method="_on_input_event"]
+[connection signal="on_click" from="ComputerMonitor4-8/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
