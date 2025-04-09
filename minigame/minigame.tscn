@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cb36uqv6stpui"]
+[gd_scene load_steps=18 format=3 uid="uid://cb36uqv6stpui"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="2_k2ja8"]
 [ext_resource type="Script" path="res://player/state machine/look_around.gd" id="3_ugoyj"]
@@ -20,8 +20,24 @@ albedo_texture = ExtResource("6_ydwyq")
 [sub_resource type="BoxShape3D" id="BoxShape3D_eh86l"]
 size = Vector3(0.470459, 0.370819, 0.00604248)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dtimb"]
+[sub_resource type="QuadMesh" id="QuadMesh_qunyx"]
+size = Vector2(0.417, 0.316)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1rtap"]
 viewport_path = NodePath("ComputerMonitor4-4/Screen/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hee0s"]
+viewport_path = NodePath("ComputerMonitor4-4/Screen/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wiwwa"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_1rtap")
+emission_enabled = true
+emission_energy_multiplier = 1.4
+emission_texture = SubResource("ViewportTexture_hee0s")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8uep"]
+size = Vector3(0.417, 0.316, 0.005)
 
 [node name="Minigame" type="Node3D"]
 
@@ -56,6 +72,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Third Floor" parent="." instance=ExtResource("6_usrgj")]
+visible = false
 
 [node name="ComputerMonitor4-4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.00872649, 0, -0.999962, 0, 1, 0, 0.999962, 0, 0.00872649, 1.097, 0.489, 0)
@@ -74,14 +91,21 @@ shape = SubResource("BoxShape3D_eh86l")
 [node name="TargetCameraTransform" type="Marker3D" parent="ComputerMonitor4-4/Focusable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030717, 0, 0.351985)
 
-[node name="Screen" type="Sprite3D" parent="ComputerMonitor4-4"]
-transform = Transform3D(0.022, 0, -4.36557e-11, 0, 0.022, 0, 4.36557e-11, 0, 0.022, 4.17456e-05, 0.341641, -0.00478363)
-texture = SubResource("ViewportTexture_dtimb")
+[node name="Screen" type="MeshInstance3D" parent="ComputerMonitor4-4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012438, 0.340334, -0.00453675)
+mesh = SubResource("QuadMesh_qunyx")
+surface_material_override/0 = SubResource("StandardMaterial3D_wiwwa")
 
 [node name="SubViewport" type="SubViewport" parent="ComputerMonitor4-4/Screen"]
 size = Vector2i(2048, 1536)
 
 [node name="MainMonitor" parent="ComputerMonitor4-4/Screen/SubViewport" instance=ExtResource("9_sjvb0")]
+
+[node name="Area3D" type="Area3D" parent="ComputerMonitor4-4/Screen"]
+transform = Transform3D(1, 0, -1.98435e-09, 0, 1, 0, 1.98435e-09, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-4/Screen/Area3D"]
+shape = SubResource("BoxShape3D_u8uep")
 
 [node name="ComputerMonitor4-5" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.691425, 0, -0.722449, 0, 1, 0, 0.722449, 0, 0.691425, 0.791479, 0.489, -0.756079)
