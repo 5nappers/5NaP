@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://8yikq1mdgi87"]
+[gd_scene load_steps=6 format=3 uid="uid://8yikq1mdgi87"]
 
 [ext_resource type="PackedScene" uid="uid://cps3m0ej27j3m" path="res://scene/H-Block/third-floor.tscn" id="1_8gxwt"]
-[ext_resource type="PackedScene" uid="uid://cxiymvhylylbb" path="res://pathing_nodes/scenes/pathing_nodes.tscn" id="2_g2f3i"]
 [ext_resource type="Script" path="res://pathing_nodes/scripts/pathing_node.gd" id="3_f5m7m"]
 [ext_resource type="PackedScene" uid="uid://bhqxlqb5f7dy" path="res://pathing_nodes/scenes/temp_monster.tscn" id="4_o1y8x"]
 [ext_resource type="PackedScene" uid="uid://ct410dyxv2rn0" path="res://pathing_nodes/scenes/map_floor_3.tscn" id="5_53ule"]
@@ -12,75 +11,72 @@ viewport_path = NodePath("Map/SubViewport")
 [node name="Node3D" type="Node3D"]
 
 [node name="Third Floor" parent="." instance=ExtResource("1_8gxwt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -6.45, -5)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, -6.45, -10)
 
-[node name="PathingNodesScene" parent="." instance=ExtResource("2_g2f3i")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 28.2553)
+[node name="Pathing Nodes" type="Node3D" parent="."]
 
-[node name="PathingNodes2" type="Node3D" parent="."]
-
-[node name="MainOffice" type="Node3D" parent="PathingNodes2" node_paths=PackedStringArray("neighbour_nodes")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -11)
+[node name="MainOffice" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 0, 3)
 script = ExtResource("3_f5m7m")
 node_name = "main_office"
 neighbour_nodes = [NodePath("../Hallway1")]
 
-[node name="Hallway1" type="Node3D" parent="PathingNodes2" node_paths=PackedStringArray("neighbour_nodes")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -7)
+[node name="Hallway1" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 3)
 script = ExtResource("3_f5m7m")
 node_name = "hallway_1"
 neighbour_nodes = [NodePath("../Hallway2")]
 
-[node name="Hallway2" type="Node3D" parent="PathingNodes2" node_paths=PackedStringArray("neighbour_nodes")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26276, 0, -7)
+[node name="Hallway2" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 6.26276)
 script = ExtResource("3_f5m7m")
 node_name = "hallway_2"
 neighbour_nodes = [NodePath("../Office4"), NodePath("../Hallway3")]
 
-[node name="Hallway3" type="Node3D" parent="PathingNodes2" node_paths=PackedStringArray("neighbour_nodes")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2119, 0, -8.36751)
+[node name="Hallway3" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.36751, 0, 10.2119)
 script = ExtResource("3_f5m7m")
 node_name = "hallway_3"
 neighbour_nodes = [NodePath("../Hallway2"), NodePath("../Office1"), NodePath("../Office2"), NodePath("../Office3")]
 
-[node name="Office4" type="Node3D" parent="PathingNodes2" node_paths=PackedStringArray("neighbour_nodes")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1775, 0, -5.51798)
+[node name="Office4" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.51798, 0, 11.1775)
 script = ExtResource("3_f5m7m")
 node_name = "office_4"
 neighbour_nodes = [NodePath("../Hallway2")]
 
-[node name="Office3" type="Node3D" parent="PathingNodes2" node_paths=PackedStringArray("neighbour_nodes")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8411, 0, -9.7087)
+[node name="Office3" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.7087, 0, 12.8411)
 script = ExtResource("3_f5m7m")
 node_name = "office_3"
 neighbour_nodes = [NodePath("../Hallway3")]
 
-[node name="Office2" type="Node3D" parent="PathingNodes2" node_paths=PackedStringArray("neighbour_nodes")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8411, 0, -13.5822)
+[node name="Office2" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.5822, 0, 12.8411)
 script = ExtResource("3_f5m7m")
 node_name = "office_2"
 neighbour_nodes = [NodePath("../Hallway3")]
 
-[node name="Office1" type="Node3D" parent="PathingNodes2" node_paths=PackedStringArray("neighbour_nodes")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8411, 0, -17.269)
+[node name="Office1" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.269, 0, 12.8411)
 script = ExtResource("3_f5m7m")
 node_name = "office_1"
 neighbour_nodes = [NodePath("../Hallway3")]
 
-[node name="TopLeftPos" type="Node3D" parent="PathingNodes2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.75, 0, -21)
+[node name="TopLeftPos" type="Node3D" parent="Pathing Nodes"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 0, 15.75)
 
-[node name="BottomRightPos" type="Node3D" parent="PathingNodes2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 0, 21)
+[node name="BottomRightPos" type="Node3D" parent="Pathing Nodes"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21, 0, -15.75)
 
 [node name="TempMonster" parent="." node_paths=PackedStringArray("current_node", "dest_node_temp", "map_control") instance=ExtResource("4_o1y8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4416, 0, -11.2954)
-current_node = NodePath("../PathingNodes2/MainOffice")
-dest_node_temp = NodePath("../PathingNodes2/Office1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2954, 0, 2.4416)
+current_node = NodePath("../Pathing Nodes/MainOffice")
+dest_node_temp = NodePath("../Pathing Nodes/Office1")
 map_control = NodePath("../Map/SubViewport/map_floor_3")
 
 [node name="Map" type="Sprite3D" parent="."]
-transform = Transform3D(2.74035e-09, 0, -0.125, 0, 0.0208973, 0, 0.0208973, 0, 1.63918e-08, 0.352478, 1.1645, -11.2188)
+transform = Transform3D(-0.0208973, 0, -1.09279e-08, 0, 0.0208973, 0, 1.8269e-09, 0, -0.125, 11.2188, 1.1645, 0.352478)
 texture = SubResource("ViewportTexture_6xnqh")
 
 [node name="SubViewport" type="SubViewport" parent="Map"]
@@ -88,5 +84,5 @@ size = Vector2i(2048, 1536)
 
 [node name="map_floor_3" parent="Map/SubViewport" node_paths=PackedStringArray("monsters", "top_left_pos", "bottom_right_pos") instance=ExtResource("5_53ule")]
 monsters = [NodePath("../../../TempMonster")]
-top_left_pos = NodePath("../../../PathingNodes2/TopLeftPos")
-bottom_right_pos = NodePath("../../../PathingNodes2/BottomRightPos")
+top_left_pos = NodePath("../../../Pathing Nodes/TopLeftPos")
+bottom_right_pos = NodePath("../../../Pathing Nodes/BottomRightPos")
