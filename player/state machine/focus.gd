@@ -1,11 +1,14 @@
 extends PlayerState
 
 
+@export var ui_push_bar_down: TextureRect
+
 var focused_object: Focusable
 
 
 func _state_enter() -> void:
 	focused_object.visible = false
+	ui_push_bar_down.visible = true
 	super._state_enter()
 	
 	
@@ -13,6 +16,7 @@ func _state_exit() -> void:
 	super._state_exit()
 	focused_object.on_unfocus.emit()
 	focused_object.visible = true
+	ui_push_bar_down.visible = false
 	
 
 func transition_in() -> void:

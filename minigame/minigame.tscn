@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://cb36uqv6stpui"]
+[gd_scene load_steps=23 format=3 uid="uid://cb36uqv6stpui"]
 
+[ext_resource type="Texture2D" uid="uid://bhrrl2vibrhei" path="res://minigame/Push zone bar.png" id="1_vq1x2"]
 [ext_resource type="Script" path="res://player/player.gd" id="2_k2ja8"]
 [ext_resource type="Script" path="res://player/state machine/look_around.gd" id="3_ugoyj"]
 [ext_resource type="Script" path="res://player/state machine/player_state_machine.gd" id="4_mjjfo"]
@@ -62,7 +63,7 @@ size = Vector3(0.470459, 0.372734, 0.00604248)
 environment = SubResource("Environment_5o3vw")
 
 [node name="Player" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.936812, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.327387, 0.803, 0)
 script = ExtResource("2_k2ja8")
 push_zone_size_vertical = 1.0
 
@@ -77,20 +78,43 @@ right_rotation_bound = 0.959931
 fov = 60.0
 node_to_control = NodePath("../../Camera")
 
-[node name="Focus" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("node_to_control")]
+[node name="Focus" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("ui_push_bar_down", "node_to_control")]
 script = ExtResource("6_kqsti")
+ui_push_bar_down = NodePath("../../UI/TextureRect")
 node_to_control = NodePath("../../Camera")
 
 [node name="Camera" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18464e-08, 0, 0.499788)
 attributes = SubResource("CameraAttributesPractical_sftod")
-fov = 30.0
+fov = 60.0
 
-[node name="DebugUI" type="Control" parent="Player"]
+[node name="UI" type="Control" parent="Player"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="TextureRect" type="TextureRect" parent="Player/UI"]
+visible = false
+modulate = Color(0.69, 0.345, 0.345, 0.780392)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -283.5
+offset_top = -90.383
+offset_right = 283.5
+offset_bottom = -18.383
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("1_vq1x2")
+expand_mode = 1
 
 [node name="Third Floor" parent="." instance=ExtResource("6_usrgj")]
 
@@ -118,7 +142,7 @@ size = Vector2i(2048, 1536)
 [node name="MainMonitor" parent="ComputerMonitor4-7/Screen/ScreenInteraction/SubViewport" instance=ExtResource("9_sjvb0")]
 
 [node name="Focusable" type="Area3D" parent="ComputerMonitor4-7/Screen"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.005)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0150566, 0.005)
 script = ExtResource("8_5umj3")
 fov = 69.0
 
@@ -127,28 +151,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86265e-08, 0.000478029, 0.0
 shape = SubResource("BoxShape3D_eh86l")
 
 [node name="TargetCameraTransform" type="Marker3D" parent="ComputerMonitor4-7/Screen/Focusable"]
-transform = Transform3D(0.950315, 0, 0.31129, 0, 1, 0, -0.31129, 0, 0.950315, 0.151222, -0.0107409, 0.320429)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.011, 0.326328)
 
 [node name="Camera3D" type="Camera3D" parent="ComputerMonitor4-7/Screen/Focusable/TargetCameraTransform"]
 visible = false
 fov = 69.0
-
-[node name="ComputerMonitor4-8" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.691425, 0, -0.722449, 0, 1, 0, 0.722449, 0, 0.691425, 0.791479, 0.489, -0.756079)
-material_override = SubResource("StandardMaterial3D_qr1v0")
-mesh = ExtResource("7_2rc1j")
-
-[node name="Focusable" type="Area3D" parent="ComputerMonitor4-8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.344453, 0)
-script = ExtResource("8_5umj3")
-fov = 69.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-8/Focusable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86265e-08, -0.00473666, 0.000213623)
-shape = SubResource("BoxShape3D_eh86l")
-
-[node name="TargetCameraTransform" type="Marker3D" parent="ComputerMonitor4-8/Focusable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.37)
 
 [connection signal="input_event" from="ComputerMonitor4-7/Screen/ScreenInteraction" to="ComputerMonitor4-7/Screen/ScreenInteraction" method="_on_input_event"]
 [connection signal="mouse_entered" from="ComputerMonitor4-7/Screen/ScreenInteraction" to="ComputerMonitor4-7/Screen/ScreenInteraction" method="_on_mouse_entered"]
@@ -157,5 +164,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.37)
 [connection signal="on_click" from="ComputerMonitor4-7/Screen/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
 [connection signal="on_click" from="ComputerMonitor4-7/Screen/Focusable" to="ComputerMonitor4-7/Screen" method="_on_focus"]
 [connection signal="on_unfocus" from="ComputerMonitor4-7/Screen/Focusable" to="ComputerMonitor4-7/Screen" method="_on_unfocus"]
-[connection signal="input_event" from="ComputerMonitor4-8/Focusable" to="ComputerMonitor4-8/Focusable" method="_on_input_event"]
-[connection signal="on_click" from="ComputerMonitor4-8/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
