@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://cb36uqv6stpui"]
 
-[ext_resource type="Texture2D" uid="uid://bhrrl2vibrhei" path="res://minigame/Push zone bar.png" id="1_vq1x2"]
+[ext_resource type="Texture2D" uid="uid://bhrrl2vibrhei" path="res://player/state machine/Push zone bar.png" id="1_vq1x2"]
 [ext_resource type="Script" path="res://player/player.gd" id="2_k2ja8"]
 [ext_resource type="Script" path="res://player/state machine/look_around.gd" id="3_ugoyj"]
 [ext_resource type="Script" path="res://player/state machine/player_state_machine.gd" id="4_mjjfo"]
@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://cewdxcweipx16" path="res://assets/ModernOfficePack/ComputerMonitor4-3/ComputerMonitor4-3_Base_Color.png" id="6_ydwyq"]
 [ext_resource type="ArrayMesh" uid="uid://b2w2gi50g6dwp" path="res://assets/ModernOfficePack/ComputerMonitor4-3/ComputerMonitor4-3.obj" id="7_2rc1j"]
 [ext_resource type="Script" path="res://minigame/focusable.gd" id="8_5umj3"]
-[ext_resource type="Script" path="res://minigame/screen.gd" id="8_ys23m"]
-[ext_resource type="Script" path="res://minigame/interactable_screen.gd" id="9_dythp"]
-[ext_resource type="PackedScene" uid="uid://3v8gwyj7wkpe" path="res://minigame/main_monitor.tscn" id="9_sjvb0"]
+[ext_resource type="Script" path="res://minigame/monitor/screen.gd" id="8_ys23m"]
+[ext_resource type="Script" path="res://minigame/monitor/interactable_screen.gd" id="9_dythp"]
+[ext_resource type="PackedScene" uid="uid://3v8gwyj7wkpe" path="res://minigame/monitor/main_monitor.tscn" id="9_sjvb0"]
 
 [sub_resource type="Environment" id="Environment_5o3vw"]
 glow_enabled = true
