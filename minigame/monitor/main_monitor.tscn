@@ -28,17 +28,19 @@ color = Color(0.969137, 0.969137, 0.969137, 1)
 [node name="QuestionNavBar" type="ScrollContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0366211
-anchor_top = 0.855469
-anchor_right = 0.963379
-anchor_bottom = 0.945964
+anchor_left = 0.0737305
+anchor_top = 0.844401
+anchor_right = 0.92627
+anchor_bottom = 0.957031
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("2_v03hv")
 button_hover_scale = 1.1
+button_toggled_scale = 1.35
 tween_duration = 0.15
 tween_ease = 1
 tween_transition = 6
+metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/QuestionNavBar"]
 layout_mode = 2

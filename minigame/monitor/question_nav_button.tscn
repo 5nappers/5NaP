@@ -15,10 +15,10 @@ layout_mode = 2
 [node name="Button" type="TextureRect" parent="Control"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
+offset_left = -53.0
+offset_top = -53.0
+offset_right = 53.0
+offset_bottom = 53.0
 texture = ExtResource("2_hq27f")
 expand_mode = 1
 
