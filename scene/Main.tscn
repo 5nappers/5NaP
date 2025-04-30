@@ -46,10 +46,28 @@ node_name = "hallway_4"
 neighbour_nodes = [NodePath("../Hallway2"), NodePath("../Hallway5")]
 
 [node name="Hallway5" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, 6.263)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, 6.263)
 script = ExtResource("3_f5m7m")
 node_name = "hallway_5"
-neighbour_nodes = [NodePath("../Hallway4")]
+neighbour_nodes = [NodePath("../Hallway4"), NodePath("../Hallway6")]
+
+[node name="Hallway6" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 0, 6.263)
+script = ExtResource("3_f5m7m")
+node_name = "hallway_6"
+neighbour_nodes = [NodePath("../Hallway5"), NodePath("../Hallway7")]
+
+[node name="Hallway7" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 0, 0)
+script = ExtResource("3_f5m7m")
+node_name = "hallway_7"
+neighbour_nodes = [NodePath("../Hallway6"), NodePath("../Hallway8")]
+
+[node name="Hallway8" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 0, -6)
+script = ExtResource("3_f5m7m")
+node_name = "hallway_8"
+neighbour_nodes = [NodePath(".")]
 
 [node name="Office4" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.51798, 0, 11.1775)
