@@ -4,6 +4,8 @@ class_name MainMonitor
 
 @onready var cursor: Sprite2D = $Cursor
 
+signal assignment_submitted(score_percentage: float)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouse:

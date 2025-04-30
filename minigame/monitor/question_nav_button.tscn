@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch0t2ajvooy03"]
+
+[ext_resource type="Script" path="res://minigame/monitor/question_nav_button.gd" id="1_ckiyd"]
+[ext_resource type="Texture2D" uid="uid://5phdy06b5xi1" path="res://minigame/monitor/question select icon.png" id="2_hq27f"]
+
+[node name="QuestionNavButton" type="CenterContainer"]
+custom_minimum_size = Vector2(128, 128)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_ckiyd")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Button" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("2_hq27f")
+expand_mode = 1
+
+[connection signal="gui_input" from="Control/Button" to="." method="_on_button_gui_input"]
+[connection signal="mouse_entered" from="Control/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Button" to="." method="_on_button_mouse_exited"]

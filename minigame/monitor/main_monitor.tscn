@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://3v8gwyj7wkpe"]
+[gd_scene load_steps=4 format=3 uid="uid://3v8gwyj7wkpe"]
 
 [ext_resource type="Script" path="res://minigame/monitor/main_monitor.gd" id="1_mmj3u"]
 [ext_resource type="Texture2D" uid="uid://qe3hfryteqqs" path="res://minigame/monitor/cursor.png" id="2_hdf62"]
+[ext_resource type="Script" path="res://minigame/monitor/question_nav_bar.gd" id="2_v03hv"]
 
 [node name="MainMonitor" type="Node2D"]
 script = ExtResource("1_mmj3u")
@@ -24,22 +25,26 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.969137, 0.969137, 0.969137, 1)
 
-[node name="Button" type="Button" parent="Control"]
+[node name="QuestionNavBar" type="ScrollContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+anchors_preset = -1
+anchor_left = 0.0366211
+anchor_top = 0.855469
+anchor_right = 0.963379
+anchor_bottom = 0.945964
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 45
-action_mode = 0
-text = "Press this button to win the game"
+grow_vertical = 0
+script = ExtResource("2_v03hv")
+button_hover_scale = 1.1
+tween_duration = 0.15
+tween_ease = 1
+tween_transition = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/QuestionNavBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+alignment = 1
 
 [node name="Cursor" type="Sprite2D" parent="."]
 visible = false
