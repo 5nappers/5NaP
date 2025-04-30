@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://cb36uqv6stpui"]
+[gd_scene load_steps=24 format=3 uid="uid://cb36uqv6stpui"]
 
+[ext_resource type="Script" path="res://minigame/minigame.gd" id="1_6tj72"]
 [ext_resource type="Texture2D" uid="uid://bhrrl2vibrhei" path="res://player/state machine/Push zone bar.png" id="1_vq1x2"]
 [ext_resource type="Script" path="res://player/player.gd" id="2_k2ja8"]
 [ext_resource type="Script" path="res://player/state machine/look_around.gd" id="3_ugoyj"]
@@ -58,6 +59,7 @@ size = Vector3(0.419922, 0.319336, 0.005)
 size = Vector3(0.470459, 0.372734, 0.00604248)
 
 [node name="Minigame" type="Node3D"]
+script = ExtResource("1_6tj72")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5o3vw")
