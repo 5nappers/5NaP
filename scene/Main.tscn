@@ -130,6 +130,6 @@ texture = SubResource("ViewportTexture_6xnqh")
 size = Vector2i(2048, 1536)
 
 [node name="map_floor_3" parent="Map/SubViewport" node_paths=PackedStringArray("monsters", "top_left_pos", "bottom_right_pos") instance=ExtResource("5_53ule")]
-monsters = [NodePath("")]
+monsters = [null]
 top_left_pos = NodePath("../../../Pathing Nodes/TopLeftPos")
 bottom_right_pos = NodePath("../../../Pathing Nodes/BottomRightPos")
