@@ -9,6 +9,11 @@ script = ExtResource("1_8p1ml")
 
 [node name="Lecturer" parent="." instance=ExtResource("2_ogmd4")]
 
-[node name="PathingController" type="Node" parent="." node_paths=PackedStringArray("pathing")]
+[node name="PathingController" type="Node" parent="." node_paths=PackedStringArray("pathing", "timer")]
 script = ExtResource("3_xpjia")
 pathing = NodePath("..")
+timer = NodePath("ChangePathTimer")
+
+[node name="ChangePathTimer" type="Timer" parent="PathingController"]
+wait_time = 5.0
+autostart = true
