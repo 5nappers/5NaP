@@ -11,5 +11,5 @@ func _draw() -> void:
 	draw_rect(rect, color, false, 2)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	queue_redraw()
