@@ -129,7 +129,6 @@ lecturer_name = "guy"
 current_node = NodePath("../Pathing Nodes/Hallway6")
 player_office_node = NodePath("../Pathing Nodes/MainOffice")
 map_control = NodePath("../Map/SubViewport/map_floor_3")
-difficulty = 20
 
 [node name="Map" type="Sprite3D" parent="."]
 transform = Transform3D(-0.0208973, 0, -1.09279e-08, 0, 0.0208973, 0, 1.8269e-09, 0, -0.125, 11.2188, 1.1645, 0.352478)
