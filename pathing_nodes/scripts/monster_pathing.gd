@@ -16,6 +16,7 @@ var is_movement_paused: bool = false
 var path_completed: bool = false
 signal finish_path
 signal no_path
+signal trigger_jumpscare
 
 func _ready() -> void:
 	current_node = monster_home_node
@@ -68,6 +69,9 @@ func arrived_at_destination() -> void:
 	print("Arrived at path");
 	path_completed = true
 	finish_path.emit()
+	
+	if (current_node == player_office_node):
+		trigger_jumpscare.emit()
 
 
 # This is called by whatever script (some state machine) that tells the freaks where to path to maybe
