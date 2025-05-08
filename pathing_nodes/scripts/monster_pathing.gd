@@ -3,16 +3,22 @@ class_name MonsterPathing
 extends Node3D
 
 @export var lecturer_name: String
-@export var current_node: Node3D
 @export var player_office_node: Node3D
+@export var monster_home_node: Node3D
 @export var map_control: Node2D
 @export var max_path_attempts: int = 100
 @export var difficulty: int = 10
 const max_difficulty: int = 20
+var current_node: Node3D
 var time: float = 0
 var path_to_goal: Array[Node3D] = []
+var is_movement_paused: bool = false
+var path_completed: bool = false
 signal finish_path
 signal no_path
+
+func _ready() -> void:
+	current_node = monster_home_node
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -24,6 +30,9 @@ func _process(delta: float) -> void:
 
 
 func move_to_next_node() -> void:
+	if (is_movement_paused):
+		return;
+	
 	if (path_to_goal.size() == 0): 
 		print("No Path For Monster (This may or may not be intended)")
 		no_path.emit()
@@ -57,12 +66,14 @@ func get_destination() -> Node3D:
 
 func arrived_at_destination() -> void:
 	print("Arrived at path");
+	path_completed = true
 	finish_path.emit()
 
 
 # This is called by whatever script (some state machine) that tells the freaks where to path to maybe
 func set_new_destination(new_node: Node3D) -> void:
 	path_to_goal = calculate_path(new_node)
+	path_completed = false
 
 
 func calculate_path(destination: Node3D) -> Array[Node3D]:

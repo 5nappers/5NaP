@@ -16,6 +16,7 @@ var isAttacking: bool = false;
 
 
 func _ready() -> void:
+	pathing.difficulty = clamp(pathing.difficulty, 1, pathing.max_difficulty)	
 	timer.timeout.connect(on_timer_timeout)
 	pathing.finish_path.connect(on_finish_path)
 	pathing.no_path.connect(on_no_path)
@@ -28,12 +29,20 @@ func _process(delta: float) -> void:
 
 
 func on_timer_timeout() -> void:
+	if (pathing.is_movement_paused):
+		pathing.is_movement_paused = false;
+	
 	check_agression_direction()
+	change_to_logical_path()
 	timer.start(timer_time)
 
 
 func on_finish_path() -> void:
-	print("path done")
+	aggression = 0
+	change_to_logical_path()
+	pathing.is_movement_paused = true;
+	timer.stop()
+	timer.start(10) # how long the monster waits after capturing you, can be set by animation or something later
 
 
 func on_no_path() -> void:
@@ -41,6 +50,11 @@ func on_no_path() -> void:
 
 
 func check_agression_direction() -> void:
-	if (aggression == max_aggression && !isAttacking):
+	isAttacking = aggression == max_aggression
+
+
+func change_to_logical_path() -> void:
+	if (isAttacking && !pathing.path_completed):
 		pathing.set_new_destination(pathing.player_office_node)
-		isAttacking = true;
+	else:
+		pathing.set_new_destination(pathing.monster_home_node)
