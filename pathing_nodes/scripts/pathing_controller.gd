@@ -19,7 +19,6 @@ func _ready() -> void:
 	pathing.difficulty = clamp(pathing.difficulty, 1, pathing.max_difficulty)	
 	timer.timeout.connect(on_timer_timeout)
 	pathing.finish_path.connect(on_finish_path)
-	pathing.no_path.connect(on_no_path)
 	timer.start(timer_time)
 
 
@@ -43,11 +42,6 @@ func on_finish_path() -> void:
 	pathing.is_movement_paused = true;
 	timer.stop()
 	timer.start(10) # how long the monster waits after capturing you, can be set by animation or something later
-
-
-func on_no_path() -> void:
-	print("no path")
-
 
 func check_agression_direction() -> void:
 	isAttacking = aggression == max_aggression

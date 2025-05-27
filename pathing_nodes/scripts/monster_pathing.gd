@@ -47,7 +47,6 @@ func move_to_next_node() -> void:
 	move_node(new_node)
 	path_to_goal.pop_front()
 	map_control.monster_moved.emit(self)
-	print("moved")
 
 
 func move_node(new_node: Node3D) -> void:
@@ -66,7 +65,6 @@ func get_destination() -> Node3D:
 
 
 func arrived_at_destination() -> void:
-	print("Arrived at path");
 	path_completed = true
 	finish_path.emit()
 	
@@ -115,8 +113,6 @@ func calculate_path(destination: Node3D) -> Array[Node3D]:
 				var first_index: int = path.find(prev_node)
 				if (first_index >= 0):
 					var second_index: int = path.find(prev_node, first_index)
-					print(first_index)
-					print(second_index)
 					
 					# If index out of bounds array issues start happening its because of right under here
 					# Removing the path nodes that were in the backtracked section
