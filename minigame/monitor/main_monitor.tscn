@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://3v8gwyj7wkpe"]
 
 [ext_resource type="Script" path="res://minigame/monitor/main_monitor.gd" id="1_mmj3u"]
-[ext_resource type="Texture2D" uid="uid://qe3hfryteqqs" path="res://minigame/monitor/cursor.png" id="2_hdf62"]
-[ext_resource type="Script" path="res://minigame/monitor/question_nav_bar.gd" id="2_v03hv"]
+[ext_resource type="Texture2D" uid="uid://qe3hfryteqqs" path="res://minigame/monitor/UI/cursor.png" id="2_hdf62"]
+[ext_resource type="Script" path="res://minigame/monitor/UI/question_nav_bar.gd" id="2_v03hv"]
 
 [node name="MainMonitor" type="Node2D"]
 script = ExtResource("1_mmj3u")

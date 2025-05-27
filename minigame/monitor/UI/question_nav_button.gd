@@ -2,6 +2,8 @@ class_name QuestionNavButton
 extends CenterContainer
 
 
+signal select_button(button: QuestionNavButton)
+
 enum State {
 	UNANSWERED,
 	ANSWERED,
@@ -18,11 +20,40 @@ var ui_behavior: UIBehavior
 @onready var button: TextureRect = $Control/Button
 @onready var rescalable_control: Control = $Control
 
-signal select_button(button: QuestionNavButton)
-
 
 func _ready() -> void:
 	reset_tween()
+	
+	
+func _on_button_mouse_entered() -> void:
+	is_hovered = true
+
+
+func _on_button_mouse_exited() -> void:
+	is_hovered = false
+
+
+func _on_button_gui_input(event: InputEvent) -> void:
+	if event is not InputEventMouse:
+		return
+	if (event as InputEventMouse).is_pressed():
+		select()
+		
+		
+func select() -> void:
+	print("select")
+	is_selected = true
+	select_button.emit(self)
+	reset_tween()
+	tween.tween_property(
+		rescalable_control, "scale", ui_behavior.button_selected_scale,
+		ui_behavior.tween_duration)
+	
+	
+func deselect() -> void:
+	print("deselect")
+	is_selected = false
+	set_is_hovered(is_hovered)
 	
 	
 func reset_tween() -> void:
@@ -40,44 +71,14 @@ func set_is_hovered(value: bool) -> void:
 	reset_tween()
 	if is_hovered:
 		tween.tween_property(
-				rescalable_control, "scale", ui_behavior.button_hover_scale, 
-				ui_behavior.tween_duration)
+			rescalable_control, "scale", ui_behavior.button_hover_scale,
+			ui_behavior.tween_duration)
 		print("hovered!")
 	else:
 		tween.tween_property(
-				rescalable_control, "scale", Vector2.ONE, 
-				ui_behavior.tween_duration)
-		print("unhovered!")
-	
-
-func select() -> void:
-	is_selected = true
-	select_button.emit(self)
-	reset_tween()
-	tween.tween_property(
-			rescalable_control, "scale", ui_behavior.button_selected_scale, 
+			rescalable_control, "scale", Vector2.ONE,
 			ui_behavior.tween_duration)
-	
-	
-func deselect() -> void:
-	print("deselect")
-	is_selected = false
-	set_is_hovered(is_hovered)
-	
-
-func _on_button_mouse_entered() -> void:
-	is_hovered = true
-
-
-func _on_button_mouse_exited() -> void:
-	is_hovered = false
-
-
-func _on_button_gui_input(event: InputEvent) -> void:
-	if event is not InputEventMouse:
-		return
-	if (event as InputEventMouse).is_pressed():
-		select()
+		print("unhovered!")
 
 
 class UIBehavior:

@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ch0t2ajvooy03"]
+[gd_scene load_steps=3 format=3 uid="uid://b1dqm6g5emj0q"]
 
-[ext_resource type="Script" path="res://minigame/monitor/question_nav_button.gd" id="1_ckiyd"]
-[ext_resource type="Texture2D" uid="uid://5phdy06b5xi1" path="res://minigame/monitor/question select icon.png" id="2_hq27f"]
+[ext_resource type="Script" path="res://minigame/monitor/UI/question_nav_button.gd" id="1_ckiyd"]
+[ext_resource type="Texture2D" uid="uid://5phdy06b5xi1" path="res://minigame/monitor/UI/question select icon.png" id="2_hq27f"]
 
 [node name="QuestionNavButton" type="CenterContainer"]
 custom_minimum_size = Vector2(128, 128)

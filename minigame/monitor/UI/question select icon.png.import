@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qe3hfryteqqs"
-path="res://.godot/imported/cursor.png-e88751bafb0a7233583ba6ef025306fc.ctex"
+uid="uid://5phdy06b5xi1"
+path="res://.godot/imported/question select icon.png-aa41e2ac755c4d0490009c45c821e8a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigame/monitor/cursor.png"
-dest_files=["res://.godot/imported/cursor.png-e88751bafb0a7233583ba6ef025306fc.ctex"]
+source_file="res://minigame/monitor/UI/question select icon.png"
+dest_files=["res://.godot/imported/question select icon.png-aa41e2ac755c4d0490009c45c821e8a8.ctex"]
 
 [params]
 
