@@ -253,7 +253,7 @@ material_override = SubResource("StandardMaterial3D_isibu")
 mesh = ExtResource("17_yn1nq")
 
 [node name="ComputerPrinter" type="MeshInstance3D" parent="Desk2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322738, 0.821609, -0.013876)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.325165, 0.75907, -0.00485384)
 material_override = SubResource("StandardMaterial3D_0putg")
 mesh = ExtResource("20_yaq6u")
 skeleton = NodePath("../..")
