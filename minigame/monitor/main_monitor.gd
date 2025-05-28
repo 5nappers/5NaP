@@ -8,7 +8,11 @@ signal assignment_submitted(score_percentage: float)
 const ASSIGNMENT: JSON = preload("res://minigame/monitor/assignment/assignment-1.json")
 
 var questions: Array[Dictionary]
-var selected_question_index: int
+var current_question_index: int
+var current_question: Dictionary:
+	get = _get_current_question
+var current_question_button: QuestionNavButton:
+	get = _get_current_question_button
 
 @onready var cursor: Sprite2D = $Cursor
 @onready var question_nav_bar: QuestionNavBar = $QuestionUI/QuestionNavBar
@@ -30,7 +34,12 @@ func _ready() -> void:
 	
 
 func switch_question(index: int) -> void:
-	selected_question_index = index
+	if current_question.user_answer == "":
+		current_question_button.state = QuestionNavButton.State.UNANSWERED
+	else:
+		current_question_button.state = QuestionNavButton.State.ANSWERED
+		
+	current_question_index = index
 	question.text = questions[index].question
 	answer.text = questions[index].user_answer
 	question_nav_bar.buttons[index].select()
@@ -46,14 +55,22 @@ func _on_question_nav_bar_button_selected(index: int) -> void:
 
 
 func _on_answer_text_changed(new_text: String) -> void:
-	questions[selected_question_index].user_answer = new_text
-	question_nav_bar.buttons[selected_question_index].state = (
+	current_question.user_answer = new_text
+	question_nav_bar.buttons[current_question_index].state = (
 			QuestionNavButton.State.ANSWERED
 	)
 
 
 func _on_answer_text_submitted(_new_text: String) -> void:
-	var index = selected_question_index + 1
+	var index = current_question_index + 1
 	if index >= questions.size():
 		return
 	switch_question(index)
+
+
+func _get_current_question() -> Dictionary:
+	return questions[current_question_index]
+	
+
+func _get_current_question_button() -> QuestionNavButton:
+	return question_nav_bar.buttons[current_question_index]

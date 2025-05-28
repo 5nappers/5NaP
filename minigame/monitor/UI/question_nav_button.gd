@@ -12,8 +12,9 @@ enum State {
 
 var is_selected: bool
 var is_hovered: bool:
-	set = set_is_hovered
-var state := State.UNANSWERED
+	set = _set_is_hovered
+var state: QuestionNavButton.State = QuestionNavButton.State.UNANSWERED:
+	set = _set_state
 var tween: Tween
 var ui_behavior: UIBehavior
 
@@ -51,7 +52,7 @@ func select() -> void:
 	
 func deselect() -> void:
 	is_selected = false
-	set_is_hovered(is_hovered)
+	_set_is_hovered(is_hovered)
 	
 	
 func reset_tween() -> void:
@@ -62,7 +63,7 @@ func reset_tween() -> void:
 	tween.set_trans(ui_behavior.tween_transition)
 
 
-func set_is_hovered(value: bool) -> void:
+func _set_is_hovered(value: bool) -> void:
 	is_hovered = value
 	if is_selected:
 		return
@@ -77,9 +78,20 @@ func set_is_hovered(value: bool) -> void:
 			ui_behavior.tween_duration)
 
 
+func _set_state(value: QuestionNavButton.State) -> void:
+	state = value
+	match state:
+		QuestionNavButton.State.UNANSWERED:
+			modulate = ui_behavior.button_unanswered_modulate
+		QuestionNavButton.State.ANSWERED:
+			modulate = ui_behavior.button_answered_modulate
+
+
 class UIBehavior:
 	var button_hover_scale: Vector2
 	var button_selected_scale: Vector2
+	var button_answered_modulate: Color
+	var button_unanswered_modulate: Color
 	var tween_duration: float
 	var tween_ease : Tween.EaseType
 	var tween_transition: Tween.TransitionType
