@@ -1,5 +1,8 @@
+class_name QuestionNavBar
 extends ScrollContainer
 
+
+signal button_selected(index: int)
 
 const QUESTION_NAV_BUTTON = preload("res://minigame/monitor/UI/question_nav_button.tscn")
 
@@ -13,12 +16,6 @@ var buttons: Array[QuestionNavButton]
 var selected_button: QuestionNavButton
 
 @onready var h_box_container: HBoxContainer = $HBoxContainer
-
-
-func _ready() -> void:
-	for i: int in range(12):
-		add_button()
-	buttons[0].select()
 		
 
 func _process(delta: float) -> void:
@@ -35,7 +32,7 @@ func add_button() -> void:
 	
 func copy_ui_behavior() -> QuestionNavButton.UIBehavior:
 	var ui_behavior := QuestionNavButton.UIBehavior.new()
-	
+
 	ui_behavior.button_hover_scale = Vector2.ONE * button_hover_scale
 	ui_behavior.button_selected_scale = Vector2.ONE * button_toggled_scale
 	ui_behavior.tween_duration = tween_duration
@@ -52,3 +49,5 @@ func on_select_button(button: QuestionNavButton) -> void:
 		selected_button.deselect()
 	selected_button = button
 	
+	var index := buttons.find(button)
+	button_selected.emit(index)

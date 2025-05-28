@@ -41,7 +41,6 @@ func _on_button_gui_input(event: InputEvent) -> void:
 		
 		
 func select() -> void:
-	print("select")
 	is_selected = true
 	select_button.emit(self)
 	reset_tween()
@@ -51,7 +50,6 @@ func select() -> void:
 	
 	
 func deselect() -> void:
-	print("deselect")
 	is_selected = false
 	set_is_hovered(is_hovered)
 	
@@ -73,12 +71,10 @@ func set_is_hovered(value: bool) -> void:
 		tween.tween_property(
 			rescalable_control, "scale", ui_behavior.button_hover_scale,
 			ui_behavior.tween_duration)
-		print("hovered!")
 	else:
 		tween.tween_property(
 			rescalable_control, "scale", Vector2.ONE,
 			ui_behavior.tween_duration)
-		print("unhovered!")
 
 
 class UIBehavior:

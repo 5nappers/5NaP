@@ -1,16 +1,59 @@
 extends Node2D
 class_name MainMonitor
 
-
-@onready var cursor: Sprite2D = $Cursor
+## Handles behaviour that takes place on the 2D UI scene
 
 signal assignment_submitted(score_percentage: float)
+
+const ASSIGNMENT: JSON = preload("res://minigame/monitor/assignment/assignment-1.json")
+
+var questions: Array[Dictionary]
+var selected_question_index: int
+
+@onready var cursor: Sprite2D = $Cursor
+@onready var question_nav_bar: QuestionNavBar = $QuestionUI/QuestionNavBar
+@onready var question: Label = $QuestionUI/Question
+@onready var answer: LineEdit = $QuestionUI/Answer
+
+
+func _ready() -> void:
+	for question in ASSIGNMENT.data.questions:
+		questions.append({
+				"question": question.question, 
+				"answer": question.answer,
+				"user_answer": "",
+		})
+		question_nav_bar.add_button()
+	answer.grab_focus()
+	question_nav_bar.buttons[0].select()
+	switch_question(0)
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouse:
-		handle_mouse_event(event)
-		
-		
-func handle_mouse_event(event: InputEventMouse) -> void:
-	cursor.global_position = event.position
+		cursor.global_position = event.position
+
+
+func _on_question_nav_bar_button_selected(index: int) -> void:
+	switch_question(index)
+
+
+func _on_answer_text_changed(new_text: String) -> void:
+	questions[selected_question_index].user_answer = new_text
+	question_nav_bar.buttons[selected_question_index].state = (
+			QuestionNavButton.State.ANSWERED
+	)
+
+
+func _on_answer_text_submitted(_new_text: String) -> void:
+	var index = selected_question_index + 1
+	if index >= questions.size():
+		return
+	switch_question(index)
+
+
+func switch_question(index: int) -> void:
+	selected_question_index = index
+	question.text = questions[index].question
+	answer.text = questions[index].user_answer
+	question_nav_bar.buttons[index].select()

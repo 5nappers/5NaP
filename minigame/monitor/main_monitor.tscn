@@ -1,20 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://3v8gwyj7wkpe"]
+[gd_scene load_steps=5 format=3 uid="uid://3v8gwyj7wkpe"]
 
 [ext_resource type="Script" path="res://minigame/monitor/main_monitor.gd" id="1_mmj3u"]
 [ext_resource type="Texture2D" uid="uid://qe3hfryteqqs" path="res://minigame/monitor/UI/cursor.png" id="2_hdf62"]
 [ext_resource type="Script" path="res://minigame/monitor/UI/question_nav_bar.gd" id="2_v03hv"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_tjduh"]
+font_size = 116
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
 [node name="MainMonitor" type="Node2D"]
 script = ExtResource("1_mmj3u")
 
-[node name="Control" type="Control" parent="."]
+[node name="QuestionUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 2048.0
 offset_bottom = 1536.0
 mouse_filter = 2
 
-[node name="Background" type="ColorRect" parent="Control"]
+[node name="Background" type="ColorRect" parent="QuestionUI"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -25,7 +30,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.969137, 0.969137, 0.969137, 1)
 
-[node name="QuestionNavBar" type="ScrollContainer" parent="Control"]
+[node name="QuestionNavBar" type="ScrollContainer" parent="QuestionUI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0737305
@@ -42,10 +47,38 @@ tween_ease = 1
 tween_transition = 6
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/QuestionNavBar"]
+[node name="HBoxContainer" type="HBoxContainer" parent="QuestionUI/QuestionNavBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
+alignment = 1
+
+[node name="Question" type="Label" parent="QuestionUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 91.0
+offset_top = 111.0
+offset_right = -91.0
+offset_bottom = -1129.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Question"
+label_settings = SubResource("LabelSettings_tjduh")
+
+[node name="Answer" type="LineEdit" parent="QuestionUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 755.0
+offset_top = 672.0
+offset_right = -755.0
+offset_bottom = -672.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 126
 alignment = 1
 
 [node name="Cursor" type="Sprite2D" parent="."]
@@ -54,3 +87,7 @@ z_index = 99
 scale = Vector2(3, 3)
 texture = ExtResource("2_hdf62")
 centered = false
+
+[connection signal="button_selected" from="QuestionUI/QuestionNavBar" to="." method="_on_question_nav_bar_button_selected"]
+[connection signal="text_changed" from="QuestionUI/Answer" to="." method="_on_answer_text_changed"]
+[connection signal="text_submitted" from="QuestionUI/Answer" to="." method="_on_answer_text_submitted"]
