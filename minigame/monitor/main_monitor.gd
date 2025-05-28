@@ -27,6 +27,13 @@ func _ready() -> void:
 	answer.grab_focus()
 	question_nav_bar.buttons[0].select()
 	switch_question(0)
+	
+
+func switch_question(index: int) -> void:
+	selected_question_index = index
+	question.text = questions[index].question
+	answer.text = questions[index].user_answer
+	question_nav_bar.buttons[index].select()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -50,10 +57,3 @@ func _on_answer_text_submitted(_new_text: String) -> void:
 	if index >= questions.size():
 		return
 	switch_question(index)
-
-
-func switch_question(index: int) -> void:
-	selected_question_index = index
-	question.text = questions[index].question
-	answer.text = questions[index].user_answer
-	question_nav_bar.buttons[index].select()
