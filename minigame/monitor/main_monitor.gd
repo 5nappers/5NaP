@@ -1,9 +1,7 @@
 extends Node2D
 class_name MainMonitor
-
 ## Handles behaviour that takes place on the 2D UI scene
 
-signal assignment_submitted(score_percentage: float)
 
 const ASSIGNMENT: JSON = preload("res://minigame/monitor/assignment/assignment-1.json")
 
@@ -45,6 +43,32 @@ func switch_question(index: int) -> void:
 	question_nav_bar.buttons[index].select()
 
 
+func submit() -> void:
+	var score := calculate_score()
+	SceneLoader.end_level(score)
+	
+
+## returns score as a decimal value from 0 - 1
+func calculate_score() -> float:
+	#var question_count := questions.size()
+	var correct_count := 0
+	for question in questions:
+		if question.user_answer == question.answer:
+			correct_count += 1
+			print("%s = %s" % [question.user_answer, question.answer])
+		else:
+			print("%s is not %s" % [question.user_answer, question.answer])
+	return correct_count / (questions.size() as float)
+
+
+func _get_current_question() -> Dictionary:
+	return questions[current_question_index]
+	
+
+func _get_current_question_button() -> QuestionNavButton:
+	return question_nav_bar.buttons[current_question_index]
+	
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouse:
 		cursor.global_position = event.position
@@ -64,13 +88,10 @@ func _on_answer_text_changed(new_text: String) -> void:
 func _on_answer_text_submitted(_new_text: String) -> void:
 	var index = current_question_index + 1
 	if index >= questions.size():
+		submit()
 		return
 	switch_question(index)
 
 
-func _get_current_question() -> Dictionary:
-	return questions[current_question_index]
-	
-
-func _get_current_question_button() -> QuestionNavButton:
-	return question_nav_bar.buttons[current_question_index]
+func _on_submit_pressed() -> void:
+	submit()

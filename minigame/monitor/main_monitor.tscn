@@ -84,12 +84,18 @@ theme_override_font_sizes/font_size = 126
 alignment = 1
 
 [node name="Button" type="Button" parent="QuestionUI"]
-layout_mode = 0
-offset_left = 1616.0
-offset_top = 1334.0
-offset_right = 2004.0
-offset_bottom = 1488.0
-theme_override_font_sizes/font_size = 106
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -507.0
+offset_top = -263.0
+offset_right = -81.0
+offset_bottom = -71.0
+grow_horizontal = 0
+grow_vertical = 0
 text = "Submit"
 
 [node name="Cursor" type="Sprite2D" parent="."]
@@ -102,3 +108,4 @@ centered = false
 [connection signal="button_selected" from="QuestionUI/QuestionNavBar" to="." method="_on_question_nav_bar_button_selected"]
 [connection signal="text_changed" from="QuestionUI/Answer" to="." method="_on_answer_text_changed"]
 [connection signal="text_submitted" from="QuestionUI/Answer" to="." method="_on_answer_text_submitted"]
+[connection signal="button_down" from="QuestionUI/Button" to="." method="_on_submit_pressed"]
