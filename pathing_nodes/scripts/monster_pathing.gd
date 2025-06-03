@@ -1,38 +1,52 @@
+class_name MonsterPathing
+
 extends Node3D
 
 @export var lecturer_name: String
-@export var current_node: Node3D
-@export var dest_node_temp: Node3D #remove when there is a lecturer controller
+@export var player_office_node: Node3D
+@export var monster_home_node: Node3D
 @export var map_control: Node2D
 @export var max_path_attempts: int = 100
+@export var difficulty: int = 10
+const max_difficulty: int = 20
+var current_node: Node3D
 var time: float = 0
 var path_to_goal: Array[Node3D] = []
+var is_movement_paused: bool = false
+var path_completed: bool = false
+signal finish_path
+signal no_path
+signal trigger_jumpscare
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_new_destination(dest_node_temp)
-
+	current_node = monster_home_node
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time += delta
 	var cooldown: float = 2
-	if time >= cooldown:
+	if (time >= cooldown):
 		move_to_next_node()
 		time = fmod(time, cooldown) 
 
 
 func move_to_next_node() -> void:
+	if (is_movement_paused):
+		return;
+	
 	if (path_to_goal.size() == 0): 
 		print("No Path For Monster (This may or may not be intended)")
+		no_path.emit()
+		return
+	
+	# If it fails the roll based on difficulty don't move
+	if (randi_range(0, max_difficulty) > difficulty):
 		return
 	
 	var new_node: Node3D = path_to_goal[0]
 	move_node(new_node)
 	path_to_goal.pop_front()
 	map_control.monster_moved.emit(self)
-	print("moved")
 
 
 func move_node(new_node: Node3D) -> void:
@@ -51,12 +65,17 @@ func get_destination() -> Node3D:
 
 
 func arrived_at_destination() -> void:
-	print("Arrived at path, this could call an event or something later");
+	path_completed = true
+	finish_path.emit()
+	
+	if (current_node == player_office_node):
+		trigger_jumpscare.emit()
 
 
 # This is called by whatever script (some state machine) that tells the freaks where to path to maybe
 func set_new_destination(new_node: Node3D) -> void:
 	path_to_goal = calculate_path(new_node)
+	path_completed = false
 
 
 func calculate_path(destination: Node3D) -> Array[Node3D]:
@@ -94,8 +113,6 @@ func calculate_path(destination: Node3D) -> Array[Node3D]:
 				var first_index: int = path.find(prev_node)
 				if (first_index >= 0):
 					var second_index: int = path.find(prev_node, first_index)
-					print(first_index)
-					print(second_index)
 					
 					# If index out of bounds array issues start happening its because of right under here
 					# Removing the path nodes that were in the backtracked section
