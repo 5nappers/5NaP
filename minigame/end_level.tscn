@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0707611, 0.0986942, 0.133648, 1)
 
-[node name="ComplimentLabel" type="Label" parent="."]
+[node name="FeedbackLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5

@@ -3,7 +3,7 @@ class_name MainMonitor
 ## Handles behaviour that takes place on the 2D UI scene
 
 
-const ASSIGNMENT: JSON = preload("res://minigame/monitor/assignment/assignment-1.json")
+var assignment: JSON
 
 var questions: Array[Dictionary]
 var current_question_index: int
@@ -19,7 +19,8 @@ var current_question_button: QuestionNavButton:
 
 
 func _ready() -> void:
-	for question in ASSIGNMENT.data.questions:
+	assignment = AssignmentDatabase.get_next_assignment()
+	for question in assignment.data.questions:
 		questions.append({
 				"question": question.question, 
 				"answer": question.answer,

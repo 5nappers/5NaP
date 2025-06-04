@@ -7,6 +7,11 @@ const end_level_scene := "res://minigame/end_level.tscn"
 const menu_scene := ""
 
 var loaded_level: Node
+var current_score: float
+
+
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
 
 func play_level() -> void:
@@ -18,5 +23,7 @@ func main_menu() -> void:
 
 
 func end_level(score: float) -> void:
-	print(score)
+	current_score = score
 	get_tree().change_scene_to_file(end_level_scene)
+	# reset to confined because the mouse mode is edited by main monitor in level
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
