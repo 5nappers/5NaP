@@ -12,6 +12,11 @@ var current_assignment_index := 0:
 var next_assignment_index := 0:
 	set(value):
 		next_assignment_index = value % assignments.size()
+		
+## the currently assigned assignment
+var current_assignment: JSON:
+	get:
+		return assignments[current_assignment_index]
 
 
 func get_next_assignment() -> JSON:

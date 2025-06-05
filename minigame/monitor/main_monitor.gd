@@ -45,13 +45,12 @@ func switch_question(index: int) -> void:
 
 
 func submit() -> void:
-	var score := calculate_score()
-	SceneLoader.end_level(score)
+	SceneLoader.current_score = calculate_score()
+	SceneLoader.end_level()
 	
 
 ## returns score as a decimal value from 0 - 1
 func calculate_score() -> float:
-	#var question_count := questions.size()
 	var correct_count := 0
 	for question in questions:
 		if question.user_answer == question.answer:
@@ -59,6 +58,7 @@ func calculate_score() -> float:
 			print("%s = %s" % [question.user_answer, question.answer])
 		else:
 			print("%s is not %s" % [question.user_answer, question.answer])
+	SceneLoader.current_questions_correct = correct_count
 	return correct_count / (questions.size() as float)
 
 
