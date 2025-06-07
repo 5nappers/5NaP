@@ -28,6 +28,7 @@ func set_active_state(value: State) -> void:
 		active_state._state_exit()
 	active_state = value
 	print("Changed state to " + active_state.name)
+	active_state.state_machine = self
 	active_state._state_enter()
 
 

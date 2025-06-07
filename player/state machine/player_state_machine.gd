@@ -7,7 +7,7 @@ class_name PlayerStateMachine
 
 	
 var input := Player.PlayerInput.new():
-	set = handle_player_input
+	set = set_player_input
 
 
 func set_active_state(value) -> void:
@@ -22,7 +22,7 @@ func get_active_state() -> PlayerState:
 	return active_state as PlayerState
 
 
-func handle_player_input(value: Player.PlayerInput) -> void:
+func set_player_input(value: Player.PlayerInput) -> void:
 	input = value
 	active_state.input = input
 	if input.push.y > 0:

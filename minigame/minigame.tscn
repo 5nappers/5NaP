@@ -137,9 +137,11 @@ right_rotation_bound = 0.959931
 fov = 60.0
 node_to_control = NodePath("../../Camera")
 
-[node name="Focus" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("ui_push_bar_down", "node_to_control")]
+[node name="Focus" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("ui_push_bar_down", "ui_push_bar_left", "ui_push_bar_right", "node_to_control")]
 script = ExtResource("6_kqsti")
-ui_push_bar_down = NodePath("../../UI/TextureRect")
+ui_push_bar_down = NodePath("../../UI/PushBarDown")
+ui_push_bar_left = NodePath("../../UI/PushBarLeft")
+ui_push_bar_right = NodePath("../../UI/PushBarRight")
 node_to_control = NodePath("../../Camera")
 
 [node name="Camera" type="Camera3D" parent="Player"]
@@ -156,7 +158,7 @@ grow_vertical = 2
 mouse_filter = 2
 mouse_force_pass_scroll_events = false
 
-[node name="TextureRect" type="TextureRect" parent="Player/UI"]
+[node name="PushBarDown" type="TextureRect" parent="Player/UI"]
 visible = false
 modulate = Color(0.69, 0.345, 0.345, 0.780392)
 layout_mode = 1
@@ -171,6 +173,43 @@ offset_right = 283.5
 offset_bottom = -18.383
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("1_vq1x2")
+expand_mode = 1
+
+[node name="PushBarLeft" type="TextureRect" parent="Player/UI"]
+visible = false
+modulate = Color(0.69, 0.345, 0.345, 0.780392)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 101.0
+offset_top = -283.0
+offset_right = 668.0
+offset_bottom = -211.0
+grow_vertical = 2
+rotation = 1.57079
+mouse_filter = 2
+texture = ExtResource("1_vq1x2")
+expand_mode = 1
+
+[node name="PushBarRight" type="TextureRect" parent="Player/UI"]
+visible = false
+modulate = Color(0.69, 0.345, 0.345, 0.780392)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = 284.0
+offset_right = 471.0
+offset_bottom = 356.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = -1.57079
 mouse_filter = 2
 texture = ExtResource("1_vq1x2")
 expand_mode = 1
@@ -205,10 +244,11 @@ size = Vector2i(2048, 1536)
 
 [node name="MainMonitor" parent="MonitorAssignment/Screen/ScreenInteraction/SubViewport" instance=ExtResource("9_sjvb0")]
 
-[node name="Focusable" type="Area3D" parent="MonitorAssignment/Screen"]
+[node name="Focusable" type="Area3D" parent="MonitorAssignment/Screen" node_paths=PackedStringArray("focus_to_left")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0150566, 0.005)
 script = ExtResource("8_5umj3")
 fov = 69.0
+focus_to_left = NodePath("../../../MonitorMap/Screen/Focusable")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MonitorAssignment/Screen/Focusable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86265e-08, 0.000478029, 0.000213623)
@@ -233,10 +273,11 @@ mesh = SubResource("QuadMesh_qunyx")
 surface_material_override/0 = SubResource("StandardMaterial3D_pa6ce")
 script = ExtResource("8_ys23m")
 
-[node name="Focusable" type="Area3D" parent="MonitorMap/Screen"]
+[node name="Focusable" type="Area3D" parent="MonitorMap/Screen" node_paths=PackedStringArray("focus_to_right")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0150566, 0.005)
 script = ExtResource("8_5umj3")
 fov = 69.0
+focus_to_right = NodePath("../../../MonitorAssignment/Screen/Focusable")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MonitorMap/Screen/Focusable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86265e-08, 0.000478029, 0.000213623)

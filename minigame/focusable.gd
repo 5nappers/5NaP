@@ -1,9 +1,11 @@
 extends Area3D
 class_name Focusable
-
 ## Determines an area the player can click on to focus
 
+
 @export var fov := 60.0
+@export var focus_to_left: Focusable
+@export var focus_to_right: Focusable
 
 @onready var target_camera_transform: Marker3D = $TargetCameraTransform
 

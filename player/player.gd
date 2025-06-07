@@ -1,5 +1,5 @@
-class_name Player extends Node3D
-
+class_name Player
+extends Node3D
 ## Handles player input
 
 
