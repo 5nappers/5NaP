@@ -24,6 +24,7 @@ AssignmentDatabase="*res://autoloads/assignment_database.gd"
 
 window/size/viewport_width=2048
 window/size/viewport_height=1536
+window/size/mode=3
 window/size/window_width_override=720
 window/size/window_height_override=540
 window/stretch/mode="canvas_items"
