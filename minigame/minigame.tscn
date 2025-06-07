@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cb36uqv6stpui"]
+[gd_scene load_steps=58 format=3 uid="uid://cb36uqv6stpui"]
 
 [ext_resource type="Script" path="res://minigame/minigame.gd" id="1_6tj72"]
 [ext_resource type="Texture2D" uid="uid://bhrrl2vibrhei" path="res://player/state machine/Push zone bar.png" id="1_vq1x2"]
@@ -60,7 +60,7 @@ viewport_path = NodePath("MonitorAssignment/Screen/ScreenInteraction/SubViewport
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wiwwa"]
 resource_local_to_scene = true
-albedo_color = Color(0.340194, 0.376376, 0.43909, 1)
+albedo_color = Color(0.0173058, 0.0217811, 0.0310081, 1)
 albedo_texture = SubResource("ViewportTexture_1rtap")
 emission_enabled = true
 emission_energy_multiplier = 0.0
@@ -75,8 +75,19 @@ size = Vector3(0.470459, 0.372734, 0.00604248)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hb0r7"]
 albedo_texture = ExtResource("6_ydwyq")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7rekf"]
-viewport_path = NodePath("MonitorMap/Map/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_25n6t"]
+viewport_path = NodePath("MonitorMap/Screen/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3ks02"]
+viewport_path = NodePath("MonitorMap/Screen/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pa6ce"]
+resource_local_to_scene = true
+albedo_color = Color(0.0139966, 0.0176173, 0.0250826, 1)
+albedo_texture = SubResource("ViewportTexture_25n6t")
+emission_enabled = true
+emission_energy_multiplier = 0.0
+emission_texture = SubResource("ViewportTexture_3ks02")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pno4s"]
 
@@ -169,7 +180,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 0
 lecturer_name = "guy"
 player_office_node = NodePath("../Pathing Nodes/MainOffice")
 monster_home_node = NodePath("../Pathing Nodes/Hallway7")
-map_control = NodePath("../MonitorMap/Map/SubViewport/map_floor_3")
+map_control = NodePath("../MonitorMap/Screen/SubViewport/map_floor_3")
 
 [node name="MonitorAssignment" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.237, 0.827, 0.130847)
@@ -211,19 +222,37 @@ visible = false
 fov = 69.0
 
 [node name="MonitorMap" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.761131, 0, -0.648598, 0, 1, 0, 0.648598, 0, -0.761131, 11.9404, 0.826928, -0.00923511)
+transform = Transform3D(-0.609301, 0, -0.792939, 0, 1, 0, 0.792939, 0, -0.609301, 11.8746, 0.827, 0.018366)
 material_override = SubResource("StandardMaterial3D_hb0r7")
 mesh = ExtResource("7_2rc1j")
 skeleton = NodePath("../Third Floor/Desk")
 
-[node name="Map" type="Sprite3D" parent="MonitorMap"]
-transform = Transform3D(0.0208965, 0, -0.00109079, 0, 0.0208973, 0, 0.000182357, 0, 0.124995, -0.00253773, 0.337572, 0.00238332)
-texture = SubResource("ViewportTexture_7rekf")
+[node name="Screen" type="MeshInstance3D" parent="MonitorMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34, -0.00399999)
+mesh = SubResource("QuadMesh_qunyx")
+surface_material_override/0 = SubResource("StandardMaterial3D_pa6ce")
+script = ExtResource("8_ys23m")
 
-[node name="SubViewport" type="SubViewport" parent="MonitorMap/Map"]
+[node name="Focusable" type="Area3D" parent="MonitorMap/Screen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0150566, 0.005)
+script = ExtResource("8_5umj3")
+fov = 69.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MonitorMap/Screen/Focusable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86265e-08, 0.000478029, 0.000213623)
+shape = SubResource("BoxShape3D_eh86l")
+
+[node name="TargetCameraTransform" type="Marker3D" parent="MonitorMap/Screen/Focusable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.011, 0.326328)
+
+[node name="Camera3D" type="Camera3D" parent="MonitorMap/Screen/Focusable/TargetCameraTransform"]
+visible = false
+fov = 69.0
+
+[node name="SubViewport" type="SubViewport" parent="MonitorMap/Screen"]
 size = Vector2i(2048, 1536)
 
-[node name="map_floor_3" parent="MonitorMap/Map/SubViewport" node_paths=PackedStringArray("monsters", "top_left_pos", "bottom_right_pos") instance=ExtResource("34_s6k5t")]
+[node name="map_floor_3" parent="MonitorMap/Screen/SubViewport" node_paths=PackedStringArray("monsters", "top_left_pos", "bottom_right_pos") instance=ExtResource("34_s6k5t")]
 monsters = [NodePath("../../../../TempMonster")]
 top_left_pos = NodePath("../../../../Pathing Nodes/TopLeftPos")
 bottom_right_pos = NodePath("../../../../Pathing Nodes/BottomRightPos")
@@ -531,3 +560,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21, 0
 [connection signal="on_click" from="MonitorAssignment/Screen/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
 [connection signal="on_click" from="MonitorAssignment/Screen/Focusable" to="MonitorAssignment/Screen" method="_on_focus"]
 [connection signal="on_unfocus" from="MonitorAssignment/Screen/Focusable" to="MonitorAssignment/Screen" method="_on_unfocus"]
+[connection signal="input_event" from="MonitorMap/Screen/Focusable" to="MonitorMap/Screen/Focusable" method="_on_input_event"]
+[connection signal="on_click" from="MonitorMap/Screen/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
+[connection signal="on_click" from="MonitorMap/Screen/Focusable" to="MonitorMap/Screen" method="_on_focus"]
+[connection signal="on_unfocus" from="MonitorMap/Screen/Focusable" to="MonitorMap/Screen" method="_on_unfocus"]
