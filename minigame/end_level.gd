@@ -66,4 +66,4 @@ func _on_play_again_button_down() -> void:
 
 
 func _on_return_menu_button_down() -> void:
-	get_tree().quit()
+	SceneLoader.main_menu()

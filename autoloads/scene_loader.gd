@@ -4,7 +4,7 @@ extends Node
 
 const level_scene := "res://minigame/minigame.tscn"
 const end_level_scene := "res://minigame/end_level.tscn"
-const menu_scene := ""
+const menu_scene := "res://main_menu/main_menu.tscn"
 
 var loaded_level: Node
 var current_questions_correct: int
