@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cb36uqv6stpui"]
+[gd_scene load_steps=61 format=3 uid="uid://cb36uqv6stpui"]
 
 [ext_resource type="Texture2D" uid="uid://bhrrl2vibrhei" path="res://player/state machine/Push zone bar.png" id="1_vq1x2"]
 [ext_resource type="Script" path="res://player/player.gd" id="2_k2ja8"]
@@ -34,6 +34,9 @@
 [ext_resource type="Script" path="res://pathing_nodes/scripts/pathing_node.gd" id="32_ivtcm"]
 [ext_resource type="PackedScene" uid="uid://bhqxlqb5f7dy" path="res://pathing_nodes/scenes/temp_monster.tscn" id="33_e7v2j"]
 [ext_resource type="PackedScene" uid="uid://ct410dyxv2rn0" path="res://pathing_nodes/scenes/map_floor_3.tscn" id="34_s6k5t"]
+[ext_resource type="Script" path="res://minigame/audio/audio_manager.gd" id="35_st0gx"]
+[ext_resource type="AudioStream" uid="uid://dnpqo2v7m2uij" path="res://minigame/audio/horrific piano echo loop.ogg" id="35_yoh2l"]
+[ext_resource type="AudioStream" uid="uid://c1iosaafsciis" path="res://minigame/audio/ghost party from the next room over loop.ogg" id="36_4l6th"]
 
 [sub_resource type="Curve" id="Curve_ly336"]
 _data = [Vector2(0, 0), 0.0, 2.15244, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -615,6 +618,23 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 0,
 [node name="BottomRightPos" type="Marker3D" parent="Pathing Nodes"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21, 0, -15.75)
 
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("35_st0gx")
+volume_fade_duration = 3.0
+
+[node name="Ambience1" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("35_yoh2l")
+volume_db = -4.0
+autoplay = true
+
+[node name="Ambience2" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("36_4l6th")
+volume_db = -10.969
+
+[node name="Timer" type="Timer" parent="AudioManager/Ambience2"]
+wait_time = 25.0
+autostart = true
+
 [connection signal="timer_end" from="ClockTimer" to="MonitorAssignment/Screen/ScreenInteraction/SubViewport/MainMonitor" method="_on_submit_pressed"]
 [connection signal="input_event" from="MonitorAssignment/Screen/ScreenInteraction" to="MonitorAssignment/Screen/ScreenInteraction" method="_on_input_event"]
 [connection signal="mouse_entered" from="MonitorAssignment/Screen/ScreenInteraction" to="MonitorAssignment/Screen/ScreenInteraction" method="_on_mouse_entered"]
@@ -627,3 +647,4 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21, 0
 [connection signal="on_click" from="MonitorMap/Screen/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
 [connection signal="on_click" from="MonitorMap/Screen/Focusable" to="MonitorMap/Screen" method="_on_focus"]
 [connection signal="on_unfocus" from="MonitorMap/Screen/Focusable" to="MonitorMap/Screen" method="_on_unfocus"]
+[connection signal="timeout" from="AudioManager/Ambience2/Timer" to="AudioManager" method="_on_ambience_2_timer_timeout"]

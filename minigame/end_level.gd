@@ -62,7 +62,7 @@ func feedback() -> String:
 
 
 func _on_play_again_button_down() -> void:
-	SceneLoader.play_level()
+	SceneLoader.level_select()
 
 
 func _on_return_menu_button_down() -> void:

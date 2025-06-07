@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c1iosaafsciis"
+path="res://.godot/imported/ghost party from the next room over loop.ogg-57e34522cd1a3eadabf0bc04232a31ed.oggvorbisstr"
+
+[deps]
+
+source_file="res://minigame/audio/ghost party from the next room over loop.ogg"
+dest_files=["res://.godot/imported/ghost party from the next room over loop.ogg-57e34522cd1a3eadabf0bc04232a31ed.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
