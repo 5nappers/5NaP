@@ -1,9 +1,11 @@
-[gd_scene load_steps=41 format=3 uid="uid://dg2ql0hsjidgs"]
+[gd_scene load_steps=43 format=3 uid="uid://dg2ql0hsjidgs"]
 
 [ext_resource type="PackedScene" uid="uid://cc5e5h882hhpc" path="res://assets/H-Block/H-block.glb" id="1_lt0a0"]
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_q2fq6"]
 [ext_resource type="ArrayMesh" uid="uid://dadv5u3dbus3e" path="res://assets/VNB Low Poly Office Set 2/OBJ/Separated OBJ files/Ceiling Lamp 2.obj" id="2_cukaw"]
+[ext_resource type="AudioStream" uid="uid://dnpqo2v7m2uij" path="res://minigame/audio/horrific piano echo loop.ogg" id="2_j6i83"]
 [ext_resource type="Script" path="res://main_menu/spooky_light.gd" id="3_5ywge"]
+[ext_resource type="AudioStream" uid="uid://dmlvuuu3eu0bg" path="res://main_menu/5nap track.ogg" id="3_duqrk"]
 [ext_resource type="Texture2D" uid="uid://b2ef8vax868ig" path="res://assets/ModernOfficePack/DeskL/DeskL_Base_Color.png" id="3_mqhbj"]
 [ext_resource type="ArrayMesh" uid="uid://bd7x2i1hdy2ed" path="res://assets/ModernOfficePack/DeskL/DeskL.obj" id="4_hu6hp"]
 [ext_resource type="Texture2D" uid="uid://dfmsmuyxqar20" path="res://assets/ModernOfficePack/DeskChair/DeskChair_Base_Color.png" id="5_0hlml"]
@@ -119,6 +121,16 @@ offset_bottom = 140.0
 theme_override_font_sizes/font_size = 96
 text = "Quit"
 metadata/_edit_use_anchors_ = true
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_j6i83")
+volume_db = -12.0
+autoplay = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_duqrk")
+volume_db = -9.0
+autoplay = true
 
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(0.94502, -0.103555, -0.310184, 0.0546749, 0.985219, -0.16234, 0.322411, 0.136455, 0.936713, 6.16328, 0.230612, 6.59487)
