@@ -18,7 +18,7 @@ var current_question_button: QuestionNavButton:
 
 
 func _ready() -> void:
-	assignment = AssignmentDatabase.get_next_assignment()
+	assignment = AssignmentDatabase.current_assignment
 	for question in assignment.data.questions:
 		questions.append({
 				"question": question.question, 

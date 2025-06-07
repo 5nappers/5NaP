@@ -1,0 +1,96 @@
+[gd_scene load_steps=2 format=3 uid="uid://bia5b7eq3dy73"]
+
+[ext_resource type="Script" path="res://main_menu/level_select.gd" id="1_wp5b7"]
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wp5b7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0707611, 0.0986942, 0.133648, 1)
+
+[node name="StoryLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.353516
+anchor_right = 0.5
+anchor_bottom = 0.353516
+offset_left = -743.0
+offset_top = -266.0
+offset_right = 743.0
+offset_bottom = 267.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Your assignment will be due at 11:59PM. When the clock hits 12, we will automatically submit your work. If you answer all the questions early, press the submit button.
+
+Don't let the lecturer distract you too much!"
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="QuestionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.682292
+anchor_right = 0.5
+anchor_bottom = 0.682333
+offset_left = -761.5
+offset_top = -90.0
+offset_right = 761.5
+offset_bottom = 89.9359
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 84
+text = "which assignment is due today?"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Math" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.329346
+anchor_top = 0.789388
+anchor_right = 0.329346
+anchor_bottom = 0.789388
+offset_left = -202.5
+offset_top = -59.5
+offset_right = 202.5
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 81
+text = "Math"
+metadata/_edit_use_anchors_ = true
+
+[node name="Programming" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.62
+anchor_top = 0.789388
+anchor_right = 0.62
+anchor_bottom = 0.789388
+offset_left = -270.76
+offset_top = -59.5
+offset_right = 272.24
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 81
+text = "Programming"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="Math" to="." method="_on_math_button_down"]
+[connection signal="button_down" from="Programming" to="." method="_on_programming_button_down"]
