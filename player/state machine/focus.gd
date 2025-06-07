@@ -32,11 +32,12 @@ func transition_in() -> void:
 	var attributes := camera.attributes as CameraAttributesPractical
 	var dof_distance := target_position.distance_to(focused_object.global_position)
 	camera_rotation = camera.global_rotation
+	
+	# use positive values only
 	if camera_rotation.y < 0:
-		print("changing rotation")
 		camera_rotation.y += 2 * PI
-		print(camera_rotation)
-	print("rotation from: %s \tto: %s" % [camera.global_rotation, rotation])
+	if rotation.y < 0:
+		rotation.y += 2 * PI
 	
 	tween.parallel().tween_property(
 			camera, "global_position", target_position, transition_duration)
@@ -45,5 +46,3 @@ func transition_in() -> void:
 	tween.parallel().tween_property(camera, "fov", fov, transition_duration)
 	tween.parallel().tween_property(
 			attributes, "dof_blur_far_distance", dof_distance, transition_duration)
-	
-	
