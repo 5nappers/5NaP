@@ -69,7 +69,6 @@ shape = SubResource("ConcavePolygonShape3D_pno4s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="H-block"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.240213, 19.8855, 0.00320148)
-visible = false
 mesh = SubResource("BoxMesh_tndai")
 
 [node name="CeilingLamp2" type="MeshInstance3D" parent="H-block/MeshInstance3D"]

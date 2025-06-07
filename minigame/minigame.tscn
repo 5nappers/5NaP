@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cb36uqv6stpui"]
+[gd_scene load_steps=56 format=3 uid="uid://cb36uqv6stpui"]
 
 [ext_resource type="Script" path="res://minigame/minigame.gd" id="1_6tj72"]
 [ext_resource type="Texture2D" uid="uid://bhrrl2vibrhei" path="res://player/state machine/Push zone bar.png" id="1_vq1x2"]
@@ -6,20 +6,34 @@
 [ext_resource type="Script" path="res://player/state machine/look_around.gd" id="3_ugoyj"]
 [ext_resource type="Script" path="res://player/state machine/player_state_machine.gd" id="4_mjjfo"]
 [ext_resource type="Script" path="res://player/state machine/focus.gd" id="6_kqsti"]
-[ext_resource type="PackedScene" uid="uid://boi3nx5rygb76" path="res://minigame/third_floor.tscn" id="6_usrgj"]
 [ext_resource type="Texture2D" uid="uid://cewdxcweipx16" path="res://assets/ModernOfficePack/ComputerMonitor4-3/ComputerMonitor4-3_Base_Color.png" id="6_ydwyq"]
 [ext_resource type="ArrayMesh" uid="uid://b2w2gi50g6dwp" path="res://assets/ModernOfficePack/ComputerMonitor4-3/ComputerMonitor4-3.obj" id="7_2rc1j"]
 [ext_resource type="Script" path="res://minigame/focusable.gd" id="8_5umj3"]
 [ext_resource type="Script" path="res://minigame/monitor/screen.gd" id="8_ys23m"]
 [ext_resource type="Script" path="res://minigame/monitor/interactable_screen.gd" id="9_dythp"]
 [ext_resource type="PackedScene" uid="uid://3v8gwyj7wkpe" path="res://minigame/monitor/main_monitor.tscn" id="9_sjvb0"]
-
-[sub_resource type="Environment" id="Environment_5o3vw"]
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 8.0
-glow_strength = 1.06
-glow_hdr_threshold = 1.44
+[ext_resource type="PackedScene" uid="uid://cc5e5h882hhpc" path="res://assets/H-Block/H-block.glb" id="13_4x538"]
+[ext_resource type="ArrayMesh" uid="uid://dadv5u3dbus3e" path="res://assets/VNB Low Poly Office Set 2/OBJ/Separated OBJ files/Ceiling Lamp 2.obj" id="14_ul6ls"]
+[ext_resource type="Texture2D" uid="uid://b2ef8vax868ig" path="res://assets/ModernOfficePack/DeskL/DeskL_Base_Color.png" id="15_shdp4"]
+[ext_resource type="ArrayMesh" uid="uid://bd7x2i1hdy2ed" path="res://assets/ModernOfficePack/DeskL/DeskL.obj" id="16_dtvg5"]
+[ext_resource type="Texture2D" uid="uid://dfmsmuyxqar20" path="res://assets/ModernOfficePack/DeskChair/DeskChair_Base_Color.png" id="17_g7pce"]
+[ext_resource type="ArrayMesh" uid="uid://bvlunylqmrwp2" path="res://assets/ModernOfficePack/DeskChair/DeskChair.obj" id="18_75kj8"]
+[ext_resource type="Texture2D" uid="uid://drsaxch5ctr0m" path="res://assets/ModernOfficePack/ComputerCaseTower/ComputerCaseTower_Base_Color.png" id="19_s4j7h"]
+[ext_resource type="ArrayMesh" uid="uid://cj55pxnxit3df" path="res://assets/ModernOfficePack/ComputerCaseTower/ComputerCaseTower.obj" id="20_ax71e"]
+[ext_resource type="Texture2D" uid="uid://btie6rabhky6c" path="res://assets/ModernOfficePack/ComputerMouse&Pad/ComputerMouse_Base_Color.png" id="21_cdewh"]
+[ext_resource type="ArrayMesh" uid="uid://uii4ar4s1f6g" path="res://assets/ModernOfficePack/ComputerMouse&Pad/ComputerMouse.obj" id="22_oe1eb"]
+[ext_resource type="Texture2D" uid="uid://dtm1y16bikrqb" path="res://assets/ModernOfficePack/ComputerKeyboard/ComputerKeyboard_Base_Color.png" id="23_4l7uv"]
+[ext_resource type="ArrayMesh" uid="uid://d4jglu2gdqh2w" path="res://assets/ModernOfficePack/ComputerKeyboard/ComputerKeyboard.obj" id="24_cjyqa"]
+[ext_resource type="Texture2D" uid="uid://gxljvup7cyvq" path="res://assets/ModernOfficePack/FileBox/FileBox_Base_Color.png" id="25_grpwy"]
+[ext_resource type="ArrayMesh" uid="uid://8bg0emywy57j" path="res://assets/ModernOfficePack/FileBox/FileBox.obj" id="26_ahck8"]
+[ext_resource type="ArrayMesh" uid="uid://pj75dv13pv35" path="res://assets/ModernOfficePack/FileBoxLid/FileBoxLid.obj" id="27_1mtq8"]
+[ext_resource type="ArrayMesh" uid="uid://bl24f2wt6b68t" path="res://assets/ModernOfficePack/Desk/Desk.obj" id="28_inxun"]
+[ext_resource type="Texture2D" uid="uid://c8kyn4nvdeveo" path="res://assets/ModernOfficePack/Desk/Desk_Base_Color.png" id="29_mujpe"]
+[ext_resource type="Texture2D" uid="uid://d0hte6u6u60co" path="res://assets/ModernOfficePack/ComputerPrinter/ComputerPrinter_Base_Color.png" id="30_qsg45"]
+[ext_resource type="ArrayMesh" uid="uid://bqvbqq6xhwvxq" path="res://assets/ModernOfficePack/ComputerPrinter/ComputerPrinter.obj" id="31_4cycv"]
+[ext_resource type="Script" path="res://pathing_nodes/scripts/pathing_node.gd" id="32_ivtcm"]
+[ext_resource type="PackedScene" uid="uid://bhqxlqb5f7dy" path="res://pathing_nodes/scenes/temp_monster.tscn" id="33_e7v2j"]
+[ext_resource type="PackedScene" uid="uid://ct410dyxv2rn0" path="res://pathing_nodes/scenes/map_floor_3.tscn" id="34_s6k5t"]
 
 [sub_resource type="Curve" id="Curve_ly336"]
 _data = [Vector2(0, 0), 0.0, 2.15244, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -39,10 +53,10 @@ albedo_texture = ExtResource("6_ydwyq")
 size = Vector2(0.42, 0.319)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1rtap"]
-viewport_path = NodePath("ComputerMonitor4-7/Screen/ScreenInteraction/SubViewport")
+viewport_path = NodePath("MonitorAssignment/Screen/ScreenInteraction/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_hee0s"]
-viewport_path = NodePath("ComputerMonitor4-7/Screen/ScreenInteraction/SubViewport")
+viewport_path = NodePath("MonitorAssignment/Screen/ScreenInteraction/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wiwwa"]
 resource_local_to_scene = true
@@ -58,14 +72,46 @@ size = Vector3(0.419922, 0.319336, 0.005)
 [sub_resource type="BoxShape3D" id="BoxShape3D_eh86l"]
 size = Vector3(0.470459, 0.372734, 0.00604248)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hb0r7"]
+albedo_texture = ExtResource("6_ydwyq")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7rekf"]
+viewport_path = NodePath("MonitorMap/Map/SubViewport")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pno4s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tndai"]
+size = Vector3(60, 80, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w6r8a"]
+albedo_texture = ExtResource("15_shdp4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkg41"]
+albedo_texture = ExtResource("17_g7pce")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y1i2c"]
+albedo_texture = ExtResource("19_s4j7h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jt7r"]
+albedo_texture = ExtResource("21_cdewh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvyta"]
+albedo_texture = ExtResource("23_4l7uv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rsbuo"]
+albedo_texture = ExtResource("25_grpwy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isibu"]
+albedo_texture = ExtResource("29_mujpe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0putg"]
+albedo_texture = ExtResource("30_qsg45")
+
 [node name="Minigame" type="Node3D"]
 script = ExtResource("1_6tj72")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_5o3vw")
-
 [node name="Player" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.327387, 0.803, 0)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.2497, 1.25753, -0.781575)
 script = ExtResource("2_k2ja8")
 push_zone_size_vertical = 1.0
 
@@ -118,51 +164,370 @@ mouse_filter = 2
 texture = ExtResource("1_vq1x2")
 expand_mode = 1
 
-[node name="Third Floor" parent="." instance=ExtResource("6_usrgj")]
+[node name="TempMonster" parent="." node_paths=PackedStringArray("player_office_node", "monster_home_node", "map_control") instance=ExtResource("33_e7v2j")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 0, 6.263)
+lecturer_name = "guy"
+player_office_node = NodePath("../Pathing Nodes/MainOffice")
+monster_home_node = NodePath("../Pathing Nodes/Hallway7")
+map_control = NodePath("../MonitorMap/Map/SubViewport/map_floor_3")
 
-[node name="ComputerMonitor4-7" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.097, 0.489, 0)
+[node name="MonitorAssignment" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.237, 0.827, 0.130847)
 material_override = SubResource("StandardMaterial3D_qr1v0")
 mesh = ExtResource("7_2rc1j")
 
-[node name="Screen" type="MeshInstance3D" parent="ComputerMonitor4-7"]
+[node name="Screen" type="MeshInstance3D" parent="MonitorAssignment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34, -0.004)
 mesh = SubResource("QuadMesh_qunyx")
 surface_material_override/0 = SubResource("StandardMaterial3D_wiwwa")
 script = ExtResource("8_ys23m")
 
-[node name="ScreenInteraction" type="Area3D" parent="ComputerMonitor4-7/Screen"]
+[node name="ScreenInteraction" type="Area3D" parent="MonitorAssignment/Screen"]
 transform = Transform3D(1, 0, -1.86265e-09, 0, 1, 0, 1.86265e-09, 0, 1, 0, 0, 0)
 script = ExtResource("9_dythp")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-7/Screen/ScreenInteraction"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MonitorAssignment/Screen/ScreenInteraction"]
 shape = SubResource("BoxShape3D_u8uep")
 
-[node name="SubViewport" type="SubViewport" parent="ComputerMonitor4-7/Screen/ScreenInteraction"]
+[node name="SubViewport" type="SubViewport" parent="MonitorAssignment/Screen/ScreenInteraction"]
 size = Vector2i(2048, 1536)
 
-[node name="MainMonitor" parent="ComputerMonitor4-7/Screen/ScreenInteraction/SubViewport" instance=ExtResource("9_sjvb0")]
+[node name="MainMonitor" parent="MonitorAssignment/Screen/ScreenInteraction/SubViewport" instance=ExtResource("9_sjvb0")]
 
-[node name="Focusable" type="Area3D" parent="ComputerMonitor4-7/Screen"]
+[node name="Focusable" type="Area3D" parent="MonitorAssignment/Screen"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0150566, 0.005)
 script = ExtResource("8_5umj3")
 fov = 69.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerMonitor4-7/Screen/Focusable"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MonitorAssignment/Screen/Focusable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86265e-08, 0.000478029, 0.000213623)
 shape = SubResource("BoxShape3D_eh86l")
 
-[node name="TargetCameraTransform" type="Marker3D" parent="ComputerMonitor4-7/Screen/Focusable"]
+[node name="TargetCameraTransform" type="Marker3D" parent="MonitorAssignment/Screen/Focusable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.011, 0.326328)
 
-[node name="Camera3D" type="Camera3D" parent="ComputerMonitor4-7/Screen/Focusable/TargetCameraTransform"]
+[node name="Camera3D" type="Camera3D" parent="MonitorAssignment/Screen/Focusable/TargetCameraTransform"]
 visible = false
 fov = 69.0
 
-[connection signal="input_event" from="ComputerMonitor4-7/Screen/ScreenInteraction" to="ComputerMonitor4-7/Screen/ScreenInteraction" method="_on_input_event"]
-[connection signal="mouse_entered" from="ComputerMonitor4-7/Screen/ScreenInteraction" to="ComputerMonitor4-7/Screen/ScreenInteraction" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="ComputerMonitor4-7/Screen/ScreenInteraction" to="ComputerMonitor4-7/Screen/ScreenInteraction" method="_on_mouse_exited"]
-[connection signal="input_event" from="ComputerMonitor4-7/Screen/Focusable" to="ComputerMonitor4-7/Screen/Focusable" method="_on_input_event"]
-[connection signal="on_click" from="ComputerMonitor4-7/Screen/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
-[connection signal="on_click" from="ComputerMonitor4-7/Screen/Focusable" to="ComputerMonitor4-7/Screen" method="_on_focus"]
-[connection signal="on_unfocus" from="ComputerMonitor4-7/Screen/Focusable" to="ComputerMonitor4-7/Screen" method="_on_unfocus"]
+[node name="MonitorMap" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.761131, 0, -0.648598, 0, 1, 0, 0.648598, 0, -0.761131, 11.9404, 0.826928, -0.00923511)
+material_override = SubResource("StandardMaterial3D_hb0r7")
+mesh = ExtResource("7_2rc1j")
+skeleton = NodePath("../Third Floor/Desk")
+
+[node name="Map" type="Sprite3D" parent="MonitorMap"]
+transform = Transform3D(0.0208965, 0, -0.00109079, 0, 0.0208973, 0, 0.000182357, 0, 0.124995, -0.00253773, 0.337572, 0.00238332)
+texture = SubResource("ViewportTexture_7rekf")
+
+[node name="SubViewport" type="SubViewport" parent="MonitorMap/Map"]
+size = Vector2i(2048, 1536)
+
+[node name="map_floor_3" parent="MonitorMap/Map/SubViewport" node_paths=PackedStringArray("monsters", "top_left_pos", "bottom_right_pos") instance=ExtResource("34_s6k5t")]
+monsters = [NodePath("../../../../TempMonster")]
+top_left_pos = NodePath("../../../../Pathing Nodes/TopLeftPos")
+bottom_right_pos = NodePath("../../../../Pathing Nodes/BottomRightPos")
+
+[node name="Third Floor" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, -6.45, -10)
+
+[node name="H-block" parent="Third Floor" instance=ExtResource("13_4x538")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 10.299, 0.0670929, 5.6374)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Third Floor/H-block"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.758, -143.787, 137.147)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Third Floor/H-block/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0696945, 7.62939e-06, -0.134447)
+shape = SubResource("ConcavePolygonShape3D_pno4s")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Third Floor/H-block"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.240213, 19.8855, 0.00320148)
+visible = false
+mesh = SubResource("BoxMesh_tndai")
+
+[node name="Lights" type="Node3D" parent="Third Floor/H-block"]
+
+[node name="CeilingLamp2" type="MeshInstance3D" parent="Third Floor/H-block/Lights"]
+transform = Transform3D(4, 3.94754e-22, 0, 0, 4, 3.97904e-13, 0, -3.97904e-13, 4, -0.706083, 19.2708, -21.5491)
+mesh = ExtResource("14_ul6ls")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Third Floor/H-block/Lights/CeilingLamp2"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.90067e-28, 0, -1.90067e-28, 1, 0, -0.170311, 0)
+light_energy = 2.0
+light_indirect_energy = 1.285
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_bias = 0.807
+shadow_normal_bias = 0.0
+shadow_blur = 1.178
+distance_fade_enabled = true
+distance_fade_begin = 0.0
+distance_fade_shadow = 0.0
+distance_fade_length = 13.0
+omni_shadow_mode = 0
+
+[node name="CeilingLamp3" type="MeshInstance3D" parent="Third Floor/H-block/Lights"]
+transform = Transform3D(4, 3.94754e-22, 0, 0, 4, 3.97904e-13, 0, -3.97904e-13, 4, -0.598, 19.1658, -27.7048)
+mesh = ExtResource("14_ul6ls")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Third Floor/H-block/Lights/CeilingLamp3"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.90067e-28, 0, -1.90067e-28, 1, 0, -0.170311, 0)
+light_energy = 2.0
+light_indirect_energy = 1.285
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_bias = 0.807
+shadow_normal_bias = 0.0
+shadow_blur = 1.178
+distance_fade_enabled = true
+distance_fade_begin = 0.0
+distance_fade_shadow = 0.0
+distance_fade_length = 13.0
+omni_shadow_mode = 0
+
+[node name="CeilingLamp4" type="MeshInstance3D" parent="Third Floor/H-block/Lights"]
+transform = Transform3D(4, 3.94754e-22, 0, 0, 4, 3.97904e-13, 0, -3.97904e-13, 4, 7.7047, 19.2708, -21.5491)
+mesh = ExtResource("14_ul6ls")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Third Floor/H-block/Lights/CeilingLamp4"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.90067e-28, 0, -1.90067e-28, 1, 0, -0.170311, 0)
+light_energy = 2.0
+light_indirect_energy = 1.285
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_bias = 0.807
+shadow_normal_bias = 0.0
+shadow_blur = 1.178
+distance_fade_enabled = true
+distance_fade_begin = 0.0
+distance_fade_shadow = 0.0
+distance_fade_length = 13.0
+omni_shadow_mode = 0
+
+[node name="CeilingLamp5" type="MeshInstance3D" parent="Third Floor/H-block/Lights"]
+transform = Transform3D(4, 3.94754e-22, 0, 0, 4, 3.97904e-13, 0, -3.97904e-13, 4, 7.70609, 19.1658, -28.1029)
+mesh = ExtResource("14_ul6ls")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Third Floor/H-block/Lights/CeilingLamp5"]
+transform = Transform3D(-4.37114e-08, -9.86898e-23, 1, 9.9476e-14, 1, 4.44692e-21, -1, 9.9476e-14, -4.37114e-08, 0, -0.170311, 0)
+light_energy = 2.0
+light_indirect_energy = 1.285
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_bias = 0.807
+shadow_normal_bias = 0.0
+shadow_blur = 1.178
+distance_fade_enabled = true
+distance_fade_begin = 0.0
+distance_fade_shadow = 0.0
+distance_fade_length = 13.0
+omni_shadow_mode = 0
+
+[node name="DeskL" type="MeshInstance3D" parent="Third Floor"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.4337, 6.49679, -7.14027)
+material_override = SubResource("StandardMaterial3D_w6r8a")
+mesh = ExtResource("16_dtvg5")
+
+[node name="DeskChair" type="MeshInstance3D" parent="Third Floor/DeskL"]
+transform = Transform3D(-0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, -0.819152, 0.23847, 0.00414181, 1.25497)
+material_override = SubResource("StandardMaterial3D_dkg41")
+mesh = ExtResource("18_75kj8")
+skeleton = NodePath("../..")
+
+[node name="ComputerMonitor4-4" type="MeshInstance3D" parent="Third Floor/DeskL"]
+transform = Transform3D(0.34202, 0, 0.939693, 0, 1, 0, -0.939693, 0, 0.34202, -0.606709, 0.754879, 0.443982)
+material_override = SubResource("StandardMaterial3D_hb0r7")
+mesh = ExtResource("7_2rc1j")
+
+[node name="ComputerMonitor4-3" type="MeshInstance3D" parent="Third Floor/DeskL"]
+transform = Transform3D(0.67559, 0, 0.737277, 0, 1, 0, -0.737277, 0, 0.67559, -0.340622, 0.759062, -0.117256)
+material_override = SubResource("StandardMaterial3D_hb0r7")
+mesh = ExtResource("7_2rc1j")
+
+[node name="ComputerCaseTower" type="MeshInstance3D" parent="Third Floor/DeskL"]
+transform = Transform3D(0.748956, 0, 0.66262, 0, 1, 0, -0.66262, 0, 0.748956, -0.747341, 0.759733, 0.027463)
+material_override = SubResource("StandardMaterial3D_y1i2c")
+mesh = ExtResource("20_ax71e")
+skeleton = NodePath("../..")
+
+[node name="ComputerMouse" type="MeshInstance3D" parent="Third Floor/DeskL"]
+transform = Transform3D(0.649448, 0, 0.760406, 0, 1, 0, -0.760406, 0, 0.649448, -0.279293, 0.765461, 0.0812645)
+material_override = SubResource("StandardMaterial3D_7jt7r")
+mesh = ExtResource("22_oe1eb")
+skeleton = NodePath("../..")
+
+[node name="ComputerKeyboard" type="MeshInstance3D" parent="Third Floor/DeskL"]
+transform = Transform3D(0.522498, 0, 0.85264, 0, 1, 0, -0.85264, 0, 0.522498, -0.406732, 0.755112, 0.438768)
+material_override = SubResource("StandardMaterial3D_yvyta")
+mesh = ExtResource("24_cjyqa")
+skeleton = NodePath("../..")
+
+[node name="FileBox" type="MeshInstance3D" parent="Third Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1864, 6.49893, -7.34556)
+material_override = SubResource("StandardMaterial3D_rsbuo")
+mesh = ExtResource("26_ahck8")
+skeleton = NodePath("../DeskL")
+
+[node name="FileBox" type="MeshInstance3D" parent="Third Floor/FileBox"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0127831, 0.277938, -0.020319)
+material_override = SubResource("StandardMaterial3D_rsbuo")
+mesh = ExtResource("26_ahck8")
+
+[node name="FileBoxLid" type="MeshInstance3D" parent="Third Floor/FileBox"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.00752831, 0.517437, -0.0145397)
+mesh = ExtResource("27_1mtq8")
+
+[node name="FileBoxLid2" type="MeshInstance3D" parent="Third Floor/FileBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00859022, 0.220587, -0.00639439)
+mesh = ExtResource("27_1mtq8")
+skeleton = NodePath("../../DeskL")
+
+[node name="Desk" type="MeshInstance3D" parent="Third Floor"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.0976, 6.51632, -6.23684)
+mesh = ExtResource("28_inxun")
+
+[node name="ComputerKeyboard" type="MeshInstance3D" parent="Third Floor/Desk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0279999, 0.757, 0.180419)
+material_override = SubResource("StandardMaterial3D_yvyta")
+mesh = ExtResource("24_cjyqa")
+skeleton = NodePath("../..")
+
+[node name="ComputerMouse" type="MeshInstance3D" parent="Third Floor/Desk"]
+transform = Transform3D(0.985286, 0, 0.170915, 0, 1, 0, -0.170915, 0, 0.985286, 0.443556, 0.769086, 0.162592)
+material_override = SubResource("StandardMaterial3D_7jt7r")
+mesh = ExtResource("22_oe1eb")
+skeleton = NodePath("../..")
+
+[node name="Desk2" type="MeshInstance3D" parent="Third Floor"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.9109, 6.50528, -5.27027)
+material_override = SubResource("StandardMaterial3D_isibu")
+mesh = ExtResource("28_inxun")
+
+[node name="ComputerPrinter" type="MeshInstance3D" parent="Third Floor/Desk2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.325165, 0.75907, -0.00485384)
+material_override = SubResource("StandardMaterial3D_0putg")
+mesh = ExtResource("31_4cycv")
+skeleton = NodePath("../..")
+
+[node name="Pathing Nodes" type="Node3D" parent="."]
+
+[node name="MainOffice" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.24162, 0, 4.16175)
+script = ExtResource("32_ivtcm")
+node_name = "main_office"
+neighbour_nodes = [NodePath("../Hallway1")]
+
+[node name="Hallway1" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 3)
+script = ExtResource("32_ivtcm")
+node_name = "hallway_1"
+neighbour_nodes = [NodePath("../Hallway2"), NodePath("../MainOffice"), NodePath("../Hallway12")]
+
+[node name="Hallway2" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 6.26276)
+script = ExtResource("32_ivtcm")
+node_name = "hallway_2"
+neighbour_nodes = [NodePath("../Office4"), NodePath("../Hallway3"), NodePath("../Hallway4"), NodePath("../Hallway1")]
+
+[node name="Hallway3" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.36751, 0, 10.2119)
+script = ExtResource("32_ivtcm")
+node_name = "hallway_3"
+neighbour_nodes = [NodePath("../Hallway2"), NodePath("../Office1"), NodePath("../Office2"), NodePath("../Office3")]
+
+[node name="Hallway4" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, 6.263)
+script = ExtResource("32_ivtcm")
+node_name = "hallway_4"
+neighbour_nodes = [NodePath("../Hallway2"), NodePath("../Hallway5")]
+
+[node name="Hallway5" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, 6.263)
+script = ExtResource("32_ivtcm")
+node_name = "hallway_5"
+neighbour_nodes = [NodePath("../Hallway4"), NodePath("../Hallway6")]
+
+[node name="Hallway6" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 0, 6.263)
+script = ExtResource("32_ivtcm")
+node_name = "hallway_6"
+neighbour_nodes = [NodePath("../Hallway5"), NodePath("../Hallway7")]
+
+[node name="Hallway7" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 0, 0)
+script = ExtResource("32_ivtcm")
+node_name = "hallway_7"
+neighbour_nodes = [NodePath("../Hallway6"), NodePath("../Hallway8")]
+
+[node name="Hallway8" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 0, -6)
+script = ExtResource("32_ivtcm")
+node_name = "hallway_8"
+neighbour_nodes = [NodePath("../Hallway7"), NodePath("../Hallway9")]
+
+[node name="Hallway9" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, -6)
+script = ExtResource("32_ivtcm")
+node_name = "hallway_9"
+neighbour_nodes = [NodePath("../Hallway8"), NodePath("../Hallway10")]
+
+[node name="Hallway10" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, -6)
+script = ExtResource("32_ivtcm")
+node_name = "hallway_10"
+neighbour_nodes = [NodePath("../Hallway9"), NodePath("../Hallway11")]
+
+[node name="Hallway11" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, -6)
+script = ExtResource("32_ivtcm")
+node_name = "hallway_11"
+neighbour_nodes = [NodePath("../Hallway10"), NodePath("../Hallway12")]
+
+[node name="Hallway12" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, -6)
+script = ExtResource("32_ivtcm")
+node_name = "hallway_12"
+neighbour_nodes = [NodePath("../Hallway11"), NodePath("../Hallway1")]
+
+[node name="Office4" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.51798, 0, 11.1775)
+script = ExtResource("32_ivtcm")
+node_name = "office_4"
+neighbour_nodes = [NodePath("../Hallway2")]
+
+[node name="Office3" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.7087, 0, 12.8411)
+script = ExtResource("32_ivtcm")
+node_name = "office_3"
+neighbour_nodes = [NodePath("../Hallway3")]
+
+[node name="Office2" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.5822, 0, 12.8411)
+script = ExtResource("32_ivtcm")
+node_name = "office_2"
+neighbour_nodes = [NodePath("../Hallway3")]
+
+[node name="Office1" type="Node3D" parent="Pathing Nodes" node_paths=PackedStringArray("neighbour_nodes")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.269, 0, 12.8411)
+script = ExtResource("32_ivtcm")
+node_name = "office_1"
+neighbour_nodes = [NodePath("../Hallway3")]
+
+[node name="TopLeftPos" type="Marker3D" parent="Pathing Nodes"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 0, 15.75)
+
+[node name="BottomRightPos" type="Marker3D" parent="Pathing Nodes"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21, 0, -15.75)
+
+[connection signal="input_event" from="MonitorAssignment/Screen/ScreenInteraction" to="MonitorAssignment/Screen/ScreenInteraction" method="_on_input_event"]
+[connection signal="mouse_entered" from="MonitorAssignment/Screen/ScreenInteraction" to="MonitorAssignment/Screen/ScreenInteraction" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MonitorAssignment/Screen/ScreenInteraction" to="MonitorAssignment/Screen/ScreenInteraction" method="_on_mouse_exited"]
+[connection signal="input_event" from="MonitorAssignment/Screen/Focusable" to="MonitorAssignment/Screen/Focusable" method="_on_input_event"]
+[connection signal="on_click" from="MonitorAssignment/Screen/Focusable" to="Player/StateMachine" method="handle_focusable_clicked"]
+[connection signal="on_click" from="MonitorAssignment/Screen/Focusable" to="MonitorAssignment/Screen" method="_on_focus"]
+[connection signal="on_unfocus" from="MonitorAssignment/Screen/Focusable" to="MonitorAssignment/Screen" method="_on_unfocus"]

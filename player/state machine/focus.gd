@@ -4,6 +4,7 @@ extends PlayerState
 @export var ui_push_bar_down: TextureRect
 
 var focused_object: Focusable
+var camera_rotation: Vector3
 
 
 func _state_enter() -> void:
@@ -17,6 +18,10 @@ func _state_exit() -> void:
 	focused_object.on_unfocus.emit()
 	focused_object.visible = true
 	ui_push_bar_down.visible = false
+
+
+func _state_process(delta: float) -> void:
+	node_to_control.global_rotation = camera_rotation
 	
 
 func transition_in() -> void:
@@ -26,11 +31,17 @@ func transition_in() -> void:
 	var camera := node_to_control as Camera3D
 	var attributes := camera.attributes as CameraAttributesPractical
 	var dof_distance := target_position.distance_to(focused_object.global_position)
+	camera_rotation = camera.global_rotation
+	if camera_rotation.y < 0:
+		print("changing rotation")
+		camera_rotation.y += 2 * PI
+		print(camera_rotation)
+	print("rotation from: %s \tto: %s" % [camera.global_rotation, rotation])
 	
 	tween.parallel().tween_property(
 			camera, "global_position", target_position, transition_duration)
 	tween.parallel().tween_property(
-			camera, "global_rotation", rotation, transition_duration)
+			self, "camera_rotation", rotation, transition_duration)
 	tween.parallel().tween_property(camera, "fov", fov, transition_duration)
 	tween.parallel().tween_property(
 			attributes, "dof_blur_far_distance", dof_distance, transition_duration)
