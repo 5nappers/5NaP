@@ -4,7 +4,6 @@ class_name MainMonitor
 
 
 var assignment: JSON
-
 var questions: Array[Dictionary]
 var current_question_index: int
 var current_question: Dictionary:

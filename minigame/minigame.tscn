@@ -1,9 +1,9 @@
 [gd_scene load_steps=58 format=3 uid="uid://cb36uqv6stpui"]
 
-[ext_resource type="Script" path="res://minigame/minigame.gd" id="1_6tj72"]
 [ext_resource type="Texture2D" uid="uid://bhrrl2vibrhei" path="res://player/state machine/Push zone bar.png" id="1_vq1x2"]
 [ext_resource type="Script" path="res://player/player.gd" id="2_k2ja8"]
 [ext_resource type="Script" path="res://player/state machine/look_around.gd" id="3_ugoyj"]
+[ext_resource type="Script" path="res://minigame/clock.gd" id="3_y8e2h"]
 [ext_resource type="Script" path="res://player/state machine/player_state_machine.gd" id="4_mjjfo"]
 [ext_resource type="Script" path="res://player/state machine/focus.gd" id="6_kqsti"]
 [ext_resource type="Texture2D" uid="uid://cewdxcweipx16" path="res://assets/ModernOfficePack/ComputerMonitor4-3/ComputerMonitor4-3_Base_Color.png" id="6_ydwyq"]
@@ -119,7 +119,94 @@ albedo_texture = ExtResource("29_mujpe")
 albedo_texture = ExtResource("30_qsg45")
 
 [node name="Minigame" type="Node3D"]
-script = ExtResource("1_6tj72")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="PushBarDown" type="TextureRect" parent="UI"]
+visible = false
+modulate = Color(0.69, 0.345, 0.345, 0.780392)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -283.5
+offset_top = -90.383
+offset_right = 283.5
+offset_bottom = -18.383
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("1_vq1x2")
+expand_mode = 1
+
+[node name="PushBarLeft" type="TextureRect" parent="UI"]
+visible = false
+modulate = Color(0.69, 0.345, 0.345, 0.780392)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 101.0
+offset_top = -283.0
+offset_right = 668.0
+offset_bottom = -211.0
+grow_vertical = 2
+rotation = 1.57079
+mouse_filter = 2
+texture = ExtResource("1_vq1x2")
+expand_mode = 1
+
+[node name="PushBarRight" type="TextureRect" parent="UI"]
+visible = false
+modulate = Color(0.69, 0.345, 0.345, 0.780392)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = 284.0
+offset_right = 471.0
+offset_bottom = 356.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = -1.57079
+mouse_filter = 2
+texture = ExtResource("1_vq1x2")
+expand_mode = 1
+
+[node name="Clock" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = -130.0
+offset_right = 236.0
+offset_bottom = -19.0
+grow_vertical = 0
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 81
+text = "10:27"
+vertical_alignment = 2
+
+[node name="ClockTimer" type="Node" parent="." node_paths=PackedStringArray("label")]
+script = ExtResource("3_y8e2h")
+label = NodePath("../UI/Clock")
+start_time = Vector2(5, 0)
+end_time = Vector2(11, 59)
+game_duration_sec = 240.0
 
 [node name="Player" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.2497, 1.25753, -0.781575)
@@ -139,80 +226,14 @@ node_to_control = NodePath("../../Camera")
 
 [node name="Focus" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("ui_push_bar_down", "ui_push_bar_left", "ui_push_bar_right", "node_to_control")]
 script = ExtResource("6_kqsti")
-ui_push_bar_down = NodePath("../../UI/PushBarDown")
-ui_push_bar_left = NodePath("../../UI/PushBarLeft")
-ui_push_bar_right = NodePath("../../UI/PushBarRight")
+ui_push_bar_down = NodePath("../../../UI/PushBarDown")
+ui_push_bar_left = NodePath("../../../UI/PushBarLeft")
+ui_push_bar_right = NodePath("../../../UI/PushBarRight")
 node_to_control = NodePath("../../Camera")
 
 [node name="Camera" type="Camera3D" parent="Player"]
 attributes = SubResource("CameraAttributesPractical_sftod")
 fov = 60.0
-
-[node name="UI" type="Control" parent="Player"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-mouse_force_pass_scroll_events = false
-
-[node name="PushBarDown" type="TextureRect" parent="Player/UI"]
-visible = false
-modulate = Color(0.69, 0.345, 0.345, 0.780392)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -283.5
-offset_top = -90.383
-offset_right = 283.5
-offset_bottom = -18.383
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-texture = ExtResource("1_vq1x2")
-expand_mode = 1
-
-[node name="PushBarLeft" type="TextureRect" parent="Player/UI"]
-visible = false
-modulate = Color(0.69, 0.345, 0.345, 0.780392)
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 101.0
-offset_top = -283.0
-offset_right = 668.0
-offset_bottom = -211.0
-grow_vertical = 2
-rotation = 1.57079
-mouse_filter = 2
-texture = ExtResource("1_vq1x2")
-expand_mode = 1
-
-[node name="PushBarRight" type="TextureRect" parent="Player/UI"]
-visible = false
-modulate = Color(0.69, 0.345, 0.345, 0.780392)
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -96.0
-offset_top = 284.0
-offset_right = 471.0
-offset_bottom = 356.0
-grow_horizontal = 0
-grow_vertical = 2
-rotation = -1.57079
-mouse_filter = 2
-texture = ExtResource("1_vq1x2")
-expand_mode = 1
 
 [node name="TempMonster" parent="." node_paths=PackedStringArray("player_office_node", "monster_home_node", "map_control") instance=ExtResource("33_e7v2j")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 0, 6.263)
@@ -594,6 +615,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 0,
 [node name="BottomRightPos" type="Marker3D" parent="Pathing Nodes"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21, 0, -15.75)
 
+[connection signal="timer_end" from="ClockTimer" to="MonitorAssignment/Screen/ScreenInteraction/SubViewport/MainMonitor" method="_on_submit_pressed"]
 [connection signal="input_event" from="MonitorAssignment/Screen/ScreenInteraction" to="MonitorAssignment/Screen/ScreenInteraction" method="_on_input_event"]
 [connection signal="mouse_entered" from="MonitorAssignment/Screen/ScreenInteraction" to="MonitorAssignment/Screen/ScreenInteraction" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="MonitorAssignment/Screen/ScreenInteraction" to="MonitorAssignment/Screen/ScreenInteraction" method="_on_mouse_exited"]
