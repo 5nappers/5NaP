@@ -1,0 +1,342 @@
+[gd_scene load_steps=41 format=3 uid="uid://dg2ql0hsjidgs"]
+
+[ext_resource type="PackedScene" uid="uid://cc5e5h882hhpc" path="res://assets/H-Block/H-block.glb" id="1_lt0a0"]
+[ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_q2fq6"]
+[ext_resource type="ArrayMesh" uid="uid://dadv5u3dbus3e" path="res://assets/VNB Low Poly Office Set 2/OBJ/Separated OBJ files/Ceiling Lamp 2.obj" id="2_cukaw"]
+[ext_resource type="Script" path="res://main_menu/spooky_light.gd" id="3_5ywge"]
+[ext_resource type="Texture2D" uid="uid://b2ef8vax868ig" path="res://assets/ModernOfficePack/DeskL/DeskL_Base_Color.png" id="3_mqhbj"]
+[ext_resource type="ArrayMesh" uid="uid://bd7x2i1hdy2ed" path="res://assets/ModernOfficePack/DeskL/DeskL.obj" id="4_hu6hp"]
+[ext_resource type="Texture2D" uid="uid://dfmsmuyxqar20" path="res://assets/ModernOfficePack/DeskChair/DeskChair_Base_Color.png" id="5_0hlml"]
+[ext_resource type="ArrayMesh" uid="uid://bvlunylqmrwp2" path="res://assets/ModernOfficePack/DeskChair/DeskChair.obj" id="6_7woj7"]
+[ext_resource type="Texture2D" uid="uid://cewdxcweipx16" path="res://assets/ModernOfficePack/ComputerMonitor4-3/ComputerMonitor4-3_Base_Color.png" id="7_gkpij"]
+[ext_resource type="ArrayMesh" uid="uid://b2w2gi50g6dwp" path="res://assets/ModernOfficePack/ComputerMonitor4-3/ComputerMonitor4-3.obj" id="8_nhhl8"]
+[ext_resource type="Texture2D" uid="uid://drsaxch5ctr0m" path="res://assets/ModernOfficePack/ComputerCaseTower/ComputerCaseTower_Base_Color.png" id="9_7xk46"]
+[ext_resource type="ArrayMesh" uid="uid://cj55pxnxit3df" path="res://assets/ModernOfficePack/ComputerCaseTower/ComputerCaseTower.obj" id="10_y06yy"]
+[ext_resource type="Texture2D" uid="uid://btie6rabhky6c" path="res://assets/ModernOfficePack/ComputerMouse&Pad/ComputerMouse_Base_Color.png" id="11_3lm78"]
+[ext_resource type="ArrayMesh" uid="uid://uii4ar4s1f6g" path="res://assets/ModernOfficePack/ComputerMouse&Pad/ComputerMouse.obj" id="12_vkl5k"]
+[ext_resource type="Texture2D" uid="uid://dtm1y16bikrqb" path="res://assets/ModernOfficePack/ComputerKeyboard/ComputerKeyboard_Base_Color.png" id="13_1wsrn"]
+[ext_resource type="ArrayMesh" uid="uid://d4jglu2gdqh2w" path="res://assets/ModernOfficePack/ComputerKeyboard/ComputerKeyboard.obj" id="14_krds1"]
+[ext_resource type="Texture2D" uid="uid://gxljvup7cyvq" path="res://assets/ModernOfficePack/FileBox/FileBox_Base_Color.png" id="15_rcjel"]
+[ext_resource type="ArrayMesh" uid="uid://8bg0emywy57j" path="res://assets/ModernOfficePack/FileBox/FileBox.obj" id="16_2ek3d"]
+[ext_resource type="ArrayMesh" uid="uid://pj75dv13pv35" path="res://assets/ModernOfficePack/FileBoxLid/FileBoxLid.obj" id="17_liwcj"]
+[ext_resource type="ArrayMesh" uid="uid://bl24f2wt6b68t" path="res://assets/ModernOfficePack/Desk/Desk.obj" id="18_v43qd"]
+[ext_resource type="Texture2D" uid="uid://c8kyn4nvdeveo" path="res://assets/ModernOfficePack/Desk/Desk_Base_Color.png" id="19_m61bt"]
+[ext_resource type="Texture2D" uid="uid://d0hte6u6u60co" path="res://assets/ModernOfficePack/ComputerPrinter/ComputerPrinter_Base_Color.png" id="20_rilfn"]
+[ext_resource type="ArrayMesh" uid="uid://bqvbqq6xhwvxq" path="res://assets/ModernOfficePack/ComputerPrinter/ComputerPrinter.obj" id="21_0veha"]
+[ext_resource type="PackedScene" uid="uid://46ew406kc54m" path="res://scene/world_environment.tscn" id="22_7s4ca"]
+[ext_resource type="Script" path="res://main_menu/cool_camera.gd" id="23_swc6w"]
+[ext_resource type="PackedScene" uid="uid://ylyuu80aijvx" path="res://lecturers/scene/base_lecturer.tscn" id="24_6x425"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_spf8b"]
+dof_blur_near_enabled = true
+dof_blur_near_distance = 6.68
+dof_blur_near_transition = 19.34
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lssqt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kfchi"]
+size = Vector3(60, 80, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07hpq"]
+albedo_texture = ExtResource("3_mqhbj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0n1ma"]
+albedo_texture = ExtResource("5_0hlml")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_utlus"]
+albedo_texture = ExtResource("7_gkpij")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfyvh"]
+albedo_texture = ExtResource("9_7xk46")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gsvol"]
+albedo_texture = ExtResource("11_3lm78")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4h4h"]
+albedo_texture = ExtResource("13_1wsrn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c1ran"]
+albedo_texture = ExtResource("15_rcjel")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ufpp8"]
+albedo_texture = ExtResource("19_m61bt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hoxat"]
+albedo_texture = ExtResource("20_rilfn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r05vl"]
+albedo_texture = ExtResource("7_gkpij")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o11ir"]
+albedo_texture = ExtResource("7_gkpij")
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_q2fq6")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0854492
+anchor_top = 0.0807292
+anchor_right = 0.0854492
+anchor_bottom = 0.0807292
+offset_right = 1128.0
+offset_bottom = 146.0
+theme_override_font_sizes/font_size = 106
+text = "five nights at polytech"
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0854492
+anchor_top = 0.334635
+anchor_right = 0.0854492
+anchor_bottom = 0.334635
+offset_right = 201.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 96
+text = "Play"
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0854492
+anchor_top = 0.589193
+anchor_right = 0.0854492
+anchor_bottom = 0.589193
+offset_right = 209.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 96
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(0.94502, -0.103555, -0.310184, 0.0546749, 0.985219, -0.16234, 0.322411, 0.136455, 0.936713, 6.16328, 0.230612, 6.59487)
+
+[node name="CoolCamera" type="Camera3D" parent="CameraPivot"]
+attributes = SubResource("CameraAttributesPractical_spf8b")
+script = ExtResource("23_swc6w")
+
+[node name="Lecturer" parent="." instance=ExtResource("24_6x425")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8582, 0, -4.0519)
+
+[node name="SpookyLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86939, 1.48872, -5.11146)
+light_color = Color(0.868302, 0.0115993, 5.77569e-07, 1)
+script = ExtResource("3_5ywge")
+time_off_average = 5.0
+time_off_randomness = 3.0
+
+[node name="Timer" type="Timer" parent="SpookyLight"]
+
+[node name="Third Floor" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, -6.45, -10)
+
+[node name="H-block" parent="Third Floor" instance=ExtResource("1_lt0a0")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 10.299, 0.0670929, 5.6374)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Third Floor/H-block"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.758, -143.787, 137.147)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Third Floor/H-block/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0696945, 7.62939e-06, -0.134447)
+shape = SubResource("ConcavePolygonShape3D_lssqt")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Third Floor/H-block"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.240213, 19.8855, 0.00320148)
+mesh = SubResource("BoxMesh_kfchi")
+
+[node name="Lights" type="Node3D" parent="Third Floor/H-block"]
+
+[node name="CeilingLamp2" type="MeshInstance3D" parent="Third Floor/H-block/Lights"]
+transform = Transform3D(4, 3.94754e-22, 0, 0, 4, 3.97904e-13, 0, -3.97904e-13, 4, -0.706083, 19.2708, -21.5491)
+mesh = ExtResource("2_cukaw")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Third Floor/H-block/Lights/CeilingLamp2"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.90067e-28, 0, -1.90067e-28, 1, 0, -0.170311, 0)
+light_energy = 2.0
+light_indirect_energy = 1.285
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_bias = 0.807
+shadow_normal_bias = 0.0
+shadow_blur = 1.178
+distance_fade_enabled = true
+distance_fade_begin = 0.0
+distance_fade_shadow = 0.0
+distance_fade_length = 13.0
+omni_shadow_mode = 0
+
+[node name="CeilingLamp3" type="MeshInstance3D" parent="Third Floor/H-block/Lights"]
+transform = Transform3D(4, 3.94754e-22, 0, 0, 4, 3.97904e-13, 0, -3.97904e-13, 4, -0.598, 19.1658, -27.7048)
+mesh = ExtResource("2_cukaw")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Third Floor/H-block/Lights/CeilingLamp3"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.90067e-28, 0, -1.90067e-28, 1, 0, -0.170311, 0)
+light_energy = 2.0
+light_indirect_energy = 1.285
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_bias = 0.807
+shadow_normal_bias = 0.0
+shadow_blur = 1.178
+distance_fade_enabled = true
+distance_fade_begin = 0.0
+distance_fade_shadow = 0.0
+distance_fade_length = 13.0
+omni_shadow_mode = 0
+
+[node name="CeilingLamp4" type="MeshInstance3D" parent="Third Floor/H-block/Lights"]
+transform = Transform3D(4, 3.94754e-22, 0, 0, 4, 3.97904e-13, 0, -3.97904e-13, 4, 7.7047, 19.2708, -21.5491)
+mesh = ExtResource("2_cukaw")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Third Floor/H-block/Lights/CeilingLamp4"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.90067e-28, 0, -1.90067e-28, 1, 0, -0.170311, 0)
+light_energy = 2.0
+light_indirect_energy = 1.285
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_bias = 0.807
+shadow_normal_bias = 0.0
+shadow_blur = 1.178
+distance_fade_enabled = true
+distance_fade_begin = 0.0
+distance_fade_shadow = 0.0
+distance_fade_length = 13.0
+omni_shadow_mode = 0
+
+[node name="CeilingLamp5" type="MeshInstance3D" parent="Third Floor/H-block/Lights"]
+transform = Transform3D(4, 3.94754e-22, 0, 0, 4, 3.97904e-13, 0, -3.97904e-13, 4, 7.70609, 19.1658, -28.1029)
+mesh = ExtResource("2_cukaw")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Third Floor/H-block/Lights/CeilingLamp5"]
+transform = Transform3D(-4.37114e-08, -9.86898e-23, 1, 9.9476e-14, 1, 4.44692e-21, -1, 9.9476e-14, -4.37114e-08, 0, -0.170311, 0)
+light_energy = 2.0
+light_indirect_energy = 1.285
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_bias = 0.807
+shadow_normal_bias = 0.0
+shadow_blur = 1.178
+distance_fade_enabled = true
+distance_fade_begin = 0.0
+distance_fade_shadow = 0.0
+distance_fade_length = 13.0
+omni_shadow_mode = 0
+
+[node name="DeskL" type="MeshInstance3D" parent="Third Floor"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.4337, 6.49679, -7.14027)
+material_override = SubResource("StandardMaterial3D_07hpq")
+mesh = ExtResource("4_hu6hp")
+
+[node name="DeskChair" type="MeshInstance3D" parent="Third Floor/DeskL"]
+transform = Transform3D(-0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, -0.819152, 0.23847, 0.00414181, 1.25497)
+material_override = SubResource("StandardMaterial3D_0n1ma")
+mesh = ExtResource("6_7woj7")
+skeleton = NodePath("../..")
+
+[node name="ComputerMonitor4-4" type="MeshInstance3D" parent="Third Floor/DeskL"]
+transform = Transform3D(0.34202, 0, 0.939693, 0, 1, 0, -0.939693, 0, 0.34202, -0.606709, 0.754879, 0.443982)
+material_override = SubResource("StandardMaterial3D_utlus")
+mesh = ExtResource("8_nhhl8")
+
+[node name="ComputerMonitor4-3" type="MeshInstance3D" parent="Third Floor/DeskL"]
+transform = Transform3D(0.67559, 0, 0.737277, 0, 1, 0, -0.737277, 0, 0.67559, -0.340622, 0.759062, -0.117256)
+material_override = SubResource("StandardMaterial3D_utlus")
+mesh = ExtResource("8_nhhl8")
+
+[node name="ComputerCaseTower" type="MeshInstance3D" parent="Third Floor/DeskL"]
+transform = Transform3D(0.748956, 0, 0.66262, 0, 1, 0, -0.66262, 0, 0.748956, -0.747341, 0.759733, 0.027463)
+material_override = SubResource("StandardMaterial3D_qfyvh")
+mesh = ExtResource("10_y06yy")
+skeleton = NodePath("../..")
+
+[node name="ComputerMouse" type="MeshInstance3D" parent="Third Floor/DeskL"]
+transform = Transform3D(0.649448, 0, 0.760406, 0, 1, 0, -0.760406, 0, 0.649448, -0.279293, 0.765461, 0.0812645)
+material_override = SubResource("StandardMaterial3D_gsvol")
+mesh = ExtResource("12_vkl5k")
+skeleton = NodePath("../..")
+
+[node name="ComputerKeyboard" type="MeshInstance3D" parent="Third Floor/DeskL"]
+transform = Transform3D(0.522498, 0, 0.85264, 0, 1, 0, -0.85264, 0, 0.522498, -0.406732, 0.755112, 0.438768)
+material_override = SubResource("StandardMaterial3D_n4h4h")
+mesh = ExtResource("14_krds1")
+skeleton = NodePath("../..")
+
+[node name="FileBox" type="MeshInstance3D" parent="Third Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1864, 6.49893, -7.34556)
+material_override = SubResource("StandardMaterial3D_c1ran")
+mesh = ExtResource("16_2ek3d")
+skeleton = NodePath("../DeskL")
+
+[node name="FileBox" type="MeshInstance3D" parent="Third Floor/FileBox"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0127831, 0.277938, -0.020319)
+material_override = SubResource("StandardMaterial3D_c1ran")
+mesh = ExtResource("16_2ek3d")
+
+[node name="FileBoxLid" type="MeshInstance3D" parent="Third Floor/FileBox"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.00752831, 0.517437, -0.0145397)
+mesh = ExtResource("17_liwcj")
+
+[node name="FileBoxLid2" type="MeshInstance3D" parent="Third Floor/FileBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00859022, 0.220587, -0.00639439)
+mesh = ExtResource("17_liwcj")
+skeleton = NodePath("../../DeskL")
+
+[node name="Desk" type="MeshInstance3D" parent="Third Floor"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.0976, 6.51632, -6.23684)
+mesh = ExtResource("18_v43qd")
+
+[node name="ComputerKeyboard" type="MeshInstance3D" parent="Third Floor/Desk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0279999, 0.757, 0.180419)
+material_override = SubResource("StandardMaterial3D_n4h4h")
+mesh = ExtResource("14_krds1")
+skeleton = NodePath("../..")
+
+[node name="ComputerMouse" type="MeshInstance3D" parent="Third Floor/Desk"]
+transform = Transform3D(0.985286, 0, 0.170915, 0, 1, 0, -0.170915, 0, 0.985286, 0.443556, 0.769086, 0.162592)
+material_override = SubResource("StandardMaterial3D_gsvol")
+mesh = ExtResource("12_vkl5k")
+skeleton = NodePath("../..")
+
+[node name="Desk2" type="MeshInstance3D" parent="Third Floor"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.9109, 6.50528, -5.27027)
+material_override = SubResource("StandardMaterial3D_ufpp8")
+mesh = ExtResource("18_v43qd")
+
+[node name="ComputerPrinter" type="MeshInstance3D" parent="Third Floor/Desk2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.325165, 0.75907, -0.00485384)
+material_override = SubResource("StandardMaterial3D_hoxat")
+mesh = ExtResource("21_0veha")
+skeleton = NodePath("../..")
+
+[node name="MonitorAssignment" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.237, 0.827, 0.130847)
+material_override = SubResource("StandardMaterial3D_r05vl")
+mesh = ExtResource("8_nhhl8")
+
+[node name="MonitorMap" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.609301, 0, -0.792939, 0, 1, 0, 0.792939, 0, -0.609301, 11.8746, 0.827, 0.018366)
+material_override = SubResource("StandardMaterial3D_o11ir")
+mesh = ExtResource("8_nhhl8")
+skeleton = NodePath("../Third Floor/Desk")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("22_7s4ca")]
+
+[connection signal="button_down" from="UI/PlayButton" to="." method="_on_play_button_down"]
+[connection signal="button_down" from="UI/QuitButton" to="." method="_on_quit_button_down"]
+[connection signal="timeout" from="SpookyLight/Timer" to="SpookyLight" method="_on_timer_timeout"]

@@ -52,19 +52,19 @@ albedo_texture = ExtResource("6_ydwyq")
 [sub_resource type="QuadMesh" id="QuadMesh_qunyx"]
 size = Vector2(0.42, 0.319)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1rtap"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7iiuf"]
 viewport_path = NodePath("MonitorAssignment/Screen/ScreenInteraction/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hee0s"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_mpb8m"]
 viewport_path = NodePath("MonitorAssignment/Screen/ScreenInteraction/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wiwwa"]
 resource_local_to_scene = true
 albedo_color = Color(0.0173058, 0.0217811, 0.0310081, 1)
-albedo_texture = SubResource("ViewportTexture_1rtap")
+albedo_texture = SubResource("ViewportTexture_7iiuf")
 emission_enabled = true
 emission_energy_multiplier = 0.0
-emission_texture = SubResource("ViewportTexture_hee0s")
+emission_texture = SubResource("ViewportTexture_mpb8m")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8uep"]
 size = Vector3(0.419922, 0.319336, 0.005)
@@ -75,19 +75,19 @@ size = Vector3(0.470459, 0.372734, 0.00604248)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hb0r7"]
 albedo_texture = ExtResource("6_ydwyq")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_25n6t"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_p3ufd"]
 viewport_path = NodePath("MonitorMap/Screen/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3ks02"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_etxi3"]
 viewport_path = NodePath("MonitorMap/Screen/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pa6ce"]
 resource_local_to_scene = true
 albedo_color = Color(0.0139966, 0.0176173, 0.0250826, 1)
-albedo_texture = SubResource("ViewportTexture_25n6t")
+albedo_texture = SubResource("ViewportTexture_p3ufd")
 emission_enabled = true
 emission_energy_multiplier = 0.0
-emission_texture = SubResource("ViewportTexture_3ks02")
+emission_texture = SubResource("ViewportTexture_etxi3")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pno4s"]
 
