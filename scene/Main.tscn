@@ -124,7 +124,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 0,
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21, 0, -15.75)
 
 [node name="TempMonster" parent="." node_paths=PackedStringArray("player_office_node", "monster_home_node", "map_control") instance=ExtResource("3_jicnx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 0, 6.263)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 1, 6.263)
 lecturer_name = "guy"
 player_office_node = NodePath("../Pathing Nodes/MainOffice")
 monster_home_node = NodePath("../Pathing Nodes/Hallway7")
