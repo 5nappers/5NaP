@@ -2,8 +2,8 @@ extends Node2D
 
 @export var monsters: Array[Node3D] = []
 
-@export var top_left_pos: Node3D
-@export var bottom_right_pos: Node3D
+@export var top_left_pos: Marker3D
+@export var bottom_right_pos: Marker3D
 
 @export var image_size: Vector2
 
