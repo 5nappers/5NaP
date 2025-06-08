@@ -1,0 +1,33 @@
+{
+	"name": "Programming",
+	"questions": [
+		{
+			"question": "Type in the modulo operator",
+			"answer": "%"
+		},
+		{
+			"question": "Type in the AND operator",
+			"answer": "&&"
+		},
+		{
+			"question": "Type in the OR operator",
+			"answer": "||"
+		},
+		{
+			"question": "Type in the delimiter (semicolon)",
+			"answer": ";"
+		},
+		{
+			"question": "Type in a colon",
+			"answer": ":"
+		},
+		{
+			"question": "Name this operation: num = isHappy ? 2 : 5;",
+			"answer": "ternary"
+		},
+		{
+			"question": "What operation keyword is best to use when you want to compare a variable to many possible values?",
+			"answer": "switch"
+		}
+	]
+}
