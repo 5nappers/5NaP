@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dmlvuuu3eu0bg"
+path="res://.godot/imported/5nap track.ogg-07d2caf52bda32456de32a3be4e4d72b.oggvorbisstr"
+
+[deps]
+
+source_file="res://main_menu/5nap track.ogg"
+dest_files=["res://.godot/imported/5nap track.ogg-07d2caf52bda32456de32a3be4e4d72b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhqxlqb5f7dy"]
+
+[ext_resource type="Script" path="res://pathing_nodes/scripts/monster_pathing.gd" id="1_8p1ml"]
+[ext_resource type="PackedScene" uid="uid://ylyuu80aijvx" path="res://lecturers/scene/base_lecturer.tscn" id="2_ogmd4"]
+[ext_resource type="Script" path="res://pathing_nodes/scripts/pathing_controller.gd" id="3_xpjia"]
+
+[node name="TempMonster" type="Node3D"]
+script = ExtResource("1_8p1ml")
+
+[node name="Lecturer" parent="." instance=ExtResource("2_ogmd4")]
+
+[node name="PathingController" type="Node" parent="." node_paths=PackedStringArray("pathing", "timer")]
+script = ExtResource("3_xpjia")
+pathing = NodePath("..")
+timer = NodePath("ChangePathTimer")
+
+[node name="ChangePathTimer" type="Timer" parent="PathingController"]
+wait_time = 10.0

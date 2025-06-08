@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://q3em0s8me3dh"]
+
+[ext_resource type="Script" path="res://pathing_nodes/scripts/draw_rect.gd" id="1_neukx"]
+
+[node name="DrawRect" type="Node2D"]
+z_index = 9
+script = ExtResource("1_neukx")
+size = Vector2i(2048, 1536)
+color = Color(0.827118, 0.00013467, 0.696237, 1)

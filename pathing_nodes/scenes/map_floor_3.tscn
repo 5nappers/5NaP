@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct410dyxv2rn0"]
+
+[ext_resource type="Script" path="res://pathing_nodes/scripts/map_floor.gd" id="1_yn7w1"]
+[ext_resource type="Texture2D" uid="uid://bl37myq05od7w" path="res://pathing_nodes/sprites/floor_3_map_2.png" id="2_yvt7x"]
+[ext_resource type="PackedScene" uid="uid://q3em0s8me3dh" path="res://pathing_nodes/scenes/draw_rect.tscn" id="3_flhxa"]
+
+[node name="map_floor_3" type="Node2D"]
+script = ExtResource("1_yn7w1")
+image_size = Vector2(2048, 1536)
+
+[node name="MapSprite" type="Sprite2D" parent="."]
+z_index = -50
+position = Vector2(1024, 768)
+texture = ExtResource("2_yvt7x")
+
+[node name="DrawRect" parent="." instance=ExtResource("3_flhxa")]
