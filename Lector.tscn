@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://wiwa2e7qs111"]
+
+[ext_resource type="PackedScene" uid="uid://btiwef6s63yll" path="res://assets/Base Humanoid Mesh/cac-1749357498562.gltf" id="1_gffpb"]
+
+[node name="AuxScene" instance=ExtResource("1_gffpb")]

@@ -1,13 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhqxlqb5f7dy"]
 
 [ext_resource type="Script" path="res://pathing_nodes/scripts/monster_pathing.gd" id="1_8p1ml"]
-[ext_resource type="PackedScene" uid="uid://ylyuu80aijvx" path="res://lecturers/scene/base_lecturer.tscn" id="2_ogmd4"]
+[ext_resource type="PackedScene" uid="uid://d3e2j1v41kau8" path="res://assets/Base Humanoid Mesh/human.tscn" id="3_mvaiv"]
 [ext_resource type="Script" path="res://pathing_nodes/scripts/pathing_controller.gd" id="3_xpjia"]
 
-[node name="TempMonster" type="Node3D"]
+[node name="TempMonster" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_8p1ml")
-
-[node name="Lecturer" parent="." instance=ExtResource("2_ogmd4")]
 
 [node name="PathingController" type="Node" parent="." node_paths=PackedStringArray("pathing", "timer")]
 script = ExtResource("3_xpjia")
@@ -16,3 +15,9 @@ timer = NodePath("ChangePathTimer")
 
 [node name="ChangePathTimer" type="Timer" parent="PathingController"]
 wait_time = 10.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.97805, 0.0100228, -0.208131, 0.208229, -0.0099054, 0.97803, 0.00774094, -0.999901, -0.011775, -6.1225, 22.766, 0.27604)
+current = true
+
+[node name="AuxScene" parent="." instance=ExtResource("3_mvaiv")]
